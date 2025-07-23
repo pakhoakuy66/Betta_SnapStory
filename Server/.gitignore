@@ -1,0 +1,29 @@
+# Node modules - thư viện cài qua npm
+node_modules/
+
+# Biến môi trường - chứa thông tin nhạy cảm
+.env
+
+# Thư mục build (nếu có)
+dist/
+
+# Log file lỗi
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# VSCode settings (cá nhân, không cần thiết cho người khác)
+.vscode/
+
+# Hệ điều hành
+.DS_Store         # macOS
+Thumbs.db         # Windows
+
+# Dữ liệu tạm, backup
+*.local
+*.tmp
+*.bak
+*.swp
+
+# File test tạm không cần push
+*.test.json
