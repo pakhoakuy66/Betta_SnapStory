@@ -4,13 +4,10 @@ export function LoginUser() {
     return (
         <div className="flex h-full justify-center items-center">
             <form
-                className="bg-[#1B2838] p-3 shadow-xl w-[750px] 
+                className="bg-[#000] p-3 shadow-xl w-[750px] 
                 h-auto rounded-sm drop-shadow-[0_0_1px_white] duration-300 hover:drop-shadow-[0_0_3px_white]"
             >
-                <h1
-                    className="text-[#C7D5E0] text-[30px] text-center font-bold block drop-shadow-[0_0_1px_white] 
-                    duration-500 hover:drop-shadow-[0_0_5px_white]"
-                >
+                <h1 className="text-[#C7D5E0] text-[30px] text-center font-bold block">
                     Snapstory
                 </h1>
                 <nav className="flex">
@@ -18,14 +15,11 @@ export function LoginUser() {
                         <img
                             src={Logo}
                             className="w-[80px] block drop-shadow-[0_0_1px_white] 
-                                duration-500 hover:drop-shadow-[0_0_3px_white]"
+                                duration-500 hover:drop-shadow-[0_0_20px_white]"
                         />
                     </div>
                     <div className="w-[100%] text-[#C7D5E0]">
-                        <h1
-                            className="text-[#C7D5E0] text-[30px] text-center font-bold block 
-                            drop-shadow-[0_0_1px_white] duration-500 hover:drop-shadow-[0_0_5px_white]"
-                        >
+                        <h1 className="text-[#C7D5E0] text-[30px] text-center font-bold block ">
                             Login
                         </h1>
                         <nav className="grid justify-center">
@@ -51,13 +45,13 @@ export function LoginUser() {
                             </button>
                         </div>
                         <p className="text-[#C7D5E0] my-5 text-center">
-                            Bạn đã có tài khoản?
+                            Have an account?
                             <a
-                                className="underline drop-shadow-[0_0_1px_white] duration-300 
-                                hover:drop-shadow-[0_0_15px_white]"
+                                className="underline duration-300 
+                                hover:drop-shadow-[0_0_30px_white]"
                             >
                                 {" "}
-                                Đăng ký
+                                Register
                             </a>
                         </p>
                     </div>
