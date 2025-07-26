@@ -8,6 +8,7 @@ export function Feed() {
         >
             <article className="grid justify-center w-[100%]">
                 <PostItem />
+                <PostItem />
             </article>
         </main>
     );

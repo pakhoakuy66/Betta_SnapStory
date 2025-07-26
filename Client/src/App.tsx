@@ -5,7 +5,7 @@ import { UserHome } from "./Pages/Home/UserHomePage";
 
 function App() {
     return (
-        <div className="bg-[#000000] w-screen min-h-screen">
+        <div className="bg-[#000000] w-full overflow-x-hidden min-h-screen">
             <UserHome />
         </div>
     );
