@@ -7,8 +7,7 @@ export function UserHome() {
             <aside className="w-[80px]">
                 <SideMenu />
             </aside>
-
-            <main>
+            <main className="flex-1 flex justify-center">
                 <Feed />
             </main>
         </div>

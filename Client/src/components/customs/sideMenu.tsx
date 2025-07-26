@@ -4,7 +4,7 @@ export function SideMenu() {
     return (
         <div className="fixed">
             <aside
-                className="grid justify-around bg-[#000] p-3 shadow-md text-white
+                className="grid bg-[#000] p-3 shadow-md text-white
                 h-screen w-[80px] drop-shadow-[0_1px_white]"
             >
                 <div className="items-start">

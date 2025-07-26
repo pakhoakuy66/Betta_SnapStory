@@ -1,10 +1,14 @@
+import { PostItem } from "./PostItem";
+
 export function Feed() {
     return (
-        <div className="mx-10">
-            <main
-                className="bg-[#000] shadow-md text-white
-                h-screen w-[700px] drop-shadow-[0_1px_white] "
-            ></main>
-        </div>
+        <main
+            className="bg-[#000] shadow-md text-white
+                h-auto w-[600px] m-10"
+        >
+            <article className="grid justify-center w-[100%]">
+                <PostItem />
+            </article>
+        </main>
     );
 }
