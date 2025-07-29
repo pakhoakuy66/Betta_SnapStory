@@ -1,7 +1,7 @@
 export function SuggestionListItem() {
     return (
-        <nav className="grid w-[100%] mt-5">
-            <div className="flex justify-between items-center h-[70px]">
+        <ul className="grid w-[100%] mt-5">
+            <li className="flex justify-between items-center h-[70px]">
                 <img
                     src="./avatar"
                     className="w-10 h-10 rounded-[50%] object-cover"
@@ -18,7 +18,7 @@ export function SuggestionListItem() {
                 >
                     Theo dõi
                 </button>
-            </div>
-        </nav>
+            </li>
+        </ul>
     );
 }

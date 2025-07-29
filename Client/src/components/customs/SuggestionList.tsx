@@ -7,7 +7,8 @@ export function SuggestionList() {
                 <h1 className="text-[#fff] text-[18px] font-bold">
                     Gợi ý cho bạn
                 </h1>
-                <span className="text-[#fff] text-[13px] text-end cursor-pointer duration-300 hover:text-[#848383]">
+                <span className="text-[#fff] text-[13px] text-end cursor-pointer 
+                    duration-300 hover:text-[#848383]">
                     Tải lại
                 </span>
             </nav>
