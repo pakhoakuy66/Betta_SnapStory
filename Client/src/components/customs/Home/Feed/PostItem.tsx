@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef } from "react";
 import EmojiPicker from "emoji-picker-react";
 import type { EmojiClickData, Theme } from "emoji-picker-react";
+import { EditMenu } from "../../Context_menu/editMenu";
 
 export function PostItem() {
     const [showEmoji, setShowEmoji] = useState(false);
@@ -66,20 +67,9 @@ export function PostItem() {
                         onClick={() => setShowMenu((prev) => !prev)}
                     ></i>
                     {showMenu && (
-                        <ul
-                            className="absolute top-[100%] w-[135px] right-4 z-10 bg-neutral-900 text-white text-sm 
-                            rounded shadow-md border border-neutral-700"
-                        >
-                            <li className="px-4 py-2 hover:bg-neutral-800 cursor-pointer">
-                                Chỉnh sửa
-                            </li>
-                            <li className="px-4 py-2 hover:bg-neutral-800 cursor-pointer">
-                                Xóa
-                            </li>
-                            <li className="px-4 py-2 hover:bg-neutral-800 cursor-pointer">
-                                Sao chép liên kết
-                            </li>
-                        </ul>
+                        <EditMenu
+                            options={["Chỉnh sửa", "Xóa", "Sao chép liên kết"]}
+                        />
                     )}
                 </div>
             </div>

@@ -1,6 +1,4 @@
-import Logo from "../../assets/imgaes/Akuy_logo.png";
-import { Search } from "./search";
-import { NotificationPanel } from "./notifications";
+import Logo from "../../../../assets/imgaes/Akuy_logo.png";
 
 export function SideMenu({
     onSearch,

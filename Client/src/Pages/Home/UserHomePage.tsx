@@ -1,10 +1,9 @@
 import { useState } from "react";
-import { SideMenu } from "@/components/customs/sideMenu";
-import { Feed } from "@/components/customs/feed";
-import { SuggestionList } from "@/components/customs/SuggestionList";
-import { Search } from "@/components/customs/search";
-import { NotificationPanel } from "@/components/customs/notifications";
-import { use } from "react";
+import { SideMenu } from "@/components/customs/Home/SideMenu/sideMenu";
+import { Feed } from "@/components/customs/Home/Feed/feed";
+import { SuggestionList } from "@/components/customs/Home/Suggestion/SuggestionList";
+import { Search } from "@/components/customs/Home/SideMenu/search";
+import { NotificationPanel } from "@/components/customs/Home/SideMenu/notifications";
 
 export function UserHome() {
     const [showSearch, setShowSearch] = useState(false);

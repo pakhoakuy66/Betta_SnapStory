@@ -1,11 +1,13 @@
 import { useState, useRef, useEffect } from "react";
 import EmojiPicker from "emoji-picker-react";
 import type { EmojiClickData, Theme } from "emoji-picker-react";
+import { EditMenu } from "../../Context_menu/editMenu";
 
 export function NewPost() {
     const [content, setContent] = useState("");
     const [showEmoji, setShowEmoji] = useState(false);
     const [images, setImages] = useState<string[]>([]);
+    const [showMenu, setShowMenu] = useState(false);
     const emojiRef = useRef<HTMLDivElement>(null);
     const textareaRef = useRef<HTMLTextAreaElement>(null);
 
