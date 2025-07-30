@@ -130,7 +130,7 @@ export function PostItem() {
                 <div className="relative" ref={emojiRef}>
                     <button
                         onClick={() => setShowEmoji((prev) => !prev)}
-                        className="text-xl mr-2 relative"
+                        className="text-xl mr-2 relative cursor-pointer"
                     >
                         😊
                     </button>

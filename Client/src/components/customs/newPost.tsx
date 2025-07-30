@@ -1,8 +1,13 @@
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
+import EmojiPicker from "emoji-picker-react";
+import type { EmojiClickData, Theme } from "emoji-picker-react";
 
 export function NewPost() {
     const [content, setContent] = useState("");
+    const [showEmoji, setShowEmoji] = useState(false);
     const [images, setImages] = useState<string[]>([]);
+    const emojiRef = useRef<HTMLDivElement>(null);
+    const textareaRef = useRef<HTMLTextAreaElement>(null);
 
     const scrollRef = useRef<HTMLDivElement>(null);
     const isDown = useRef(false);
@@ -29,6 +34,38 @@ export function NewPost() {
 
     const handleMouseLeave = () => {
         isDown.current = false;
+    };
+
+    // Xóa ảnh
+    const handleRemoveImage = (indexToRemove: number) => {
+        setImages((prev) =>
+            prev.filter((_, index) => {
+                return index !== indexToRemove;
+            })
+        );
+    };
+
+    // Xử lý emoji
+    // Ẩn emoji khi click ra ngoài
+    useEffect(() => {
+        const handleClickOutSide = (e: MouseEvent) => {
+            if (
+                emojiRef.current &&
+                !emojiRef.current.contains(e.target as Node)
+            ) {
+                setShowEmoji(false);
+            }
+        };
+        document.addEventListener("mousedown", handleClickOutSide);
+        return () => {
+            document.removeEventListener("mousedown", handleClickOutSide);
+        };
+    }, []);
+
+    // Thêm emoji vào nội dung post
+    const handleEmojiClick = (emojiData: EmojiClickData) => {
+        setContent((prev) => prev + emojiData.emoji);
+        textareaRef.current?.focus();
     };
 
     return (
@@ -69,6 +106,7 @@ export function NewPost() {
                             akuy.66
                         </h3>
                         <textarea
+                            ref={textareaRef}
                             className="bg-transparent text-[#fff] w-full resize-none text-sm outline-none placeholder-gray-500"
                             placeholder="Có gì mới?"
                             rows={3}
@@ -103,12 +141,24 @@ export function NewPost() {
                         cursor-grab active:cursor-grabbing select-none"
                     >
                         {images.map((img, idx) => (
-                            <img
-                                key={idx}
-                                src={img}
-                                alt={`preview-${idx}`}
-                                className="h-[120px] rounded-md object-cover shrink-0 pointer-events-none"
-                            />
+                            <div key={idx} className="relative shrink-0">
+                                <img
+                                    src={img}
+                                    alt={`preview-${idx}`}
+                                    className="h-[120px] rounded-md object-cover shrink-0 pointer-events-none"
+                                />
+
+                                <button
+                                    type="button"
+                                    onClick={() => handleRemoveImage(idx)}
+                                    className="absolute top-1 right-1 rounded-full
+                                    text-xs flex items-center justify-center
+                                     text-[#fff] w-[20px] text-[20px] text-end cursor-pointer
+                                    duration-300 hover:text-[#848383] h-[20px]"
+                                >
+                                    <i className="fa-solid fa-xmark"></i>
+                                </button>
+                            </div>
                         ))}
                     </div>
                 )}
@@ -121,10 +171,29 @@ export function NewPost() {
                         text-[15px] hover:text-[20px] duration-500 hover:drop-shadow-[0_0_10px_white]"
                         />
                     </label>
-                    <i
-                        className="fa-regular fa-face-smile cursor-pointer 
-                        text-[15px] hover:text-[20px] duration-500 hover:drop-shadow-[0_0_10px_white]"
-                    />
+                    <div className="relative" ref={emojiRef}>
+                        <button
+                            type="button"
+                            onClick={() => setShowEmoji((prev) => !prev)}
+                            className="relative"
+                        >
+                            <i
+                                className="fa-regular fa-face-smile cursor-pointer 
+                                text-[15px] hover:text-[20px] duration-500 hover:drop-shadow-[0_0_10px_white]"
+                            />
+                        </button>
+
+                        {showEmoji && (
+                            <div className="absolute right-4 z-50">
+                                <EmojiPicker
+                                    onEmojiClick={handleEmojiClick}
+                                    theme={"dark" as Theme}
+                                    width={280}
+                                    height={380}
+                                />
+                            </div>
+                        )}
+                    </div>
                 </div>
 
                 <div className="flex justify-between">

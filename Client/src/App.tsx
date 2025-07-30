@@ -7,7 +7,7 @@ import { NewPost } from "./components/customs/newPost";
 function App() {
     return (
         <div className="bg-[#000000] w-full overflow-x-hidden min-h-screen">
-            <NewPost />
+            <UserHome />
         </div>
     );
 }
