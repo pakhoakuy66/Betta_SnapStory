@@ -1,4 +1,4 @@
-import React from "react";
+import { useState, useEffect, useRef } from "react";
 
 const notifications = [
     {
@@ -19,9 +19,33 @@ const notifications = [
     },
 ];
 
-export function NotificationPanel() {
+export function NotificationPanel({ onClose }: { onClose: () => void }) {
+    const [slideOut, setSlideOut] = useState(false);
+    const notificationRef = useRef<HTMLDivElement>(null);
+
+    useEffect(() => {
+        const handleClickOutSide = (e: MouseEvent) => {
+            if (
+                notificationRef.current &&
+                !notificationRef.current.contains(e.target as Node)
+            ) {
+                setSlideOut(true);
+                setTimeout(() => onClose(), 300);
+            }
+        };
+        document.addEventListener("mousedown", handleClickOutSide);
+        return () =>
+            document.removeEventListener("mousedown", handleClickOutSide);
+    }, [onClose]);
+
     return (
-        <div className="h-screen w-[350px] p-5 bg-[#000] border-r-1 border-[#604d4d] rounded-r-xl">
+        <div
+            ref={notificationRef}
+            className={`fixed top-0 left-[80px] h-screen w-[350px] p-5 bg-black 
+              border-r border-[#604d4d] rounded-r-xl 
+              transition-transform duration-300
+              ${slideOut ? "-translate-x-full" : "translate-x-0"}`}
+        >
             <h2 className="text-[#fff] text-[18px] font-bold">Thông báo</h2>
             <ul className="space-y-4 mt-[30px] text-[#fff]">
                 {notifications.map((noti) => (

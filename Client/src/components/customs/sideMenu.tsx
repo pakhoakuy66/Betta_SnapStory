@@ -2,7 +2,13 @@ import Logo from "../../assets/imgaes/Akuy_logo.png";
 import { Search } from "./search";
 import { NotificationPanel } from "./notifications";
 
-export function SideMenu({ onSearch }: { onSearch: () => void }) {
+export function SideMenu({
+    onSearch,
+    onNotification,
+}: {
+    onSearch: () => void;
+    onNotification: () => void;
+}) {
     return (
         <div className="fixed z-20">
             <aside
@@ -38,6 +44,7 @@ export function SideMenu({ onSearch }: { onSearch: () => void }) {
                     </li>
                     <li className="my-3.5 cursor-pointer">
                         <i
+                            onClick={onNotification}
                             className="fa-solid fa-bell
                             text-[20px] hover:text-[25px] duration-500 hover:drop-shadow-[0_0_10px_white]"
                         ></i>
