@@ -10,11 +10,27 @@ export function NewPost() {
     const [showMenu, setShowMenu] = useState(false);
     const emojiRef = useRef<HTMLDivElement>(null);
     const textareaRef = useRef<HTMLTextAreaElement>(null);
+    const menuRef = useRef<HTMLDivElement>(null);
 
     const scrollRef = useRef<HTMLDivElement>(null);
     const isDown = useRef(false);
     const startX = useRef(0);
     const scrollLeft = useRef(0);
+
+    // Xử lý Menu
+    useEffect(() => {
+        const handleClickOutside = (e: MouseEvent) => {
+            if (
+                menuRef.current &&
+                !menuRef.current.contains(e.target as Node)
+            ) {
+                setShowMenu(false);
+            }
+        };
+        document.addEventListener("mousedown", handleClickOutside);
+        return () =>
+            document.removeEventListener("mousedown", handleClickOutside);
+    }, []);
 
     const handleMouseDown = (e: React.MouseEvent) => {
         isDown.current = true;
@@ -198,13 +214,26 @@ export function NewPost() {
                     </div>
                 </div>
 
-                <div className="flex justify-between">
+                <div className="flex h-[100%] items-center justify-between">
                     {/* Quyền trả lời */}
-                    <div
-                        className="mt-6 text-[13px] ml-1 text-[#b7b7b7] cursor-pointer
-                        duration-300 hover:text-[#848383]"
-                    >
-                        Ai có thể xem bài viết này?
+                    <div className="relative" ref={menuRef}>
+                        <span
+                            onClick={() => setShowMenu((prev) => !prev)}
+                            className="mt-6 text-[13px] ml-1 text-[#b7b7b7] cursor-pointer
+                             duration-300 hover:text-[#848383]"
+                        >
+                            Ai có thể xem bài viết này?
+                        </span>
+
+                        {showMenu && (
+                            <EditMenu
+                                options={[
+                                    "Cộng đồng",
+                                    "Người theo dõi bạn",
+                                    "Cá nhân",
+                                ]}
+                            />
+                        )}
                     </div>
 
                     {/* Button Đăng */}

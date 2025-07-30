@@ -8,12 +8,14 @@ import { NotificationPanel } from "@/components/customs/Home/SideMenu/notificati
 export function UserHome() {
     const [showSearch, setShowSearch] = useState(false);
     const [showNotification, setShowNotification] = useState(false);
+    const [showNewPost, setShowNewPost] = useState(false);
     return (
         <div className="flex justify-center w-full">
             <aside className="w-[80px] z-20 fixed left-0">
                 <SideMenu
                     onSearch={() => setShowSearch(true)}
                     onNotification={() => setShowNotification(true)}
+                    onNewPost={() => setShowNewPost(true)}
                 />
             </aside>
             {/* Search - absolute, liền kề sidebar */}

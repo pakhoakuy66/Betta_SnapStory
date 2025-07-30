@@ -3,9 +3,11 @@ import Logo from "../../../../assets/imgaes/Akuy_logo.png";
 export function SideMenu({
     onSearch,
     onNotification,
+    onNewPost,
 }: {
     onSearch: () => void;
     onNotification: () => void;
+    onNewPost: () => void;
 }) {
     return (
         <div className="fixed z-20">

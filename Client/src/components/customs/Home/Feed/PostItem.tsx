@@ -89,26 +89,26 @@ export function PostItem() {
                 <div className="flex gap-3 text-[20px]">
                     <i
                         className="fa-regular fa-heart hover:scale-110 
-                        duration-500 hover:drop-shadow-[0_0_10px_white]"
+                        duration-500 hover:drop-shadow-[0_0_10px_white] cursor-pointer"
                     ></i>
                     <div className="px-1 text-sm text-white">0</div>
                     <i
                         className="fa-regular fa-comment hover:scale-110 
-                        duration-500 hover:drop-shadow-[0_0_10px_white]"
+                        duration-500 hover:drop-shadow-[0_0_10px_white] cursor-pointer"
                     ></i>
                     <div className="px-1 text-sm text-white">0</div>
                 </div>
                 <div>
                     <i
                         className="fa-regular fa-bookmark hover:scale-110 
-                        duration-500 hover:drop-shadow-[0_0_10px_white]"
+                        duration-500 hover:drop-shadow-[0_0_10px_white] cursor-pointer"
                     ></i>
                 </div>
             </div>
-            <div className="px-4 py-1 text-sm">
+            <p className="px-4 py-1 text-sm">
                 The famous Bill Nicholson Gates are now officially back home...
                 <button className="text-gray-400 ml-1">xem thêm</button>
-            </div>
+            </p>
             <div className="flex items-center px-4 py-3 border-t border-neutral-800">
                 <input
                     type="text"
@@ -138,9 +138,13 @@ export function PostItem() {
                 </div>
 
                 <button
-                    className="w-[90px] h-[30px] bg-[#151d2a] text-white rounded-sm drop-shadow-[0_0_1px_white] 
-                        duration-300 hover:drop-shadow-[0_0_3px_white] active:scale-95 active:drop-shadow-[0_0_5px_white]
-                        cursor-pointer"
+                    className={`w-[90px] h-[30px] text-white rounded-sm drop-shadow-[0_0_1px_white] ${
+                        comment.trim()
+                            ? `bg-[#151d2a] text-white duration-300 hover:drop-shadow-[0_0_3px_white] 
+                                        active:scale-95 active:drop-shadow-[0_0_5px_whites] cursor-pointer`
+                            : `bg-gray-500 text-gray-300 cursor-not-allowed`
+                    }`}
+                    disabled={!comment.trim()}
                 >
                     Đăng
                 </button>
