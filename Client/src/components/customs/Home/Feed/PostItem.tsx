@@ -3,13 +3,13 @@ import EmojiPicker from "emoji-picker-react";
 import type { EmojiClickData, Theme } from "emoji-picker-react";
 import { EditMenu } from "../../Context_menu/editMenu";
 
-export function PostItem() {
+export function PostItem({ onPostDetail }: { onPostDetail: () => void }) {
     const [showEmoji, setShowEmoji] = useState(false);
     const [showMenu, setShowMenu] = useState(false);
     const [comment, setComment] = useState("");
     const menuRef = useRef<HTMLDivElement>(null);
     const emojiRef = useRef<HTMLDivElement>(null);
-    const inputRef = useRef<HTMLInputElement>(null);
+    const textareaRef = useRef<HTMLTextAreaElement>(null);
 
     // Xử lý Menu của icon 3 chấm
     useEffect(() => {
@@ -46,7 +46,7 @@ export function PostItem() {
     // Thêm emoji vào nội dung comment
     const handleEmojiClick = (emojiData: EmojiClickData) => {
         setComment((prev) => prev + emojiData.emoji);
-        inputRef.current?.focus(); // focus lại vào input
+        textareaRef.current?.focus(); // focus lại vào input
     };
 
     return (
@@ -93,6 +93,7 @@ export function PostItem() {
                     ></i>
                     <div className="px-1 text-sm text-white">0</div>
                     <i
+                        onClick={onPostDetail}
                         className="fa-regular fa-comment hover:scale-110 
                         duration-500 hover:drop-shadow-[0_0_10px_white] cursor-pointer"
                     ></i>
@@ -110,19 +111,22 @@ export function PostItem() {
                 <button className="text-gray-400 ml-1">xem thêm</button>
             </p>
             <div className="flex items-center px-4 py-3 border-t border-neutral-800">
-                <input
-                    type="text"
+                <textarea
+                    ref={textareaRef}
                     placeholder="Bình luận..."
                     value={comment}
                     onChange={(e) => setComment(e.target.value)}
-                    className="bg-transparent flex-1 outline-none text-sm placeholder-gray-500"
+                    className="bg-transparent flex-1 outline-none text-sm placeholder-gray-500 scrollbar-hide"
                 />
                 <div className="relative" ref={emojiRef}>
                     <button
                         onClick={() => setShowEmoji((prev) => !prev)}
-                        className="text-xl mr-2 relative cursor-pointer"
+                        className="text-xl mr-2 relative"
                     >
-                        😊
+                        <i
+                            className="fa-regular fa-face-smile cursor-pointer 
+                                        text-[18px] hover:text-[20px] duration-500 hover:drop-shadow-[0_0_10px_white]"
+                        />
                     </button>
                     {/* Emoji popup */}
                     {showEmoji && (

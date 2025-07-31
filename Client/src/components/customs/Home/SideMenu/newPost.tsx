@@ -9,6 +9,7 @@ export function NewPost({ onClose }: { onClose: () => void }) {
     const [images, setImages] = useState<string[]>([]);
     const [showMenu, setShowMenu] = useState(false);
     const [slideOut, setSlideOut] = useState(false);
+
     const emojiRef = useRef<HTMLDivElement>(null);
     const textareaRef = useRef<HTMLTextAreaElement>(null);
     const menuRef = useRef<HTMLDivElement>(null);
@@ -19,7 +20,7 @@ export function NewPost({ onClose }: { onClose: () => void }) {
     const startX = useRef(0);
     const scrollLeft = useRef(0);
 
-    // Xử lý đóng newPost
+    // Xử lý form newPost
     useEffect(() => {
         const handleClickOutSide = (e: MouseEvent) => {
             if (
@@ -34,7 +35,7 @@ export function NewPost({ onClose }: { onClose: () => void }) {
             document.removeEventListener("mousedown", handleClickOutSide);
     }, [onClose]);
 
-    // Xử lý Menu
+    // Xử lý Menu nhỏ
     useEffect(() => {
         const handleClickOutside = (e: MouseEvent) => {
             if (
@@ -47,6 +48,23 @@ export function NewPost({ onClose }: { onClose: () => void }) {
         document.addEventListener("mousedown", handleClickOutside);
         return () =>
             document.removeEventListener("mousedown", handleClickOutside);
+    }, []);
+
+    // Xử lý emoji
+    // Ẩn emoji khi click ra ngoài
+    useEffect(() => {
+        const handleClickOutSide = (e: MouseEvent) => {
+            if (
+                emojiRef.current &&
+                !emojiRef.current.contains(e.target as Node)
+            ) {
+                setShowEmoji(false);
+            }
+        };
+        document.addEventListener("mousedown", handleClickOutSide);
+        return () => {
+            document.removeEventListener("mousedown", handleClickOutSide);
+        };
     }, []);
 
     const handleMouseDown = (e: React.MouseEvent) => {
@@ -79,23 +97,6 @@ export function NewPost({ onClose }: { onClose: () => void }) {
             })
         );
     };
-
-    // Xử lý emoji
-    // Ẩn emoji khi click ra ngoài
-    useEffect(() => {
-        const handleClickOutSide = (e: MouseEvent) => {
-            if (
-                emojiRef.current &&
-                !emojiRef.current.contains(e.target as Node)
-            ) {
-                setShowEmoji(false);
-            }
-        };
-        document.addEventListener("mousedown", handleClickOutSide);
-        return () => {
-            document.removeEventListener("mousedown", handleClickOutSide);
-        };
-    }, []);
 
     // Thêm emoji vào nội dung post
     const handleEmojiClick = (emojiData: EmojiClickData) => {
@@ -146,7 +147,8 @@ export function NewPost({ onClose }: { onClose: () => void }) {
                         </h3>
                         <textarea
                             ref={textareaRef}
-                            className="bg-transparent text-[#fff] w-full resize-none text-sm outline-none placeholder-gray-500"
+                            className="bg-transparent text-[#fff] w-full resize-none text-sm 
+                            scrollbar-hide outline-none placeholder-gray-500"
                             placeholder="Có gì mới?"
                             rows={3}
                             value={content}

@@ -4,7 +4,7 @@ export function Search({ onClose }: { onClose: () => void }) {
     const [slideOut, setSlideOut] = useState(false);
     const searchRef = useRef<HTMLDivElement>(null);
 
-    // Bấm ở ngoài sẽ đóng
+    // Bấm ở ngoài sẽ đóng - xử lý form search
     useEffect(() => {
         const handleClickOutSide = (e: MouseEvent) => {
             if (

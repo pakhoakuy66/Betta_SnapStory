@@ -1,5 +1,7 @@
-import test from "node:test";
 import { useState, useEffect, useRef } from "react";
+import EmojiPicker from "emoji-picker-react";
+import type { EmojiClickData, Theme } from "emoji-picker-react";
+import { EditMenu } from "../../Context_menu/editMenu";
 
 const post = {
     image: "/posts/spurs_gate.jpg",
@@ -40,11 +42,77 @@ const post = {
     ],
 };
 
-export function PostItemDetail() {
-    const wrapperRef = useRef<HTMLDivElement>(null);
+export function PostItemDetail({ onClose }: { onClose: () => void }) {
+    const [showMenu, setShowMenu] = useState(false);
+    const [showEmoji, setShowEmoji] = useState(false);
+    const [slideOut, setSlideOut] = useState(false);
+    const [comment, setComment] = useState("");
+
+    const menuRef = useRef<HTMLDivElement>(null);
+    const emojiRef = useRef<HTMLDivElement>(null);
+    const textareaRef = useRef<HTMLTextAreaElement>(null);
+    const postDetailRef = useRef<HTMLDivElement>(null);
+
+    // Xử lý đóng newPost
+    useEffect(() => {
+        const handleClickOutSide = (e: MouseEvent) => {
+            if (
+                postDetailRef.current &&
+                !postDetailRef.current.contains(e.target as Node)
+            ) {
+                setSlideOut(true);
+                setTimeout(() => onClose(), 300);
+            }
+        };
+        document.addEventListener("mousedown", handleClickOutSide);
+        return () =>
+            document.removeEventListener("mousedown", handleClickOutSide);
+    }, [onClose]);
+
+    // Xử lý Menu nhỏ
+    useEffect(() => {
+        const handleClickOutside = (e: MouseEvent) => {
+            if (
+                menuRef.current &&
+                !menuRef.current.contains(e.target as Node)
+            ) {
+                setShowMenu(false);
+            }
+        };
+        document.addEventListener("mousedown", handleClickOutside);
+        return () =>
+            document.removeEventListener("mousedown", handleClickOutside);
+    }, []);
+
+    // Xử lý emoji
+    // Ẩn emoji khi click ra ngoài
+    useEffect(() => {
+        const handleClickOutSide = (e: MouseEvent) => {
+            if (
+                emojiRef.current &&
+                !emojiRef.current.contains(e.target as Node)
+            ) {
+                setShowEmoji(false);
+            }
+        };
+        document.addEventListener("mousedown", handleClickOutSide);
+        return () => {
+            document.removeEventListener("mousedown", handleClickOutSide);
+        };
+    }, []);
+
+    // Thêm emoji vào nội dung comment
+    const handleEmojiClick = (emojiData: EmojiClickData) => {
+        setComment((prev) => prev + emojiData.emoji);
+        textareaRef.current?.focus();
+    };
 
     return (
-        <div className="flex h-screen justify-center items-center">
+        <div
+            ref={postDetailRef}
+            className={`flex h-screen justify-center items-center
+                ${slideOut ? "-translate-x-full" : "translate-x-0"}`}
+        >
             <div
                 className="flex bg-[#000] shadow-xl w-[800px] 
                 h-[450px] rounded-sm drop-shadow-[0_0_1px_white] duration-300 hover:drop-shadow-[0_0_3px_white]"
@@ -69,21 +137,49 @@ export function PostItemDetail() {
                             <span className="font-semibold">
                                 {post.user.name}
                             </span>
-                            <div className="ml-auto relatve">
-                                <i className="fa-solid fa-ellipsis text-gray-400 cursor-pointer"></i>
+                            <div className="ml-auto relative" ref={menuRef}>
+                                <i
+                                    className="fa-solid fa-ellipsis text-gray-400 cursor-pointer"
+                                    onClick={() => setShowMenu((prev) => !prev)}
+                                ></i>
+                                {showMenu && (
+                                    <EditMenu
+                                        options={[
+                                            "Chỉnh sửa",
+                                            "Xóa",
+                                            "Sao chép liên kết",
+                                        ]}
+                                    />
+                                )}
                             </div>
-                        </div>
-                        <div>
-                            <p className="text-sm">{post.caption}</p>
                         </div>
                     </div>
 
                     {/* Comments */}
                     <div className="flex-1 overflow-y-auto max-h-[280px] px-4 py-2 space-y-2 text-sm scrollbar-hide">
+                        {/*Author*/}
+                        <div>
+                            <div className="flex items-center mb-3">
+                                <img
+                                    src={post.user.avatar}
+                                    className="w-8 h-8 rounded-full mr-2"
+                                />
+                                <span className="font-semibold">
+                                    {post.user.name}
+                                </span>
+                                <span className="ml-1 text-[#fff] text-[10px] italic">
+                                    Tác giả
+                                </span>
+                            </div>
+                            <div className="bg-neutral-800 px-3 py-2 rounded-xl ">
+                                <p className="text-sm">{post.caption}</p>
+                            </div>
+                        </div>
+
                         {post.comments.map((c: any, i: number) => (
                             <div
                                 key={i}
-                                className="flex break-words whitespace-pre-wrap"
+                                className="flex break-words whitespace-pre-wrap mt-3"
                             >
                                 <img
                                     src={post.user.avatar}
@@ -102,27 +198,54 @@ export function PostItemDetail() {
                     </div>
 
                     {/* Reaction & Input */}
-                    <div className="border-t border-neutral-800 px-4 py-3">
+                    <div className="border-t border-neutral-800 px-4 py-3 max-h-[50px]">
                         <div className="flex gap-4 text-xl mb-2">
-                            <i className="fa-regular fa-heart cursor-pointer"></i>
+                            <i
+                                className="fa-regular fa-heart hover:scale-110 
+                                duration-500 hover:drop-shadow-[0_0_10px_white] cursor-pointer"
+                            ></i>
                         </div>
-                        <div className="flex items-center ">
-                            <input
-                                type="text"
+                        <div className="flex items-center max-h-[500px] ">
+                            <textarea
+                                ref={textareaRef}
                                 placeholder="Bình luận..."
-                                className="bg-transparent flex-1 outline-none text-sm placeholder-gray-500"
+                                value={comment}
+                                onChange={(e) => setComment(e.target.value)}
+                                className="scrollbar-hide bg-transparent flex-1 outline-none text-sm placeholder-gray-500"
                             />
-                            <div className="relative">
-                                <button className="text-xl mr-2 relative cursor-pointer">
-                                    😊
+                            <div ref={emojiRef} className="relative">
+                                <button
+                                    className="text-xl mr-2 relative"
+                                    onClick={() =>
+                                        setShowEmoji((prev) => !prev)
+                                    }
+                                >
+                                    <i
+                                        className="fa-regular fa-face-smile cursor-pointer 
+                                        text-[18px] hover:text-[20px] duration-500 hover:drop-shadow-[0_0_10px_white]"
+                                    />
                                 </button>
+
+                                {showEmoji && (
+                                    <div className="absolute bottom-full right-0 mb-2 z-50">
+                                        <EmojiPicker
+                                            onEmojiClick={handleEmojiClick}
+                                            theme={"dark" as Theme}
+                                            width={250}
+                                            height={300}
+                                        />
+                                    </div>
+                                )}
                             </div>
 
                             <button
-                                className="w-[90px] h-[30px] bg-[#151d2a] text-white 
-                                            rounded-sm drop-shadow-[0_0_1px_white] cursor-pointer
-                                            duration-300 hover:drop-shadow-[0_0_3px_white] 
-                                            active:scale-95 active:drop-shadow-[0_0_5px_white]"
+                                className={`w-[90px] h-[30px] text-white rounded-sm drop-shadow-[0_0_1px_white] ${
+                                    comment.trim()
+                                        ? `bg-[#151d2a] text-white duration-300 hover:drop-shadow-[0_0_3px_white] 
+                                        active:scale-95 active:drop-shadow-[0_0_5px_whites] cursor-pointer`
+                                        : `bg-gray-500 text-gray-300 cursor-not-allowed`
+                                }`}
+                                disabled={!comment.trim()}
                             >
                                 Đăng
                             </button>
