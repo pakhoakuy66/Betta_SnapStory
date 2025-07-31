@@ -17,6 +17,94 @@ const notifications = [
         time: "3 giờ trước",
         postImage: "https://source.unsplash.com/random/50x50?sig=2",
     },
+    {
+        id: 2,
+        avatar: "https://i.pravatar.cc/50?img=2",
+        username: "khanhtran",
+        action: 'đã bình luận: "Hay quá!"',
+        time: "3 giờ trước",
+        postImage: "https://source.unsplash.com/random/50x50?sig=2",
+    },
+    {
+        id: 2,
+        avatar: "https://i.pravatar.cc/50?img=2",
+        username: "khanhtran",
+        action: 'đã bình luận: "Hay quá!"',
+        time: "3 giờ trước",
+        postImage: "https://source.unsplash.com/random/50x50?sig=2",
+    },
+    {
+        id: 2,
+        avatar: "https://i.pravatar.cc/50?img=2",
+        username: "khanhtran",
+        action: 'đã bình luận: "Hay quá!"',
+        time: "3 giờ trước",
+        postImage: "https://source.unsplash.com/random/50x50?sig=2",
+    },
+    {
+        id: 2,
+        avatar: "https://i.pravatar.cc/50?img=2",
+        username: "khanhtran",
+        action: 'đã bình luận: "Hay quá!"',
+        time: "3 giờ trước",
+        postImage: "https://source.unsplash.com/random/50x50?sig=2",
+    },
+    {
+        id: 2,
+        avatar: "https://i.pravatar.cc/50?img=2",
+        username: "khanhtran",
+        action: 'đã bình luận: "Hay quá!"',
+        time: "3 giờ trước",
+        postImage: "https://source.unsplash.com/random/50x50?sig=2",
+    },
+    {
+        id: 2,
+        avatar: "https://i.pravatar.cc/50?img=2",
+        username: "khanhtran",
+        action: 'đã bình luận: "Hay quá!"',
+        time: "3 giờ trước",
+        postImage: "https://source.unsplash.com/random/50x50?sig=2",
+    },
+    {
+        id: 2,
+        avatar: "https://i.pravatar.cc/50?img=2",
+        username: "khanhtran",
+        action: 'đã bình luận: "Hay quá!"',
+        time: "3 giờ trước",
+        postImage: "https://source.unsplash.com/random/50x50?sig=2",
+    },
+    {
+        id: 2,
+        avatar: "https://i.pravatar.cc/50?img=2",
+        username: "khanhtran",
+        action: 'đã bình luận: "Hay quá!"',
+        time: "3 giờ trước",
+        postImage: "https://source.unsplash.com/random/50x50?sig=2",
+    },
+    {
+        id: 2,
+        avatar: "https://i.pravatar.cc/50?img=2",
+        username: "khanhtran",
+        action: 'đã bình luận: "Hay quá!"',
+        time: "3 giờ trước",
+        postImage: "https://source.unsplash.com/random/50x50?sig=2",
+    },
+    {
+        id: 2,
+        avatar: "https://i.pravatar.cc/50?img=2",
+        username: "khanhtran",
+        action: 'đã bình luận: "Hay quá!"',
+        time: "3 giờ trước",
+        postImage: "https://source.unsplash.com/random/50x50?sig=2",
+    },
+    {
+        id: 2,
+        avatar: "https://i.pravatar.cc/50?img=2",
+        username: "khanhtran",
+        action: 'đã bình luận: "Hay quá!"',
+        time: "3 giờ trước",
+        postImage: "https://source.unsplash.com/random/50x50?sig=2",
+    },
 ];
 
 export function NotificationPanel({ onClose }: { onClose: () => void }) {
@@ -47,7 +135,7 @@ export function NotificationPanel({ onClose }: { onClose: () => void }) {
               ${slideOut ? "-translate-x-full" : "translate-x-0"}`}
         >
             <h2 className="text-[#fff] text-[18px] font-bold">Thông báo</h2>
-            <ul className="space-y-4 mt-[30px] text-[#fff]">
+            <ul className="space-y-4 mt-[30px] overflow-y-auto max-h-[450px] text-[#fff] scrollbar-hide">
                 {notifications.map((noti) => (
                     <li
                         key={noti.id}

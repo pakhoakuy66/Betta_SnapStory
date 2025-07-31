@@ -1,8 +1,9 @@
+import { useState } from "react";
 import { LoginUser } from "./Pages/Auth/login";
 import { Register } from "./Pages/Auth/register";
 import { ForgotPassword } from "./Pages/Auth/forgotPassword";
 import { UserHome } from "./Pages/Home/UserHomePage";
-import { NewPost } from "./components/customs/Home/SideMenu/newPost";
+import { PostItemDetail } from "./components/customs/Home/Feed/PostItemDetail";
 
 function App() {
     return (

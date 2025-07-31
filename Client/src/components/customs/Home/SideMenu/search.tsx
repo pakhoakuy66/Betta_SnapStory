@@ -63,7 +63,7 @@ export function Search({ onClose }: { onClose: () => void }) {
                 </button>
             </div>
 
-            <ul className="grid w-[100%] mt-5">
+            <ul className="grid max-h-[350px] overflow-y-auto w-[100%] mt-5 scrollbar-hide">
                 <li className="flex justify-between items-center h-[70px]">
                     <img
                         src="./avatar"
