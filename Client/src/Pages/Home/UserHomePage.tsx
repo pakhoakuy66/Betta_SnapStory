@@ -4,6 +4,7 @@ import { Feed } from "@/components/customs/Home/Feed/feed";
 import { SuggestionList } from "@/components/customs/Home/Suggestion/SuggestionList";
 import { Search } from "@/components/customs/Home/SideMenu/search";
 import { NotificationPanel } from "@/components/customs/Home/SideMenu/notifications";
+import { NewPost } from "@/components/customs/Home/SideMenu/newPost";
 
 export function UserHome() {
     const [showSearch, setShowSearch] = useState(false);
@@ -30,6 +31,13 @@ export function UserHome() {
                     <NotificationPanel
                         onClose={() => setShowNotification(false)}
                     />
+                </div>
+            )}
+
+            {/* NewPose - absolute, liền kề sidebar */}
+            {showNewPost && (
+                <div className="fixed inset-0 bg-black/50 z-40">
+                    <NewPost onClose={() => setShowNewPost(false)} />
                 </div>
             )}
             <main className="flex justify-center max-w-[600px] w-full">

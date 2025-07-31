@@ -130,8 +130,8 @@ export function PostItem() {
                             <EmojiPicker
                                 onEmojiClick={handleEmojiClick}
                                 theme={"dark" as Theme}
-                                height={380}
-                                width={280}
+                                height={300}
+                                width={250}
                             />
                         </div>
                     )}

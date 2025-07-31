@@ -3,19 +3,36 @@ import EmojiPicker from "emoji-picker-react";
 import type { EmojiClickData, Theme } from "emoji-picker-react";
 import { EditMenu } from "../../Context_menu/editMenu";
 
-export function NewPost() {
+export function NewPost({ onClose }: { onClose: () => void }) {
     const [content, setContent] = useState("");
     const [showEmoji, setShowEmoji] = useState(false);
     const [images, setImages] = useState<string[]>([]);
     const [showMenu, setShowMenu] = useState(false);
+    const [slideOut, setSlideOut] = useState(false);
     const emojiRef = useRef<HTMLDivElement>(null);
     const textareaRef = useRef<HTMLTextAreaElement>(null);
     const menuRef = useRef<HTMLDivElement>(null);
+    const newPostRef = useRef<HTMLDivElement>(null);
 
     const scrollRef = useRef<HTMLDivElement>(null);
     const isDown = useRef(false);
     const startX = useRef(0);
     const scrollLeft = useRef(0);
+
+    // Xử lý đóng newPost
+    useEffect(() => {
+        const handleClickOutSide = (e: MouseEvent) => {
+            if (
+                newPostRef.current &&
+                !newPostRef.current.contains(e.target as Node)
+            ) {
+                setSlideOut(true);
+            }
+        };
+        document.addEventListener("mousedown", handleClickOutSide);
+        return () =>
+            document.removeEventListener("mousedown", handleClickOutSide);
+    }, [onClose]);
 
     // Xử lý Menu
     useEffect(() => {
@@ -87,7 +104,10 @@ export function NewPost() {
     };
 
     return (
-        <div className="flex h-screen justify-center items-center">
+        <div
+            ref={newPostRef}
+            className="flex h-screen justify-center items-center"
+        >
             <form
                 className="bg-[#000] p-3 shadow-xl w-[600px] 
                 h-auto rounded-sm drop-shadow-[0_0_1px_white] duration-300 hover:drop-shadow-[0_0_3px_white]"
@@ -97,6 +117,7 @@ export function NewPost() {
                     border-b-2 border-[#604d4d]"
                 >
                     <span
+                        onClick={() => onClose()}
                         className="text-[#fff] cursor-pointer
                         duration-300 hover:text-[#848383]"
                     >
@@ -202,12 +223,12 @@ export function NewPost() {
                         </button>
 
                         {showEmoji && (
-                            <div className="absolute right-4 z-50">
+                            <div className="absolute bottom-full right-0 mb-2 z-50">
                                 <EmojiPicker
                                     onEmojiClick={handleEmojiClick}
                                     theme={"dark" as Theme}
-                                    width={280}
-                                    height={380}
+                                    width={250}
+                                    height={300}
                                 />
                             </div>
                         )}
