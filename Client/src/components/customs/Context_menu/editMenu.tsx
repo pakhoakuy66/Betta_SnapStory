@@ -2,7 +2,7 @@ export function EditMenu({
     options,
     onOptionClick,
 }: {
-    options: { label: string; action: string }[];
+    options: { label: React.ReactNode; action: string }[];
     onOptionClick: (action: string) => void;
 }) {
     return (

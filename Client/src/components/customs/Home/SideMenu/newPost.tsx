@@ -9,6 +9,14 @@ export function NewPost({ onClose }: { onClose: () => void }) {
     const [images, setImages] = useState<string[]>([]);
     const [showMenu, setShowMenu] = useState(false);
     const [slideOut, setSlideOut] = useState(false);
+    const [selectedOption, setSelectedOption] = useState({
+        label: (
+            <>
+                <i className="fa-solid fa-earth-americas mr-2" /> Cộng đồng
+            </>
+        ),
+        action: "public",
+    }); // State để lưu tùy chọn được chọn
 
     const emojiRef = useRef<HTMLDivElement>(null);
     const textareaRef = useRef<HTMLTextAreaElement>(null);
@@ -103,6 +111,43 @@ export function NewPost({ onClose }: { onClose: () => void }) {
         setContent((prev) => prev + emojiData.emoji);
         textareaRef.current?.focus();
     };
+
+    // Hàm xử lý khi chọn một tùy chọn
+    const handleOptionsClick = (action: string) => {
+        const selected = options.find((option) => option.action === action);
+        if (selected) {
+            setSelectedOption(selected);
+        }
+        setShowMenu(false);
+    };
+
+    // Danh sách options
+    const options = [
+        {
+            label: (
+                <>
+                    <i className="fa-solid fa-earth-americas mr-2" /> Cộng đồng
+                </>
+            ),
+            action: "public",
+        },
+        {
+            label: (
+                <>
+                    <i className="fa-solid fa-users mr-2" /> Người theo dõi bạn
+                </>
+            ),
+            action: "follower",
+        },
+        {
+            label: (
+                <>
+                    <i className="fa-solid fa-user mr-2" /> Cá nhân
+                </>
+            ),
+            action: "private",
+        },
+    ];
 
     return (
         <div
@@ -246,23 +291,14 @@ export function NewPost({ onClose }: { onClose: () => void }) {
                             className="mt-6 text-[13px] ml-1 text-[#b7b7b7] cursor-pointer
                              duration-300 hover:text-[#848383]"
                         >
-                            Ai có thể xem bài viết này?
+                            Ai có thể xem bài viết này?{" "}
+                            <span className="ml-2">{selectedOption.label}</span>
                         </span>
 
                         {showMenu && (
                             <EditMenu
-                                options={[
-                                    { label: "Công đồng", action: "public" },
-                                    {
-                                        label: "Người theo dõi bạn",
-                                        action: "follower",
-                                    },
-                                    {
-                                        label: "Cá nhân",
-                                        action: "private",
-                                    },
-                                ]}
-                                onOptionClick={() => {}}
+                                options={options}
+                                onOptionClick={handleOptionsClick}
                             />
                         )}
                     </div>
