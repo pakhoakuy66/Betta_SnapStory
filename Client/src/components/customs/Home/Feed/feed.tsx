@@ -7,6 +7,7 @@ export function Feed() {
     const [showPostItemDetail, setShowPostItemDetail] = useState(false);
     const [showHidePost, setShowHidePost] = useState(false);
 
+    const hidePostOpenRef = useRef(false);
     const postDetailRef = useRef<HTMLDivElement>(null);
 
     useEffect(() => {
@@ -14,7 +15,7 @@ export function Feed() {
             if (
                 postDetailRef.current &&
                 !postDetailRef.current.contains(e.target as Node) &&
-                !showHidePost
+                !showHidePost // Chỉ đóng PostItemDetail khi HidePost không hiển thị
             ) {
                 setShowPostItemDetail(false);
             }
@@ -22,6 +23,11 @@ export function Feed() {
         document.addEventListener("mousedown", handleClickOutside);
         return () =>
             document.removeEventListener("mousedown", handleClickOutside);
+    }, [showHidePost]);
+
+    // Cập nhật ref theo state
+    useEffect(() => {
+        hidePostOpenRef.current = showHidePost;
     }, [showHidePost]);
 
     return (
@@ -48,6 +54,7 @@ export function Feed() {
                             <PostItemDetail
                                 onClose={() => setShowPostItemDetail(false)}
                                 onHidePost={() => setShowHidePost(true)}
+                                isHidePostOpen={hidePostOpenRef}
                             />
                         </div>
 

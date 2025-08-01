@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import EmojiPicker from "emoji-picker-react";
 import type { EmojiClickData, Theme } from "emoji-picker-react";
 import { EditMenu } from "../../Context_menu/editMenu";
@@ -45,9 +45,11 @@ const post = {
 export function PostItemDetail({
     onClose,
     onHidePost,
+    isHidePostOpen,
 }: {
     onClose: () => void;
     onHidePost: () => void;
+    isHidePostOpen: React.MutableRefObject<boolean>;
 }) {
     const [showMenu, setShowMenu] = useState(false);
     const [showEmoji, setShowEmoji] = useState(false);
@@ -59,13 +61,15 @@ export function PostItemDetail({
     const textareaRef = useRef<HTMLTextAreaElement>(null);
     const postDetailRef = useRef<HTMLDivElement>(null);
 
-    // Xử lý đóng newPost
+    // Xử lý đóng PostDetail
     useEffect(() => {
         const handleClickOutSide = (e: MouseEvent) => {
             if (
                 postDetailRef.current &&
                 !postDetailRef.current.contains(e.target as Node)
             ) {
+                if (isHidePostOpen.current) return; // Nếu HidePost đang mở → không đóng PostItemDetail
+
                 setSlideOut(true);
                 setTimeout(() => onClose(), 300);
             }
@@ -73,7 +77,7 @@ export function PostItemDetail({
         document.addEventListener("mousedown", handleClickOutSide);
         return () =>
             document.removeEventListener("mousedown", handleClickOutSide);
-    }, [onClose]);
+    }, [onClose, isHidePostOpen]);
 
     // Xử lý Menu nhỏ
     useEffect(() => {
