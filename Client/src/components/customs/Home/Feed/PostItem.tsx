@@ -3,10 +3,17 @@ import EmojiPicker from "emoji-picker-react";
 import type { EmojiClickData, Theme } from "emoji-picker-react";
 import { EditMenu } from "../../Context_menu/editMenu";
 
-export function PostItem({ onPostDetail }: { onPostDetail: () => void }) {
+export function PostItem({
+    onPostDetail,
+    onHidePost,
+}: {
+    onPostDetail: () => void;
+    onHidePost: () => void;
+}) {
     const [showEmoji, setShowEmoji] = useState(false);
     const [showMenu, setShowMenu] = useState(false);
     const [comment, setComment] = useState("");
+
     const menuRef = useRef<HTMLDivElement>(null);
     const emojiRef = useRef<HTMLDivElement>(null);
     const textareaRef = useRef<HTMLTextAreaElement>(null);
@@ -68,7 +75,15 @@ export function PostItem({ onPostDetail }: { onPostDetail: () => void }) {
                     ></i>
                     {showMenu && (
                         <EditMenu
-                            options={["Chỉnh sửa", "Xóa", "Sao chép liên kết"]}
+                            options={[
+                                { label: "Ẩn bài viết", action: "hide" },
+                                { label: "Sao chép liên kết", action: "copy" },
+                            ]}
+                            onOptionClick={(action) => {
+                                if (action === "hide") {
+                                    onHidePost(); // gọi hàm từ component cha
+                                }
+                            }}
                         />
                     )}
                 </div>

@@ -42,7 +42,13 @@ const post = {
     ],
 };
 
-export function PostItemDetail({ onClose }: { onClose: () => void }) {
+export function PostItemDetail({
+    onClose,
+    onHidePost,
+}: {
+    onClose: () => void;
+    onHidePost: () => void;
+}) {
     const [showMenu, setShowMenu] = useState(false);
     const [showEmoji, setShowEmoji] = useState(false);
     const [slideOut, setSlideOut] = useState(false);
@@ -110,8 +116,8 @@ export function PostItemDetail({ onClose }: { onClose: () => void }) {
     return (
         <div
             ref={postDetailRef}
-            className={`flex h-screen justify-center items-center
-                ${slideOut ? "-translate-x-full" : "translate-x-0"}`}
+            className={`flex h-screen justify-center items-center transition-all duration-300 ease-in-out
+                ${slideOut ? "scale-75 opacity-0" : "scale-100 opacity-100"}`}
         >
             <div
                 className="flex bg-[#000] shadow-xl w-[800px] 
@@ -145,10 +151,20 @@ export function PostItemDetail({ onClose }: { onClose: () => void }) {
                                 {showMenu && (
                                     <EditMenu
                                         options={[
-                                            "Chỉnh sửa",
-                                            "Xóa",
-                                            "Sao chép liên kết",
+                                            {
+                                                label: "Ẩn bài viết",
+                                                action: "hide",
+                                            },
+                                            {
+                                                label: "Sao chép liên kết",
+                                                action: "copy",
+                                            },
                                         ]}
+                                        onOptionClick={(action) => {
+                                            if (action === "hide") {
+                                                onHidePost(); // gọi hàm từ component cha
+                                            }
+                                        }}
                                     />
                                 )}
                             </div>

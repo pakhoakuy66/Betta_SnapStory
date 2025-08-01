@@ -107,7 +107,8 @@ export function NewPost({ onClose }: { onClose: () => void }) {
     return (
         <div
             ref={newPostRef}
-            className="flex h-screen justify-center items-center"
+            className={`flex h-screen justify-center items-center transition-all duration-300 ease-in-out
+                ${slideOut ? "scale-75 opacity-0" : "scale-100 opacity-100"}`}
         >
             <form
                 className="bg-[#000] p-3 shadow-xl w-[600px] 
@@ -251,10 +252,17 @@ export function NewPost({ onClose }: { onClose: () => void }) {
                         {showMenu && (
                             <EditMenu
                                 options={[
-                                    "Cộng đồng",
-                                    "Người theo dõi bạn",
-                                    "Cá nhân",
+                                    { label: "Công đồng", action: "public" },
+                                    {
+                                        label: "Người theo dõi bạn",
+                                        action: "follower",
+                                    },
+                                    {
+                                        label: "Cá nhân",
+                                        action: "private",
+                                    },
                                 ]}
+                                onOptionClick={() => {}}
                             />
                         )}
                     </div>

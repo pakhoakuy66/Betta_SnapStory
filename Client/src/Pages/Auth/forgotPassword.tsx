@@ -30,8 +30,10 @@ export function ForgotPassword() {
                     <nav className="flex justify-center">
                         <button
                             type="submit"
-                            className="w-[90px] h-[30px] bg-[#151d2a] text-white rounded-sm drop-shadow-[0_0_1px_white] 
-                        duration-300 hover:drop-shadow-[0_0_3px_white] active:scale-95 active:drop-shadow-[0_0_5px_white]"
+                            className="w-[90px] h-[30px] bg-[#151d2a] 
+                            text-white rounded-sm drop-shadow-[0_0_1px_white] cursor-pointer
+                            duration-300 hover:drop-shadow-[0_0_3px_white] 
+                            active:scale-95 active:drop-shadow-[0_0_5px_white]"
                         >
                             Gửi
                         </button>
