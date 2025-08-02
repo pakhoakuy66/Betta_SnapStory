@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from "react";
 import { PostItem } from "./PostItem";
 import { PostItemDetail } from "./PostItemDetail";
-import { HidePost } from "../../Context_menu/Chores/hidePost";
+import { HidePost } from "../Context_menu/hidePost";
 
 export function Feed() {
     const [showPostItemDetail, setShowPostItemDetail] = useState(false);

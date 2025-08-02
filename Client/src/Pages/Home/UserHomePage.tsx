@@ -5,11 +5,14 @@ import { SuggestionList } from "@/components/customs/Home/Suggestion/SuggestionL
 import { Search } from "@/components/customs/Home/SideMenu/search";
 import { NotificationPanel } from "@/components/customs/Home/SideMenu/notifications";
 import { NewPost } from "@/components/customs/Home/SideMenu/newPost";
+import { Profile } from "../User/UserPage";
 
 export function UserHome() {
     const [showSearch, setShowSearch] = useState(false);
     const [showNotification, setShowNotification] = useState(false);
     const [showNewPost, setShowNewPost] = useState(false);
+    const [activePage, setActivePage] = useState<"home" | "profile">("home");
+
     return (
         <div className="flex justify-center w-full">
             <aside className="w-[80px] z-20 fixed left-0">
@@ -17,6 +20,8 @@ export function UserHome() {
                     onSearch={() => setShowSearch(true)}
                     onNotification={() => setShowNotification(true)}
                     onNewPost={() => setShowNewPost(true)}
+                    onFeed={() => setActivePage("home")}
+                    onProfile={() => setActivePage("profile")}
                 />
             </aside>
             {/* Search - absolute, liền kề sidebar */}
@@ -40,13 +45,20 @@ export function UserHome() {
                     <NewPost onClose={() => setShowNewPost(false)} />
                 </div>
             )}
-            <main className="flex justify-center max-w-[600px] w-full">
-                <Feed />
+            <main
+                className={`flex justify-center w-full transition-all duration-300 
+                ${activePage === "home" ? "max-w-[600px]" : "max-w-[1100px]"} 
+                ml-[80px]`}
+            >
+                {activePage === "home" && <Feed />}
+                {activePage === "profile" && <Profile />}
             </main>
 
-            <aside className="w-[300px] ml-10">
-                <SuggestionList />
-            </aside>
+            {activePage === "home" && (
+                <aside className="w-[300px] ml-10">
+                    <SuggestionList />
+                </aside>
+            )}
         </div>
     );
 }

@@ -1,7 +1,7 @@
 import { useState, useRef, useEffect } from "react";
 import EmojiPicker from "emoji-picker-react";
 import type { EmojiClickData, Theme } from "emoji-picker-react";
-import { EditMenu } from "../../Context_menu/editMenu";
+import { EditMenu } from "../Context_menu/editMenu";
 
 export function NewPost({ onClose }: { onClose: () => void }) {
     const [content, setContent] = useState("");

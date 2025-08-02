@@ -4,10 +4,14 @@ export function SideMenu({
     onSearch,
     onNotification,
     onNewPost,
+    onFeed,
+    onProfile,
 }: {
     onSearch: () => void;
     onNotification: () => void;
     onNewPost: () => void;
+    onFeed: () => void;
+    onProfile: () => void;
 }) {
     return (
         <div className="fixed z-20">
@@ -25,6 +29,7 @@ export function SideMenu({
                 <ul className="grid justify-center items-center mt-[100px] w-[100%]">
                     <li className="mb-3.5 cursor-pointer">
                         <i
+                            onClick={onFeed}
                             className="fa-solid fa-house
                             text-[20px] hover:text-[25px] duration-500 hover:drop-shadow-[0_0_10px_white]"
                         ></i>
@@ -52,6 +57,7 @@ export function SideMenu({
                     </li>
                     <li className="my-3.5 cursor-pointer">
                         <i
+                            onClick={onProfile}
                             className="fa-solid fa-user
                             text-[20px] hover:text-[25px] duration-500 hover:drop-shadow-[0_0_10px_white]"
                         ></i>
