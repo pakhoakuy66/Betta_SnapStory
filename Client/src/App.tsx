@@ -3,8 +3,7 @@ import { LoginUser } from "./Pages/Auth/login";
 import { Register } from "./Pages/Auth/register";
 import { ForgotPassword } from "./Pages/Auth/forgotPassword";
 import { UserHome } from "./Pages/Home/UserHomePage";
-import { HidePost } from "./components/customs/Home/Context_menu/hidePost";
-import { Profile } from "./Pages/User/UserPage";
+import { MenuImage } from "./components/customs/User/Context_Menu/UserMenuImage";
 
 function App() {
     return (

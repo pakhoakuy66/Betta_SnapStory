@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from "react";
 import { UserSettings } from "../Context_Menu/UserSettings";
 
-export function UserHead() {
+export function UserHead({ onMenuImage }: { onMenuImage: () => void }) {
     const [showMenuSettings, setShowMenuSettings] = useState(false);
 
     const menuSettingsRef = useRef<HTMLDivElement>(null);
@@ -23,7 +23,12 @@ export function UserHead() {
     return (
         <header className="flex items-center gap-10 p-8">
             {/* Avatar */}
-            <div className="flex justify-center items-center w-[200px] h-[200px] border-1 rounded-full overflow-hidden">
+            <div
+                onClick={onMenuImage}
+                className="flex justify-center items-center w-[200px] 
+                h-[200px] border-1 rounded-full overflow-hidden
+                cursor-pointer"
+            >
                 <img
                     src="https://via.placeholder.com/150"
                     alt="Avatar"
@@ -79,10 +84,10 @@ export function UserHead() {
                     <div className="text-[#C7D5E0] text-[20px]">
                         <span className="font-bold">0</span> bài biết
                     </div>
-                    <div className="text-[#C7D5E0] text-[20px] ml-[50px]">
+                    <div className="text-[#C7D5E0] text-[20px] ml-[50px] cursor-pointer">
                         <span className="font-bold">0</span> follower
                     </div>
-                    <div className="text-[#C7D5E0] text-[20px] ml-[50px]">
+                    <div className="text-[#C7D5E0] text-[20px] ml-[50px] cursor-pointer">
                         <span className="font-bold">10</span> đã follow
                     </div>
                 </div>
