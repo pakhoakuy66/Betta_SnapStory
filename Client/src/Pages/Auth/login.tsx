@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import Logo from "../../assets/imgaes/Akuy_logo.png";
 
 export function LoginUser() {
@@ -34,6 +35,16 @@ export function LoginUser() {
                                 placeholder="Password"
                             />
                         </nav>
+                        <div className="text-[#C7D5E0] ml-[20px]">
+                            <Link
+                                to="/forgot-password"
+                                className="underline duration-300 
+                                hover:drop-shadow-[0_0_30px_white]"
+                            >
+                                {" "}
+                                Forgot password
+                            </Link>
+                        </div>
                         <div className="grid justify-center mt-3">
                             <button
                                 type="submit"
@@ -46,13 +57,14 @@ export function LoginUser() {
                         </div>
                         <p className="text-[#C7D5E0] my-5 text-center">
                             Have an account?
-                            <a
+                            <Link
+                                to="/register"
                                 className="underline duration-300 
                                 hover:drop-shadow-[0_0_30px_white]"
                             >
                                 {" "}
                                 Register
-                            </a>
+                            </Link>
                         </p>
                     </div>
                 </nav>

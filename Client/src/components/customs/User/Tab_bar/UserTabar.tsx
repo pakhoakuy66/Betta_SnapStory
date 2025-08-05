@@ -4,7 +4,7 @@ export function UserTab() {
     const [activeTab, setActiveTab] = useState("posts");
 
     return (
-        <nav className="flex border-b border-[#333] bg-[#111]">
+        <nav className="flex border-b-2 border-[#333]">
             <button
                 onClick={() => setActiveTab("posts")}
                 className={`w-1/2 px-4 py-3 text-sm text-center font-medium transition duration-300 cursor-pointer

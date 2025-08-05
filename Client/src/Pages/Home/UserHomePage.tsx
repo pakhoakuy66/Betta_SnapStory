@@ -1,17 +1,19 @@
+import { useNavigate, useLocation, Outlet } from "react-router-dom";
 import { useState } from "react";
 import { SideMenu } from "@/components/customs/Home/SideMenu/sideMenu";
-import { Feed } from "@/components/customs/Home/Feed/feed";
 import { SuggestionList } from "@/components/customs/Home/Suggestion/SuggestionList";
 import { Search } from "@/components/customs/Home/SideMenu/search";
 import { NotificationPanel } from "@/components/customs/Home/SideMenu/notifications";
 import { NewPost } from "@/components/customs/Home/SideMenu/newPost";
-import { Profile } from "../User/UserPage";
 
 export function UserHome() {
     const [showSearch, setShowSearch] = useState(false);
     const [showNotification, setShowNotification] = useState(false);
     const [showNewPost, setShowNewPost] = useState(false);
-    const [activePage, setActivePage] = useState<"home" | "profile">("home");
+
+
+    const navigate = useNavigate();
+    const location = useLocation();
 
     return (
         <div className="flex justify-center w-full">
@@ -20,10 +22,12 @@ export function UserHome() {
                     onSearch={() => setShowSearch(true)}
                     onNotification={() => setShowNotification(true)}
                     onNewPost={() => setShowNewPost(true)}
-                    onFeed={() => setActivePage("home")}
-                    onProfile={() => setActivePage("profile")}
+                    onFeed={() => navigate("/")}
+                    onProfile={() => navigate("/user")}
                 />
             </aside>
+
+            {/* Popup */}
             {/* Search - absolute, liền kề sidebar */}
             {showSearch && (
                 <div className="absolute left-[10px] top-0 z-10">
@@ -47,14 +51,17 @@ export function UserHome() {
             )}
             <main
                 className={`flex justify-center w-full transition-all duration-300 
-                ${activePage === "home" ? "max-w-[600px]" : "max-w-[1100px]"} 
+                ${
+                    location.pathname === "/"
+                        ? "max-w-[600px]"
+                        : "max-w-[1100px]"
+                } 
                 ml-[80px]`}
             >
-                {activePage === "home" && <Feed />}
-                {activePage === "profile" && <Profile />}
+                <Outlet />
             </main>
 
-            {activePage === "home" && (
+            {location.pathname === "/" && (
                 <aside className="w-[300px] ml-10">
                     <SuggestionList />
                 </aside>

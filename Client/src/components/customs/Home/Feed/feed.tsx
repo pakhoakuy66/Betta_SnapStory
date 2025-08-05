@@ -1,14 +1,21 @@
+import { useParams, useNavigate } from "react-router-dom";
 import { useState, useEffect, useRef } from "react";
 import { PostItem } from "./PostItem";
 import { PostItemDetail } from "./PostItemDetail";
 import { HidePost } from "../Context_menu/hidePost";
 
 export function Feed() {
-    const [showPostItemDetail, setShowPostItemDetail] = useState(false);
+    const { username, id: postId } = useParams();
+    const navigate = useNavigate();
+    // const [showPostItemDetail, setShowPostItemDetail] = useState(false);
     const [showHidePost, setShowHidePost] = useState(false);
 
     const hidePostOpenRef = useRef(false);
     const postDetailRef = useRef<HTMLDivElement>(null);
+
+    const handleCloseDetail = () => {
+        navigate("/"); // đóng popup thì quay về trang chính
+    };
 
     useEffect(() => {
         const handleClickOutside = (e: MouseEvent) => {
@@ -17,7 +24,8 @@ export function Feed() {
                 !postDetailRef.current.contains(e.target as Node) &&
                 !showHidePost // Chỉ đóng PostItemDetail khi HidePost không hiển thị
             ) {
-                setShowPostItemDetail(false);
+                // setShowPostItemDetail(false);
+                handleCloseDetail();
             }
         };
         document.addEventListener("mousedown", handleClickOutside);
@@ -37,22 +45,26 @@ export function Feed() {
         >
             <article className="grid justify-center w-[100%]">
                 <PostItem
-                    onPostDetail={() => setShowPostItemDetail(true)}
+                    postId="abc123"
+                    username="khoa"
+                    onPostDetail={() => navigate("/khoa/post/abc123")}
                     onHidePost={() => setShowHidePost(true)}
                 />
                 <PostItem
-                    onPostDetail={() => setShowPostItemDetail(true)}
+                    postId="xyz789"
+                    username="tien"
+                    onPostDetail={() => navigate("/tien/post/xyz789")}
                     onHidePost={() => setShowHidePost(true)}
                 />
             </article>
 
-            {showPostItemDetail && (
+            {postId && (
                 <div className="fixed inset-0 bg-black/75 z-40 flex justify-center items-center cursor-pointer">
                     <div ref={postDetailRef} className="relative">
                         {/* PostItemDetail */}
                         <div onClick={(e) => e.stopPropagation()}>
                             <PostItemDetail
-                                onClose={() => setShowPostItemDetail(false)}
+                                onClose={handleCloseDetail}
                                 onHidePost={() => setShowHidePost(true)}
                                 isHidePostOpen={hidePostOpenRef}
                             />

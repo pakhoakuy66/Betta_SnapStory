@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import Logo from "../../assets/imgaes/Akuy_logo.png";
 
 export function Register() {
@@ -57,13 +58,14 @@ export function Register() {
                         </div>
                         <p className="text-[#C7D5E0] my-5 text-center">
                             Have an account?
-                            <a
+                            <Link
+                                to="/login"
                                 className="underline duration-300 
                                 hover:drop-shadow-[0_0_30px_white]"
                             >
                                 {" "}
                                 Log in
-                            </a>
+                            </Link>
                         </p>
                     </div>
                 </nav>

@@ -11,7 +11,7 @@ export function Profile() {
 
     return (
         <div className="w-full max-w-[1100px] mx-auto text-white mt-10 px-6">
-            <div className="w-full border border-white rounded-md overflow-hidden">
+            <div className="w-full overflow-hidden">
                 {/* Header Profile */}
                 <UserHead
                     onMenuImage={() => setShowMenuImage(true)}

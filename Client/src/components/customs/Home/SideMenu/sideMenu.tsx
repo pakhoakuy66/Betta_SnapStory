@@ -21,6 +21,7 @@ export function SideMenu({
             >
                 <div className="items-start cursor-pointer">
                     <img
+                        onClick={onFeed}
                         src={Logo}
                         className="w-[100%] block drop-shadow-[0_0_1px_white] 
                                 duration-500 hover:drop-shadow-[0_0_5px_white]"

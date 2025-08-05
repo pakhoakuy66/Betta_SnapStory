@@ -1,18 +1,25 @@
+import { useNavigate } from "react-router-dom";
 import { useState, useEffect, useRef } from "react";
 import EmojiPicker from "emoji-picker-react";
 import type { EmojiClickData, Theme } from "emoji-picker-react";
 import { EditMenu } from "../Context_menu/editMenu";
 
 export function PostItem({
+    postId,
+    username,
     onPostDetail,
     onHidePost,
 }: {
+    postId: string;
+    username: string;
     onPostDetail: () => void;
     onHidePost: () => void;
 }) {
     const [showEmoji, setShowEmoji] = useState(false);
     const [showMenu, setShowMenu] = useState(false);
     const [comment, setComment] = useState("");
+
+    const navigate = useNavigate();
 
     const menuRef = useRef<HTMLDivElement>(null);
     const emojiRef = useRef<HTMLDivElement>(null);
@@ -90,9 +97,10 @@ export function PostItem({
             </div>
             <div className="w-full aspect-square bg-neutral-900 relative">
                 <img
+                    onClick={onPostDetail}
                     src="/posts/spurs_gate.jpg"
                     alt="Spurs post"
-                    className="w-full h-full object-cover"
+                    className="w-full h-full object-cover cursor-pointer"
                 />
                 <div className="absolute bottom-2 w-full flex justify-center gap-1">
                     <div className="w-2 h-2 rounded-full bg-white/80"></div>
