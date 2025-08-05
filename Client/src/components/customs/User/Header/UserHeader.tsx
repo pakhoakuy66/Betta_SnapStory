@@ -24,15 +24,15 @@ export function UserHead({ onMenuImage }: { onMenuImage: () => void }) {
         <header className="flex items-center gap-10 p-8">
             {/* Avatar */}
             <div
-                onClick={onMenuImage}
                 className="flex justify-center items-center w-[200px] 
-                h-[200px] border-1 rounded-full overflow-hidden
-                cursor-pointer"
+                h-[200px]"
             >
                 <img
+                    onClick={onMenuImage}
                     src="https://via.placeholder.com/150"
                     alt="Avatar"
-                    className="w-[150px] h-[150px] rounded-full object-cover"
+                    className="w-[150px] h-[150px] rounded-full object-cover
+                    border-1 cursor-pointer"
                 />
             </div>
 

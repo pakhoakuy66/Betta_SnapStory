@@ -2,7 +2,7 @@ import Logo from "../../assets/imgaes/Akuy_logo.png";
 
 export function LoginUser() {
     return (
-        <div className="flex h-full justify-center items-center">
+        <div className="flex h-screen justify-center items-center">
             <form
                 className="bg-[#000] p-3 shadow-xl w-[750px] 
                 h-auto rounded-sm drop-shadow-[0_0_1px_white] duration-300 hover:drop-shadow-[0_0_3px_white]"
@@ -39,7 +39,7 @@ export function LoginUser() {
                                 type="submit"
                                 className="w-[90px] h-[30px] bg-[#151d2a] text-white 
                                 rounded-sm drop-shadow-[0_0_1px_white] duration-300 hover:drop-shadow-[0_0_3px_white] 
-                                active:scale-95 active:drop-shadow-[0_0_5px_white]"
+                                active:scale-95 active:drop-shadow-[0_0_5px_white] cursor-pointer"
                             >
                                 Login
                             </button>
