@@ -1,7 +1,13 @@
 import { useState, useEffect, useRef } from "react";
 import { UserSettings } from "../Context_Menu/UserSettings";
 
-export function UserHead({ onMenuImage }: { onMenuImage: () => void }) {
+export function UserHead({
+    onMenuImage,
+    onEditProfile,
+}: {
+    onMenuImage: () => void;
+    onEditProfile: () => void;
+}) {
     const [showMenuSettings, setShowMenuSettings] = useState(false);
 
     const menuSettingsRef = useRef<HTMLDivElement>(null);
@@ -93,6 +99,7 @@ export function UserHead({ onMenuImage }: { onMenuImage: () => void }) {
                 </div>
                 <div className="flex items-center my-[10px]">
                     <button
+                        onClick={onEditProfile}
                         className="w-[220px] h-[30px] bg-[#151d2a] text-white 
                                 rounded-sm drop-shadow-[0_0_1px_white] cursor-pointer
                                 duration-300 hover:drop-shadow-[0_0_3px_white] 

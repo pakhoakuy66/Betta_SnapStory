@@ -8,7 +8,7 @@ import { EditUser } from "./components/customs/User/EditProfile/EditUserProfile"
 function App() {
     return (
         <div className="bg-[#000000] w-full overflow-x-hidden min-h-screen">
-            <EditUser />
+            <UserHome />
         </div>
     );
 }
