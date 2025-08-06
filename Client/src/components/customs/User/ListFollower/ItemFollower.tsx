@@ -1,4 +1,4 @@
-export function ItemFollow() {
+export function ItemFollower() {
     return (
         <li className="flex justify-between items-center h-[70px]">
             <img
@@ -14,7 +14,7 @@ export function ItemFollow() {
                             duration-300 hover:drop-shadow-[0_0_3px_white] mr-1
                             active:scale-95 active:drop-shadow-[0_0_5px_white]"
             >
-                Đang theo dõi
+                Theo dõi lại
             </button>
         </li>
     );

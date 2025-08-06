@@ -6,6 +6,7 @@ import { PostGrid } from "@/components/customs/User/Main/ListPost";
 import { MenuImage } from "@/components/customs/User/Context_Menu/UserMenuImage";
 import { EditUser } from "@/components/customs/User/EditProfile/EditUserProfile";
 import { UserFollow } from "@/components/customs/User/ListFollow/UserFollow";
+import { UserFollower } from "@/components/customs/User/ListFollower/UserFollower";
 
 export function Profile() {
     const [showMenuImage, setShowMenuImage] = useState(false);
@@ -16,6 +17,7 @@ export function Profile() {
     const navigate = useNavigate();
 
     const isFollowRoute = location.pathname.endsWith("/follow");
+    const isFollowerRoute = location.pathname.endsWith("/follower");
 
     const handleCloseListFollow = () => {
         navigate("/:username"); // đóng popup thì quay về trang chính
@@ -29,6 +31,7 @@ export function Profile() {
                     onMenuImage={() => setShowMenuImage(true)}
                     onEditProfile={() => setShowEditProfile(true)}
                     onListFollow={() => navigate("/:username/follow")}
+                    onListFollower={() => navigate("/:username/follower")}
                 />
 
                 {/* Hiện edit profile */}
@@ -48,12 +51,23 @@ export function Profile() {
                     </div>
                 )}
 
+                {/* Hiện list follow */}
                 {isFollowRoute && (
                     <div
                         className="fixed inset-0 bg-black/75 z-40 
                         flex justify-center items-center cursor-pointer"
                     >
                         <UserFollow onClose={handleCloseListFollow} />
+                    </div>
+                )}
+
+                {/* Hiện list follower */}
+                {isFollowerRoute && (
+                    <div
+                        className="fixed inset-0 bg-black/75 z-40 
+                        flex justify-center items-center cursor-pointer"
+                    >
+                        <UserFollower onClose={handleCloseListFollow} />
                     </div>
                 )}
 
