@@ -6,10 +6,12 @@ import { ForgotPassword } from "./Pages/Auth/forgotPassword";
 import { UserHome } from "./Pages/Home/UserHomePage";
 import { Feed } from "./components/customs/Home/Feed/feed";
 import { Profile } from "./Pages/User/UserPage";
+import { UserFollow } from "./components/customs/User/ListFollow/UserFollow";
 
 function App() {
     return (
         <div className="bg-[#000000] w-full overflow-x-hidden min-h-screen">
+            {/* <UserFollow /> */}
             <Routes>
                 <Route path="/" element={<UserHome />}>
                     <Route index element={<Feed />} />

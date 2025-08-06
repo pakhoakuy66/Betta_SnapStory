@@ -14,13 +14,21 @@ export function SuggestionList() {
                     Tải lại
                 </span>
             </nav>
-            <div className="h-auto">
+            <ul
+                className="w-[100%] mt-5 max-h-[350px] overflow-y-auto
+                scrollbar-hide"
+            >
                 <SuggestionListItem />
                 <SuggestionListItem />
                 <SuggestionListItem />
                 <SuggestionListItem />
                 <SuggestionListItem />
-            </div>
+                <SuggestionListItem />
+                <SuggestionListItem />
+                <SuggestionListItem />
+                <SuggestionListItem />
+                <SuggestionListItem />
+            </ul>
         </aside>
     );
 }
