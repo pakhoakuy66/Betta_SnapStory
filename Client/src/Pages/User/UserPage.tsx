@@ -2,7 +2,7 @@ import { useParams, useNavigate, useLocation } from "react-router-dom";
 import { useEffect, useState, useRef } from "react";
 import { UserHead } from "@/components/customs/User/Header/UserHeader";
 import { UserTab } from "@/components/customs/User/Tab_bar/UserTabar";
-import { PostGrid } from "@/components/customs/User/Main/ListPost";
+import { PostGrid } from "@/components/customs/User/Main/ListPostUser/ListPost";
 import { MenuImage } from "@/components/customs/User/Context_Menu/UserMenuImage";
 import { EditUser } from "@/components/customs/User/EditProfile/EditUserProfile";
 import { UserFollow } from "@/components/customs/User/ListFollow/UserFollow";

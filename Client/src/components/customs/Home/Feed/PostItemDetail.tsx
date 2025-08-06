@@ -124,7 +124,7 @@ export function PostItemDetail({
                 ${slideOut ? "scale-75 opacity-0" : "scale-100 opacity-100"}`}
         >
             <div
-                className="flex bg-[#000] shadow-xl w-[800px] 
+                className="flex bg-[#000] shadow-xl w-[700px] 
                 h-[450px] rounded-sm drop-shadow-[0_0_1px_white] duration-300 hover:drop-shadow-[0_0_3px_white]"
             >
                 {/* Left: Image */}
