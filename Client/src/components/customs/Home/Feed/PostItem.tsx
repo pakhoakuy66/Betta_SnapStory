@@ -61,7 +61,7 @@ export function PostItem({
     };
 
     return (
-        <div className="w-[500px] mx-auto bg-black text-white border border-neutral-800 rounded-md mb-8">
+        <div className="w-[400px] mx-auto bg-black text-white border border-neutral-800 rounded-md mb-8">
             <div className="flex items-center gap-2 px-4 py-3">
                 <img
                     src="/avatar/spurs.png"
