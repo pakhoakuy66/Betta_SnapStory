@@ -5,10 +5,12 @@ export function UserHead({
     onMenuImage,
     onEditProfile,
     onListFollow,
+    onListFollower,
 }: {
     onMenuImage: () => void;
     onEditProfile: () => void;
     onListFollow: () => void;
+    onListFollower: () => void;
 }) {
     const [showMenuSettings, setShowMenuSettings] = useState(false);
 
@@ -92,7 +94,10 @@ export function UserHead({
                     <div className="text-[#C7D5E0] text-[20px]">
                         <span className="font-bold">0</span> bài biết
                     </div>
-                    <div className="text-[#C7D5E0] text-[20px] ml-[50px] cursor-pointer">
+                    <div
+                        onClick={onListFollower}
+                        className="text-[#C7D5E0] text-[20px] ml-[50px] cursor-pointer"
+                    >
                         <span className="font-bold">0</span> follower
                     </div>
                     <div

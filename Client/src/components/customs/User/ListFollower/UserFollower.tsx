@@ -1,16 +1,16 @@
 import { useState, useRef, useEffect } from "react";
-import { ItemFollow } from "./ItemFollow";
+import { ItemFollower } from "./ItemFollower";
 
-export function UserFollow({ onClose }: { onClose: () => void }) {
+export function UserFollower({ onClose }: { onClose: () => void }) {
     const [slideOut, setShowSlideOut] = useState(false);
 
-    const listFollowRef = useRef<HTMLDivElement>(null);
+    const listFollowerRef = useRef<HTMLDivElement>(null);
 
     useEffect(() => {
         const handleClickOutSide = (e: MouseEvent) => {
             if (
-                listFollowRef.current &&
-                !listFollowRef.current.contains(e.target as Node)
+                listFollowerRef.current &&
+                !listFollowerRef.current.contains(e.target as Node)
             ) {
                 setShowSlideOut(true);
                 setTimeout(() => onClose(), 300);
@@ -23,7 +23,7 @@ export function UserFollow({ onClose }: { onClose: () => void }) {
 
     return (
         <div
-            ref={listFollowRef}
+            ref={listFollowerRef}
             className={`flex h-screen justify-center items-center transition-all duration-300 ease-in-out
                 ${slideOut ? "scale-75 opacity-0" : "scale-100 opacity-100"}`}
         >
@@ -34,18 +34,18 @@ export function UserFollow({ onClose }: { onClose: () => void }) {
             >
                 <div className="w-[100%] h-[40px] border-b-2 border-[#333]">
                     <h2 className="text-[20px] text-center font-bold block">
-                        Đang theo dõi
+                        Người theo dõi
                     </h2>
                 </div>
                 <ul className="w-[100%] max-h-[290px] mt-2 overflow-y-auto scrollbar-hide">
-                    <ItemFollow />
-                    <ItemFollow />
-                    <ItemFollow />
-                    <ItemFollow />
-                    <ItemFollow />
-                    <ItemFollow />
-                    <ItemFollow />
-                    <ItemFollow />
+                    <ItemFollower />
+                    <ItemFollower />
+                    <ItemFollower />
+                    <ItemFollower />
+                    <ItemFollower />
+                    <ItemFollower />
+                    <ItemFollower />
+                    <ItemFollower />
                 </ul>
             </div>
         </div>
