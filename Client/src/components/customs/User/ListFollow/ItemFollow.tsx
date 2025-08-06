@@ -1,4 +1,4 @@
-export function SuggestionListItem() {
+export function ItemFoollow() {
     return (
         <li className="flex justify-between items-center h-[70px]">
             <img
@@ -7,7 +7,6 @@ export function SuggestionListItem() {
             />
             <nav className="ml-[15px] w-[100%]">
                 <h2 className="text-[#fff] text-[13px] font-bold">Tên</h2>
-                <span className="text-[#fff] text-[13px]">Gợi ý cho bạn</span>
             </nav>
             <button
                 className="text-[#fff] w-[90px] text-[13px] text-end cursor-pointer
