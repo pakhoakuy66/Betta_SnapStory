@@ -6,7 +6,6 @@ import { ForgotPassword } from "./Pages/Auth/forgotPassword";
 import { UserHome } from "./Pages/Home/UserHomePage";
 import { Feed } from "./components/customs/Home/Feed/feed";
 import { Profile } from "./Pages/User/UserPage";
-import { UserFollow } from "./components/customs/User/ListFollow/UserFollow";
 
 function App() {
     return (
@@ -15,8 +14,9 @@ function App() {
             <Routes>
                 <Route path="/" element={<UserHome />}>
                     <Route index element={<Feed />} />
-                    <Route path="user" element={<Profile />} />
                     <Route path=":username/post/:id" element={<Feed />} />
+                    <Route path=":username" element={<Profile />} />
+                    <Route path=":username/follow" element={<Profile />} />
                 </Route>
                 <Route path="/login" element={<LoginUser />} />
                 <Route path="/register" element={<Register />} />

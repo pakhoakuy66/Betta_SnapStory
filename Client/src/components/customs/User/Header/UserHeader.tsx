@@ -4,9 +4,11 @@ import { UserSettings } from "../Context_Menu/UserSettings";
 export function UserHead({
     onMenuImage,
     onEditProfile,
+    onListFollow,
 }: {
     onMenuImage: () => void;
     onEditProfile: () => void;
+    onListFollow: () => void;
 }) {
     const [showMenuSettings, setShowMenuSettings] = useState(false);
 
@@ -93,7 +95,10 @@ export function UserHead({
                     <div className="text-[#C7D5E0] text-[20px] ml-[50px] cursor-pointer">
                         <span className="font-bold">0</span> follower
                     </div>
-                    <div className="text-[#C7D5E0] text-[20px] ml-[50px] cursor-pointer">
+                    <div
+                        onClick={onListFollow}
+                        className="text-[#C7D5E0] text-[20px] ml-[50px] cursor-pointer"
+                    >
                         <span className="font-bold">10</span> đã follow
                     </div>
                 </div>

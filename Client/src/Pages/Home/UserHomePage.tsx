@@ -11,7 +11,6 @@ export function UserHome() {
     const [showNotification, setShowNotification] = useState(false);
     const [showNewPost, setShowNewPost] = useState(false);
 
-
     const navigate = useNavigate();
     const location = useLocation();
 
@@ -23,7 +22,7 @@ export function UserHome() {
                     onNotification={() => setShowNotification(true)}
                     onNewPost={() => setShowNewPost(true)}
                     onFeed={() => navigate("/")}
-                    onProfile={() => navigate("/user")}
+                    onProfile={() => navigate("/:username")}
                 />
             </aside>
 
