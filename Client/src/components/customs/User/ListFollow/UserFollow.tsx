@@ -1,8 +1,32 @@
+import { useState, useRef, useEffect } from "react";
 import { ItemFoollow } from "./ItemFollow";
 
-export function UserFollow() {
+export function UserFollow({ onClose }: { onClose: () => void }) {
+    const [slideOut, setShowSlideOut] = useState(false);
+
+    const listFollowRef = useRef<HTMLDivElement>(null);
+
+    useEffect(() => {
+        const handleClickOutSide = (e: MouseEvent) => {
+            if (
+                listFollowRef.current &&
+                !listFollowRef.current.contains(e.target as Node)
+            ) {
+                setShowSlideOut(true);
+                setTimeout(() => onClose(), 300);
+            }
+        };
+        document.addEventListener("mousedown", handleClickOutSide);
+        return () =>
+            document.removeEventListener("mousedown", handleClickOutSide);
+    }, [onClose]);
+
     return (
-        <div className="flex h-screen justify-center items-center transition-all duration-300 ease-in-out">
+        <div
+            ref={listFollowRef}
+            className={`flex h-screen justify-center items-center transition-all duration-300 ease-in-out
+                ${slideOut ? "scale-75 opacity-0" : "scale-100 opacity-100"}`}
+        >
             <div
                 className="bg-[#000] shadow-xl w-[450px] p-3
                 h-[350px] rounded-sm drop-shadow-[0_0_1px_white] 

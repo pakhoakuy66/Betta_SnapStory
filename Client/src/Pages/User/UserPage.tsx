@@ -1,13 +1,25 @@
+import { useParams, useNavigate, useLocation } from "react-router-dom";
 import { useEffect, useState, useRef } from "react";
 import { UserHead } from "@/components/customs/User/Header/UserHeader";
 import { UserTab } from "@/components/customs/User/Tab_bar/UserTabar";
 import { PostGrid } from "@/components/customs/User/Main/ListPost";
 import { MenuImage } from "@/components/customs/User/Context_Menu/UserMenuImage";
 import { EditUser } from "@/components/customs/User/EditProfile/EditUserProfile";
+import { UserFollow } from "@/components/customs/User/ListFollow/UserFollow";
 
 export function Profile() {
     const [showMenuImage, setShowMenuImage] = useState(false);
     const [showEditProfile, setShowEditProfile] = useState(false);
+
+    const { username } = useParams();
+    const location = useLocation();
+    const navigate = useNavigate();
+
+    const isFollowRoute = location.pathname.endsWith("/follow");
+
+    const handleCloseListFollow = () => {
+        navigate("/:username"); // đóng popup thì quay về trang chính
+    };
 
     return (
         <div className="w-full max-w-[1100px] mx-auto text-white mt-10 px-6">
@@ -16,6 +28,7 @@ export function Profile() {
                 <UserHead
                     onMenuImage={() => setShowMenuImage(true)}
                     onEditProfile={() => setShowEditProfile(true)}
+                    onListFollow={() => navigate("/:username/follow")}
                 />
 
                 {/* Hiện edit profile */}
@@ -32,6 +45,15 @@ export function Profile() {
                 {showMenuImage && (
                     <div className="fixed inset-0 bg-black/50 z-50">
                         <MenuImage onClose={() => setShowMenuImage(false)} />
+                    </div>
+                )}
+
+                {isFollowRoute && (
+                    <div
+                        className="fixed inset-0 bg-black/75 z-40 
+                        flex justify-center items-center cursor-pointer"
+                    >
+                        <UserFollow onClose={handleCloseListFollow} />
                     </div>
                 )}
 
