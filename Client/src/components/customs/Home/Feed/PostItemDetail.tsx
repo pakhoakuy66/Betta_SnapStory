@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import EmojiPicker from "emoji-picker-react";
 import type { EmojiClickData, Theme } from "emoji-picker-react";
-import { EditMenu } from "../Context_menu/editMenu";
+import { EditMenu } from "../../Context_menu/editMenu";
 
 const post = {
     image: "/posts/spurs_gate.jpg",
@@ -119,11 +119,11 @@ export function PostItemDetail({
 
     return (
         <div
-            ref={postDetailRef}
             className={`flex h-screen justify-center items-center transition-all duration-300 ease-in-out
                 ${slideOut ? "scale-75 opacity-0" : "scale-100 opacity-100"}`}
         >
             <div
+                ref={postDetailRef}
                 className="flex bg-[#000] shadow-xl w-[700px] 
                 h-[450px] rounded-sm drop-shadow-[0_0_1px_white] duration-300 hover:drop-shadow-[0_0_3px_white]"
             >
