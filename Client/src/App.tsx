@@ -6,6 +6,7 @@ import { ForgotPassword } from "./Pages/Auth/forgotPassword";
 import { UserHome } from "./Pages/Home/UserHomePage";
 import { Feed } from "./components/customs/Home/Feed/feed";
 import { Profile } from "./Pages/User/UserPage";
+import { MenuLanguages } from "./components/customs/Context_menu/menuLanguages";
 
 function App() {
     return (
@@ -14,12 +15,14 @@ function App() {
             <Routes>
                 <Route path="/" element={<UserHome />}>
                     <Route index element={<Feed />} />
-                    <Route path=":username/post/:id" element={<Feed />} />
                     <Route path=":username" element={<Profile />} />
+                    <Route path=":username/post/:id" element={<Feed />} />
                     <Route path=":username/follow" element={<Profile />} />
                     <Route path=":username/follower" element={<Profile />} />
                     <Route path=":username/:id" element={<Profile />} />
+                    <Route path="/settings/languages" element={<Profile />} />
                 </Route>
+
                 <Route path="/login" element={<LoginUser />} />
                 <Route path="/register" element={<Register />} />
                 <Route path="/forgot-password" element={<ForgotPassword />} />
