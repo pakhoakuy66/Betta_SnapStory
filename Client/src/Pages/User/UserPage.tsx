@@ -9,6 +9,7 @@ import { UserFollow } from "@/components/customs/User/ListFollow/UserFollow";
 import { UserFollower } from "@/components/customs/User/ListFollower/UserFollower";
 import { UserPostItemDetail } from "@/components/customs/User/Main/PostDetailUser/PostDetailUser";
 import { HidePost } from "@/components/customs/Context_menu/hidePost";
+import { MenuLanguages } from "@/components/customs/Context_menu/menuLanguages";
 
 export function Profile() {
     const [showMenuImage, setShowMenuImage] = useState(false);
@@ -24,6 +25,7 @@ export function Profile() {
 
     const isFollowRoute = location.pathname.endsWith("/follow");
     const isFollowerRoute = location.pathname.endsWith("/follower");
+    const isLanguagesRoute = location.pathname === "/settings/languages";
 
     const handleCloseUser = () => {
         navigate("/:username"); // đóng popup thì quay về trang chính
@@ -59,6 +61,7 @@ export function Profile() {
                     onEditProfile={() => setShowEditProfile(true)}
                     onListFollow={() => navigate("/:username/follow")}
                     onListFollower={() => navigate("/:username/follower")}
+                    onMenuLanguages={() => navigate("/settings/languages")}
                 />
 
                 {/* Hiện edit profile */}
@@ -95,6 +98,17 @@ export function Profile() {
                         flex justify-center items-center cursor-pointer"
                     >
                         <UserFollower onClose={handleCloseUser} />
+                    </div>
+                )}
+
+                {/* Settings */}
+                {/* Setting Languages */}
+                {isLanguagesRoute && (
+                    <div
+                        className="fixed inset-0 bg-black/75 z-40 
+                        flex justify-center items-center cursor-pointer"
+                    >
+                        <MenuLanguages onClose={handleCloseUser} />
                     </div>
                 )}
 

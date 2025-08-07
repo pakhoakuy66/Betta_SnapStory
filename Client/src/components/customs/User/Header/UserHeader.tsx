@@ -6,11 +6,13 @@ export function UserHead({
     onEditProfile,
     onListFollow,
     onListFollower,
+    onMenuLanguages,
 }: {
     onMenuImage: () => void;
     onEditProfile: () => void;
     onListFollow: () => void;
     onListFollower: () => void;
+    onMenuLanguages: () => void;
 }) {
     const [showMenuSettings, setShowMenuSettings] = useState(false);
 
@@ -80,7 +82,11 @@ export function UserHead({
                                     },
                                     { label: "Đăng xuất", action: "Logout" },
                                 ]}
-                                onOptionClick={(action) => {}}
+                                onOptionClick={(action) => {
+                                    if (action === "Languages") {
+                                        onMenuLanguages();
+                                    }
+                                }}
                             />
                         )}
                     </div>
