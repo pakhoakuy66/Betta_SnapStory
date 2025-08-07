@@ -23,11 +23,11 @@ export function UserFollow({ onClose }: { onClose: () => void }) {
 
     return (
         <div
-            ref={listFollowRef}
             className={`flex h-screen justify-center items-center transition-all duration-300 ease-in-out
                 ${slideOut ? "scale-75 opacity-0" : "scale-100 opacity-100"}`}
         >
             <div
+                ref={listFollowRef}
                 className="bg-[#000] shadow-xl w-[450px] p-3
                 h-[350px] rounded-sm drop-shadow-[0_0_1px_white] 
                 duration-300 hover:drop-shadow-[0_0_3px_white] text-[#C7D5E0]"

@@ -7,21 +7,48 @@ import { MenuImage } from "@/components/customs/User/Context_Menu/UserMenuImage"
 import { EditUser } from "@/components/customs/User/EditProfile/EditUserProfile";
 import { UserFollow } from "@/components/customs/User/ListFollow/UserFollow";
 import { UserFollower } from "@/components/customs/User/ListFollower/UserFollower";
+import { UserPostItemDetail } from "@/components/customs/User/Main/PostDetailUser/PostDetailUser";
+import { HidePost } from "@/components/customs/Context_menu/hidePost";
 
 export function Profile() {
     const [showMenuImage, setShowMenuImage] = useState(false);
     const [showEditProfile, setShowEditProfile] = useState(false);
+    const [showHidePost, setShowHidePost] = useState(false);
 
-    const { username } = useParams();
+    const postDetailUserRef = useRef<HTMLDivElement>(null);
+    const hidePostOpenRef = useRef(false);
+
+    const { username, id: postId } = useParams();
     const location = useLocation();
     const navigate = useNavigate();
 
     const isFollowRoute = location.pathname.endsWith("/follow");
     const isFollowerRoute = location.pathname.endsWith("/follower");
 
-    const handleCloseListFollow = () => {
+    const handleCloseUser = () => {
         navigate("/:username"); // đóng popup thì quay về trang chính
     };
+
+    useEffect(() => {
+        const handleClickOutside = (e: MouseEvent) => {
+            if (
+                postDetailUserRef.current &&
+                !postDetailUserRef.current.contains(e.target as Node) &&
+                !showHidePost // Chỉ đóng PostItemDetail khi HidePost không hiển thị
+            ) {
+                // setShowPostItemDetail(false);
+                handleCloseUser();
+            }
+        };
+        document.addEventListener("mousedown", handleClickOutside);
+        return () =>
+            document.removeEventListener("mousedown", handleClickOutside);
+    }, [showHidePost]);
+
+    // Cập nhật ref theo state
+    useEffect(() => {
+        hidePostOpenRef.current = showHidePost;
+    }, [showHidePost]);
 
     return (
         <div className="w-full max-w-[1100px] mx-auto text-white mt-10 px-6">
@@ -57,7 +84,7 @@ export function Profile() {
                         className="fixed inset-0 bg-black/75 z-40 
                         flex justify-center items-center cursor-pointer"
                     >
-                        <UserFollow onClose={handleCloseListFollow} />
+                        <UserFollow onClose={handleCloseUser} />
                     </div>
                 )}
 
@@ -67,7 +94,7 @@ export function Profile() {
                         className="fixed inset-0 bg-black/75 z-40 
                         flex justify-center items-center cursor-pointer"
                     >
-                        <UserFollower onClose={handleCloseListFollow} />
+                        <UserFollower onClose={handleCloseUser} />
                     </div>
                 )}
 
@@ -75,7 +102,37 @@ export function Profile() {
                 <UserTab />
 
                 {/* List Post */}
-                <PostGrid />
+                <PostGrid
+                    postId="abc123"
+                    username="khoa"
+                    onPostDetailUser={() => navigate("/khoa/abc123")}
+                />
+                {postId && (
+                    <div className="fixed inset-0 bg-black/75 z-40 flex justify-center items-center cursor-pointer">
+                        <div ref={postDetailUserRef} className="relative">
+                            {/* PostItemDetail */}
+                            <div onClick={(e) => e.stopPropagation()}>
+                                <UserPostItemDetail
+                                    onClose={handleCloseUser}
+                                    onHidePost={() => setShowHidePost(true)}
+                                    isHidePostOpen={hidePostOpenRef}
+                                />
+                            </div>
+
+                            {/* HidePost */}
+                            {showHidePost && (
+                                <div
+                                    className="fixed inset-0 bg-black/50 z-50"
+                                    onClick={(e) => e.stopPropagation()}
+                                >
+                                    <HidePost
+                                        onClose={() => setShowHidePost(false)}
+                                    />
+                                </div>
+                            )}
+                        </div>
+                    </div>
+                )}
             </div>
         </div>
     );
