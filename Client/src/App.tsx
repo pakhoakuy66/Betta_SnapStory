@@ -6,7 +6,7 @@ import { ForgotPassword } from "./Pages/Auth/forgotPassword";
 import { UserHome } from "./Pages/Home/UserHomePage";
 import { Feed } from "./components/customs/Home/Feed/feed";
 import { Profile } from "./Pages/User/UserPage";
-import { MenuLanguages } from "./components/customs/Settings/Languages/menuLanguages";
+import { UserQR } from "./components/customs/Settings/QR/UserQR";
 
 function App() {
     return (
@@ -26,6 +26,7 @@ function App() {
                 <Route path="/login" element={<LoginUser />} />
                 <Route path="/register" element={<Register />} />
                 <Route path="/forgot-password" element={<ForgotPassword />} />
+                <Route path="/qr" element={<UserQR />} />
             </Routes>
         </div>
     );

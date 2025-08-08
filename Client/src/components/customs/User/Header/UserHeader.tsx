@@ -1,5 +1,7 @@
+import { useNavigate } from "react-router-dom";
 import { useState, useEffect, useRef } from "react";
 import { UserSettings } from "../Context_Menu/UserSettings";
+import QRCode from "react-qr-code";
 
 export function UserHead({
     onMenuImage,
@@ -17,6 +19,8 @@ export function UserHead({
     const [showMenuSettings, setShowMenuSettings] = useState(false);
 
     const menuSettingsRef = useRef<HTMLDivElement>(null);
+
+    const navigate = useNavigate();
 
     useEffect(() => {
         const handleClickOutSide = (e: MouseEvent) => {
@@ -85,6 +89,8 @@ export function UserHead({
                                 onOptionClick={(action) => {
                                     if (action === "Languages") {
                                         onMenuLanguages();
+                                    } else if (action === "QRCode") {
+                                        navigate("/qr");
                                     }
                                 }}
                             />
