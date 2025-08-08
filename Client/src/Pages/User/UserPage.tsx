@@ -10,6 +10,7 @@ import { UserFollower } from "@/components/customs/User/ListFollower/UserFollowe
 import { UserPostItemDetail } from "@/components/customs/User/Main/PostDetailUser/PostDetailUser";
 import { HidePost } from "@/components/customs/Context_menu/hidePost";
 import { MenuLanguages } from "@/components/customs/Settings/Languages/menuLanguages";
+import { PersonalStatus } from "@/components/customs/Settings/PersonalStatus/PersonalStatus";
 
 export function Profile() {
     const [showMenuImage, setShowMenuImage] = useState(false);
@@ -26,6 +27,7 @@ export function Profile() {
     const isFollowRoute = location.pathname.endsWith("/follow");
     const isFollowerRoute = location.pathname.endsWith("/follower");
     const isLanguagesRoute = location.pathname === "/settings/languages";
+    const isPersonalStatus = location.pathname === "/settings/personalStatus";
 
     const handleCloseUser = () => {
         navigate("/:username"); // đóng popup thì quay về trang chính
@@ -62,6 +64,9 @@ export function Profile() {
                     onListFollow={() => navigate("/:username/follow")}
                     onListFollower={() => navigate("/:username/follower")}
                     onMenuLanguages={() => navigate("/settings/languages")}
+                    onPersonalStatus={() =>
+                        navigate("/settings/personalStatus")
+                    }
                 />
 
                 {/* Hiện edit profile */}
@@ -85,7 +90,7 @@ export function Profile() {
                 {isFollowRoute && (
                     <div
                         className="fixed inset-0 bg-black/75 z-40 
-                        flex justify-center items-center cursor-pointer"
+                        flex justify-center items-center"
                     >
                         <UserFollow onClose={handleCloseUser} />
                     </div>
@@ -95,7 +100,7 @@ export function Profile() {
                 {isFollowerRoute && (
                     <div
                         className="fixed inset-0 bg-black/75 z-40 
-                        flex justify-center items-center cursor-pointer"
+                        flex justify-center items-center"
                     >
                         <UserFollower onClose={handleCloseUser} />
                     </div>
@@ -109,6 +114,13 @@ export function Profile() {
                         flex justify-center items-center cursor-pointer"
                     >
                         <MenuLanguages onClose={handleCloseUser} />
+                    </div>
+                )}
+
+                {/* Setting Languages */}
+                {isPersonalStatus && (
+                    <div className="fixed inset-0 bg-black-75 z-40">
+                        <PersonalStatus onClose={handleCloseUser} />
                     </div>
                 )}
 

@@ -9,12 +9,14 @@ export function UserHead({
     onListFollow,
     onListFollower,
     onMenuLanguages,
+    onPersonalStatus,
 }: {
     onMenuImage: () => void;
     onEditProfile: () => void;
     onListFollow: () => void;
     onListFollower: () => void;
     onMenuLanguages: () => void;
+    onPersonalStatus: () => void;
 }) {
     const [showMenuSettings, setShowMenuSettings] = useState(false);
 
@@ -57,6 +59,10 @@ export function UserHead({
                 <div className="flex items-center justify-between mb-[10px]">
                     <div className="text-[#C7D5E0] text-[26px] font-bold">
                         Tên người dùng
+                        <span className="ml-2 text-[16px] font-normal italic hidden">
+                            <i className="fa-solid fa-lock"></i> Tài khoản này
+                            đang ở chế độ riêng tư
+                        </span>
                     </div>
                     <div
                         ref={menuSettingsRef}
@@ -77,8 +83,8 @@ export function UserHead({
 
                                     { label: "Chia sẻ QR", action: "QRCode" },
                                     {
-                                        label: "Cài đặt & quyền riêng tư",
-                                        action: "QRCode",
+                                        label: "Trạng thái trang cá nhân",
+                                        action: "Status",
                                     },
                                     {
                                         label: "Hoạt động đăng nhập",
@@ -91,6 +97,8 @@ export function UserHead({
                                         onMenuLanguages();
                                     } else if (action === "QRCode") {
                                         navigate("/qr");
+                                    } else if (action === "Status") {
+                                        onPersonalStatus();
                                     }
                                 }}
                             />

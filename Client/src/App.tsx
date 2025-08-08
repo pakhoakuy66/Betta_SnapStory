@@ -21,6 +21,10 @@ function App() {
                     <Route path=":username/follower" element={<Profile />} />
                     <Route path=":username/:id" element={<Profile />} />
                     <Route path="/settings/languages" element={<Profile />} />
+                    <Route
+                        path="/settings/personalStatus"
+                        element={<Profile />}
+                    />
                 </Route>
 
                 <Route path="/login" element={<LoginUser />} />
