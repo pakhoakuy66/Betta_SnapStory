@@ -38,7 +38,7 @@ export function UserQR() {
 
             {/* QR code */}
             <div className="flex justify-center items-center min-h-screen text-[#C7D5E0]">
-                <div className="bg-[#000] p-3 rounded-sm flex flex-col items-center">
+                <div className="bg-[#000] p-3 rounded-xl border-2 flex flex-col items-center">
                     {/* <QRCode value={qrValue} size={200} /> */}
                     <p className="mt-4 text-center break-all ">
                         {/* {qrValue} */}
