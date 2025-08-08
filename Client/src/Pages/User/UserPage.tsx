@@ -9,7 +9,7 @@ import { UserFollow } from "@/components/customs/User/ListFollow/UserFollow";
 import { UserFollower } from "@/components/customs/User/ListFollower/UserFollower";
 import { UserPostItemDetail } from "@/components/customs/User/Main/PostDetailUser/PostDetailUser";
 import { HidePost } from "@/components/customs/Context_menu/hidePost";
-import { MenuLanguages } from "@/components/customs/Context_menu/menuLanguages";
+import { MenuLanguages } from "@/components/customs/Settings/Languages/menuLanguages";
 
 export function Profile() {
     const [showMenuImage, setShowMenuImage] = useState(false);
