@@ -6,7 +6,7 @@ import { ForgotPassword } from "./Pages/Auth/forgotPassword";
 import { UserHome } from "./Pages/Home/UserHomePage";
 import { Feed } from "./components/customs/Home/Feed/feed";
 import { Profile } from "./Pages/User/UserPage";
-import { MenuLanguages } from "./components/customs/Context_menu/menuLanguages";
+import { MenuLanguages } from "./components/customs/Settings/Languages/menuLanguages";
 
 function App() {
     return (
