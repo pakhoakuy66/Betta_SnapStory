@@ -10,6 +10,7 @@ export function UserHead({
     onListFollower,
     onMenuLanguages,
     onPersonalStatus,
+    onHistoryLogin,
 }: {
     onMenuImage: () => void;
     onEditProfile: () => void;
@@ -17,6 +18,7 @@ export function UserHead({
     onListFollower: () => void;
     onMenuLanguages: () => void;
     onPersonalStatus: () => void;
+    onHistoryLogin: () => void;
 }) {
     const [showMenuSettings, setShowMenuSettings] = useState(false);
 
@@ -99,6 +101,8 @@ export function UserHead({
                                         navigate("/qr");
                                     } else if (action === "Status") {
                                         onPersonalStatus();
+                                    } else if (action === "Login_Activity") {
+                                        onHistoryLogin();
                                     }
                                 }}
                             />

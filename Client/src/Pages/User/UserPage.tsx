@@ -11,6 +11,7 @@ import { UserPostItemDetail } from "@/components/customs/User/Main/PostDetailUse
 import { HidePost } from "@/components/customs/Context_menu/hidePost";
 import { MenuLanguages } from "@/components/customs/Settings/Languages/menuLanguages";
 import { PersonalStatus } from "@/components/customs/Settings/PersonalStatus/PersonalStatus";
+import { HistoryLogin } from "@/components/customs/Settings/HistoryLogin/HistoryLogin";
 
 export function Profile() {
     const [showMenuImage, setShowMenuImage] = useState(false);
@@ -28,6 +29,7 @@ export function Profile() {
     const isFollowerRoute = location.pathname.endsWith("/follower");
     const isLanguagesRoute = location.pathname === "/settings/languages";
     const isPersonalStatus = location.pathname === "/settings/personalStatus";
+    const isHistoryLogin = location.pathname === "/settings/historyLogin";
 
     const handleCloseUser = () => {
         navigate("/:username"); // đóng popup thì quay về trang chính
@@ -67,6 +69,7 @@ export function Profile() {
                     onPersonalStatus={() =>
                         navigate("/settings/personalStatus")
                     }
+                    onHistoryLogin={() => navigate("/settings/historyLogin")}
                 />
 
                 {/* Hiện edit profile */}
@@ -121,6 +124,13 @@ export function Profile() {
                 {isPersonalStatus && (
                     <div className="fixed inset-0 bg-black-75 z-40">
                         <PersonalStatus onClose={handleCloseUser} />
+                    </div>
+                )}
+
+                {/* Setting History Login */}
+                {isHistoryLogin && (
+                    <div className="fixed inset-0 bg-black-75 z-40">
+                        <HistoryLogin onClose={handleCloseUser} />
                     </div>
                 )}
 
