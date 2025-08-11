@@ -26,14 +26,13 @@ export function PersonalStatus({ onClose }: { onClose: () => void }) {
                 personalStatusRef.current &&
                 !personalStatusRef.current.contains(e.target as Node)
             ) {
-                setShowSlideOut(true);
-                setTimeout(onClose, 300);
+                setShowSlideOut(false);
             }
         };
         document.addEventListener("mousedown", handleClickOutSide);
         return () =>
             document.removeEventListener("mousedown", handleClickOutSide);
-    }, [onClose]);
+    }, []);
 
     const handleToggleClick = () => {
         if (!isPrivate) {
@@ -67,14 +66,17 @@ export function PersonalStatus({ onClose }: { onClose: () => void }) {
                     h-auto rounded-sm drop-shadow-[0_0_1px_white] duration-300 hover:drop-shadow-[0_0_3px_white]"
                 >
                     <div className="flex h-[20px] items-center my-3">
-                        <Link to="/:username" className="mr-3 cursor-pointer">
+                        <button
+                            onClick={onClose}
+                            className="mr-3 cursor-pointer"
+                        >
                             <i
                                 className="fa-solid fa-arrow-left
                                 text-[#C7D5E0] text-[16px] text-center font-bold 
                                 block drop-shadow-[0_0_1px_white] 
                                 duration-500 hover:drop-shadow-[0_0_5px_white]"
                             ></i>
-                        </Link>
+                        </button>
                         <h2 className="text-[#C7D5E0] text-[16px] text-center font-bold block">
                             Quyền riêng tư
                         </h2>

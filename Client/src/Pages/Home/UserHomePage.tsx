@@ -5,11 +5,15 @@ import { SuggestionList } from "@/components/customs/Home/Suggestion/SuggestionL
 import { Search } from "@/components/customs/Home/SideMenu/search";
 import { NotificationPanel } from "@/components/customs/Home/SideMenu/notifications";
 import { NewPost } from "@/components/customs/Home/SideMenu/newPost";
+import { MenuLanguages } from "@/components/customs/Settings/Languages/menuLanguages";
+import { HistoryLogin } from "@/components/customs/Settings/HistoryLogin/HistoryLogin";
 
 export function UserHome() {
     const [showSearch, setShowSearch] = useState(false);
     const [showNotification, setShowNotification] = useState(false);
     const [showNewPost, setShowNewPost] = useState(false);
+    const [showMenuLanguages, setShowMenuLanguages] = useState(false);
+    const [showHistoryLogin, setShowHistoryLogin] = useState(false);
 
     const navigate = useNavigate();
     const location = useLocation();
@@ -23,6 +27,8 @@ export function UserHome() {
                     onNewPost={() => setShowNewPost(true)}
                     onFeed={() => navigate("/")}
                     onProfile={() => navigate("/:username")}
+                    onMenuLanguages={() => setShowMenuLanguages(true)}
+                    onHistoryLogin={() => setShowHistoryLogin(true)}
                 />
             </aside>
 
@@ -48,6 +54,20 @@ export function UserHome() {
                     <NewPost onClose={() => setShowNewPost(false)} />
                 </div>
             )}
+            {showMenuLanguages && (
+                <div className="fixed inset-0 bg-black/50 z-40">
+                    <MenuLanguages
+                        onClose={() => setShowMenuLanguages(false)}
+                    />
+                </div>
+            )}
+
+            {showHistoryLogin && (
+                <div className="fixed inset-0 bg-black/50 z-40">
+                    <HistoryLogin onClose={() => setShowHistoryLogin(false)} />
+                </div>
+            )}
+
             <main
                 className={`flex justify-center w-full transition-all duration-300 
                 ${

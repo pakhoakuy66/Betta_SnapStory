@@ -32,14 +32,14 @@ export function HistoryLogin({ onClose }: { onClose: () => void }) {
                     h-[400px] rounded-sm drop-shadow-[0_0_1px_white] duration-300 hover:drop-shadow-[0_0_3px_white]"
             >
                 <div className="relative items-center flex w-[100%] h-[40px] border-b-2 border-[#333]">
-                    <Link to="/:username" className="mr-3 cursor-pointer">
+                    <button onClick={onClose} className="mr-3 cursor-pointer">
                         <i
                             className="fa-solid fa-arrow-left
                                 text-[#C7D5E0] text-[16px] text-center font-bold 
                                 block drop-shadow-[0_0_1px_white] 
                                 duration-500 hover:drop-shadow-[0_0_5px_white]"
                         ></i>
-                    </Link>
+                    </button>
                     <h2 className="absolute left-1/2 -translate-x-1/2 font-bold text-[20px] block">
                         Hoạt động đăng nhập
                     </h2>
