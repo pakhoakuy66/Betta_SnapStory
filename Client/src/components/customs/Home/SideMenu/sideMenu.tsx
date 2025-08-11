@@ -1,3 +1,5 @@
+import { useEffect, useRef, useState } from "react";
+import { BarMenu } from "./barMenu";
 import Logo from "../../../../assets/imgaes/Akuy_logo.png";
 
 export function SideMenu({
@@ -6,13 +8,35 @@ export function SideMenu({
     onNewPost,
     onFeed,
     onProfile,
+    onMenuLanguages,
+    onHistoryLogin,
 }: {
     onSearch: () => void;
     onNotification: () => void;
     onNewPost: () => void;
     onFeed: () => void;
     onProfile: () => void;
+    onMenuLanguages: () => void;
+    onHistoryLogin: () => void;
 }) {
+    const [showMenuBar, setShowMenuBar] = useState(false);
+
+    const menuBarRef = useRef<HTMLDivElement>(null);
+
+    useEffect(() => {
+        const handleClickOutSide = (e: MouseEvent) => {
+            if (
+                menuBarRef.current &&
+                !menuBarRef.current.contains(e.target as Node)
+            ) {
+                setShowMenuBar(false);
+            }
+        };
+        document.addEventListener("mousedown", handleClickOutSide);
+        return () =>
+            document.removeEventListener("mousedown", handleClickOutSide);
+    }, []);
+
     return (
         <div className="fixed z-20">
             <aside
@@ -64,12 +88,48 @@ export function SideMenu({
                         ></i>
                     </li>
                 </ul>
-                <button className="grid justify-center items-end mt-[100px] w-[100%] cursor-pointer">
+                <div
+                    ref={menuBarRef}
+                    className="grid relative justify-center items-end mt-[100px] w-[100%] cursor-pointer"
+                >
                     <i
+                        onClick={() => setShowMenuBar((prev) => !prev)}
                         className="fa-solid fa-bars
                         text-[20px] hover:text-[25px] duration-500 hover:drop-shadow-[0_0_10px_white]"
                     ></i>
-                </button>
+                    {showMenuBar && (
+                        <BarMenu
+                            options={[
+                                {
+                                    label: "Ngôn ngữ",
+                                    action: "Languages",
+                                },
+                                {
+                                    label: "Hoạt động đăng nhập",
+                                    action: "Login_Activity",
+                                },
+                                {
+                                    label: "Đã lưu",
+                                    action: "Saved_Post",
+                                },
+                                {
+                                    label: "Báo cáo sự cố",
+                                    action: "Report",
+                                },
+                                { label: "Đăng xuất", action: "Logout" },
+                            ]}
+                            onOptionClick={(action) => {
+                                if (action === "Languages") {
+                                    onMenuLanguages();
+                                } else if (action === "Login_Activity") {
+                                    onHistoryLogin();
+                                } else if (action === "Saved_Post") {
+                                } else if (action === "Report") {
+                                }
+                            }}
+                        />
+                    )}
+                </div>
             </aside>
         </div>
     );
