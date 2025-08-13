@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { BarMenu } from "./barMenu";
 import Logo from "../../../../assets/imgaes/Akuy_logo.png";
 
@@ -22,6 +23,8 @@ export function SideMenu({
     const [showMenuBar, setShowMenuBar] = useState(false);
 
     const menuBarRef = useRef<HTMLDivElement>(null);
+
+    const navigate = useNavigate();
 
     useEffect(() => {
         const handleClickOutSide = (e: MouseEvent) => {
@@ -124,6 +127,7 @@ export function SideMenu({
                                 } else if (action === "Login_Activity") {
                                     onHistoryLogin();
                                 } else if (action === "Saved_Post") {
+                                    navigate("/:username/saved");
                                 } else if (action === "Report") {
                                 }
                             }}
