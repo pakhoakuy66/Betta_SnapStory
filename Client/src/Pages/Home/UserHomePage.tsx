@@ -7,6 +7,7 @@ import { NotificationPanel } from "@/components/customs/Home/SideMenu/notificati
 import { NewPost } from "@/components/customs/Home/SideMenu/newPost";
 import { MenuLanguages } from "@/components/customs/Settings/Languages/menuLanguages";
 import { HistoryLogin } from "@/components/customs/Settings/HistoryLogin/HistoryLogin";
+import { ReportProblem } from "@/components/customs/Home/SideMenu/reportProblem";
 
 export function UserHome() {
     const [showSearch, setShowSearch] = useState(false);
@@ -14,6 +15,7 @@ export function UserHome() {
     const [showNewPost, setShowNewPost] = useState(false);
     const [showMenuLanguages, setShowMenuLanguages] = useState(false);
     const [showHistoryLogin, setShowHistoryLogin] = useState(false);
+    const [showReportProblem, setShowReportProblem] = useState(false);
 
     const navigate = useNavigate();
     const location = useLocation();
@@ -29,6 +31,7 @@ export function UserHome() {
                     onProfile={() => navigate("/:username")}
                     onMenuLanguages={() => setShowMenuLanguages(true)}
                     onHistoryLogin={() => setShowHistoryLogin(true)}
+                    onReportProblem={() => setShowReportProblem(true)}
                 />
             </aside>
 
@@ -65,6 +68,14 @@ export function UserHome() {
             {showHistoryLogin && (
                 <div className="fixed inset-0 bg-black/50 z-40">
                     <HistoryLogin onClose={() => setShowHistoryLogin(false)} />
+                </div>
+            )}
+
+            {showReportProblem && (
+                <div className="fixed inset-0 bg-black/50 z-40">
+                    <ReportProblem
+                        onClose={() => setShowReportProblem(false)}
+                    />
                 </div>
             )}
 
