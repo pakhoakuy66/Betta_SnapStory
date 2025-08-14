@@ -11,6 +11,7 @@ export function SideMenu({
     onProfile,
     onMenuLanguages,
     onHistoryLogin,
+    onReportProblem,
 }: {
     onSearch: () => void;
     onNotification: () => void;
@@ -19,6 +20,7 @@ export function SideMenu({
     onProfile: () => void;
     onMenuLanguages: () => void;
     onHistoryLogin: () => void;
+    onReportProblem: () => void;
 }) {
     const [showMenuBar, setShowMenuBar] = useState(false);
 
@@ -129,6 +131,7 @@ export function SideMenu({
                                 } else if (action === "Saved_Post") {
                                     navigate("/:username/saved");
                                 } else if (action === "Report") {
+                                    onReportProblem();
                                 }
                             }}
                         />

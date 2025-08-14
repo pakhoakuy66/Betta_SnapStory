@@ -54,6 +54,10 @@ export function Profile() {
         }
     };
 
+    const handleClose = () => {
+        navigate("/:username"); // đóng popup thì quay về trang chính
+    };
+
     useEffect(() => {
         const handleClickOutside = (e: MouseEvent) => {
             if (
@@ -105,31 +109,31 @@ export function Profile() {
 
                 {isFollowRoute && (
                     <div className="fixed inset-0 bg-black/75 z-40 flex justify-center items-center">
-                        <UserFollow onClose={handleCloseUser} />
+                        <UserFollow onClose={handleClose} />
                     </div>
                 )}
 
                 {isFollowerRoute && (
                     <div className="fixed inset-0 bg-black/75 z-40 flex justify-center items-center">
-                        <UserFollower onClose={handleCloseUser} />
+                        <UserFollower onClose={handleClose} />
                     </div>
                 )}
 
                 {isLanguagesRoute && (
                     <div className="fixed inset-0 bg-black/75 z-40 flex justify-center items-center cursor-pointer">
-                        <MenuLanguages onClose={handleCloseUser} />
+                        <MenuLanguages onClose={handleClose} />
                     </div>
                 )}
 
                 {isPersonalStatus && (
                     <div className="fixed inset-0 bg-black-75 z-40">
-                        <PersonalStatus onClose={handleCloseUser} />
+                        <PersonalStatus onClose={handleClose} />
                     </div>
                 )}
 
                 {isHistoryLogin && (
                     <div className="fixed inset-0 bg-black-75 z-40">
-                        <HistoryLogin onClose={handleCloseUser} />
+                        <HistoryLogin onClose={handleClose} />
                     </div>
                 )}
 
