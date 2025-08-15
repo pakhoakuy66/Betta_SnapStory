@@ -4,8 +4,7 @@ import { UserHead } from "@/components/customs/User/Header/UserHeader";
 import { UserTab } from "@/components/customs/User/Tab_bar/UserTabar";
 import { MenuImage } from "@/components/customs/User/Context_Menu/UserMenuImage";
 import { EditUser } from "@/components/customs/User/EditProfile/EditUserProfile";
-import { UserFollow } from "@/components/customs/User/ListFollow/UserFollow";
-import { UserFollower } from "@/components/customs/User/ListFollower/UserFollower";
+import { FollowList } from "@/components/customs/Follow/UserFollow";
 import { UserPostItemDetail } from "@/components/customs/User/Main/PostDetailUser/PostDetailUser";
 import { HidePost } from "@/components/customs/Context_menu/hidePost";
 import { MenuLanguages } from "@/components/customs/Settings/Languages/menuLanguages";
@@ -13,6 +12,32 @@ import { PersonalStatus } from "@/components/customs/Settings/PersonalStatus/Per
 import { HistoryLogin } from "@/components/customs/Settings/HistoryLogin/HistoryLogin";
 import { UserPostsTab } from "@/components/customs/User/Main/UserPostsTab/UserPostsTab";
 import { UserSavedTab } from "@/components/customs/User/Main/UserSavedTab.tsx/UserSavedTab";
+
+const myFollowList = [
+    {
+        id: "1",
+        avatar: "/avatar1.png",
+        name: "Nguyễn Văn A",
+        isFollowing: true,
+    },
+    { id: "3", avatar: "/avatar3.png", name: "Lê Văn C", isFollowing: true },
+];
+
+const myFollowerList = [
+    {
+        id: "1",
+        avatar: "/avatar1.png",
+        name: "Nguyễn Văn A",
+        isFollowing: true,
+    },
+    { id: "2", avatar: "/avatar2.png", name: "Trần Thị B", isFollowing: false },
+    { id: "3", avatar: "/avatar3.png", name: "Lê Văn C", isFollowing: true },
+    { id: "4", avatar: "/avatar3.png", name: "Lê Văn C", isFollowing: true },
+    { id: "5", avatar: "/avatar3.png", name: "Lê Văn C", isFollowing: true },
+    { id: "6", avatar: "/avatar3.png", name: "Lê Văn C", isFollowing: true },
+    { id: "7", avatar: "/avatar3.png", name: "Lê Văn C", isFollowing: true },
+    { id: "8", avatar: "/avatar3.png", name: "Lê Văn C", isFollowing: true },
+];
 
 export function Profile() {
     const { username, id: postId } = useParams();
@@ -55,7 +80,7 @@ export function Profile() {
     };
 
     const handleClose = () => {
-        navigate("/:username"); // đóng popup thì quay về trang chính
+        navigate(`/${profileOwner}`); // đóng popup thì quay về trang chính
     };
 
     useEffect(() => {
@@ -109,13 +134,23 @@ export function Profile() {
 
                 {isFollowRoute && (
                     <div className="fixed inset-0 bg-black/75 z-40 flex justify-center items-center">
-                        <UserFollow onClose={handleClose} />
+                        <FollowList
+                            onClose={handleClose}
+                            title="Đang theo dõi"
+                            follows={myFollowList}
+                            isCurrentUser={false}
+                        />
                     </div>
                 )}
 
                 {isFollowerRoute && (
                     <div className="fixed inset-0 bg-black/75 z-40 flex justify-center items-center">
-                        <UserFollower onClose={handleClose} />
+                        <FollowList
+                            onClose={handleClose}
+                            title="Người theo dõi"
+                            follows={myFollowerList}
+                            isCurrentUser={false}
+                        />
                     </div>
                 )}
 

@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef } from "react";
 import EmojiPicker from "emoji-picker-react";
+import { useNavigate } from "react-router-dom";
 import type { EmojiClickData, Theme } from "emoji-picker-react";
 import { EditMenu } from "../../Context_menu/editMenu";
 
@@ -21,6 +22,8 @@ export function PostItem({
     const menuRef = useRef<HTMLDivElement>(null);
     const emojiRef = useRef<HTMLDivElement>(null);
     const textareaRef = useRef<HTMLTextAreaElement>(null);
+
+    const navigate = useNavigate();
 
     // Xử lý Menu của icon 3 chấm
     useEffect(() => {
@@ -64,11 +67,15 @@ export function PostItem({
         <div className="w-[400px] mx-auto bg-black text-white border border-neutral-800 rounded-md mb-8">
             <div className="flex items-center gap-2 px-4 py-3">
                 <img
+                    onClick={() => navigate(`/o/${username}`)}
                     src="/avatar/spurs.png"
                     alt="spursofficial"
-                    className="w-10 h-10 rounded-full object-cover"
+                    className="w-10 h-10 rounded-full object-cover cursor-pointer"
                 />
-                <div className="flex flex-col text-sm">
+                <div
+                    onClick={() => navigate(`/o/${username}`)}
+                    className="flex flex-col text-sm cursor-pointer"
+                >
                     <span className="font-semibold">spursofficial</span>
                     <span className="text-gray-400 text-xs">19 giờ</span>
                 </div>

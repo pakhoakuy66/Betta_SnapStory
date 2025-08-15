@@ -5,7 +5,37 @@ import { OtherTab } from "@/components/customs/OtherUser/Tab_bar_Other/OtherTaba
 import { OtherPostsTab } from "@/components/customs/OtherUser/Main/OtherPostsTab/OtherPostTab";
 import { OtherSavedTab } from "@/components/customs/OtherUser/Main/OtherSavedTab/OtherSavedTab";
 import { OtherPostItemDetail } from "@/components/customs/OtherUser/Main/PostDetailOther/PostDetailOther";
+import { FollowList } from "@/components/customs/Follow/UserFollow";
 import { HidePost } from "@/components/customs/Context_menu/hidePost";
+
+const otherFollowList = [
+    {
+        id: "1",
+        avatar: "/avatar1.png",
+        name: "Nguyễn Văn A",
+        isFollowing: true,
+    },
+    { id: "3", avatar: "/avatar3.png", name: "Lê Văn C", isFollowing: true },
+    { id: "4", avatar: "/avatar3.png", name: "Lê Văn C", isFollowing: true },
+    { id: "5", avatar: "/avatar3.png", name: "Lê Văn B", isFollowing: true },
+    { id: "6", avatar: "/avatar3.png", name: "Lê Văn K", isFollowing: true },
+];
+
+const otherFollowerList = [
+    {
+        id: "1",
+        avatar: "/avatar1.png",
+        name: "Nguyễn Văn A",
+        isFollowing: true,
+    },
+    { id: "2", avatar: "/avatar2.png", name: "Trần Thị B", isFollowing: false },
+    { id: "3", avatar: "/avatar3.png", name: "Lê Văn C", isFollowing: true },
+    { id: "4", avatar: "/avatar3.png", name: "Lê Văn C", isFollowing: true },
+    { id: "5", avatar: "/avatar3.png", name: "Lê Văn C", isFollowing: true },
+    { id: "6", avatar: "/avatar3.png", name: "Lê Văn C", isFollowing: true },
+    { id: "7", avatar: "/avatar3.png", name: "Lê Văn C", isFollowing: true },
+    { id: "8", avatar: "/avatar3.png", name: "Lê Văn C", isFollowing: true },
+];
 
 export function OtherUserProfile() {
     const { username, id: postId } = useParams();
@@ -42,9 +72,13 @@ export function OtherUserProfile() {
         }
     }, [username, postId, location.pathname]);
 
-    const handleCloseUser = () => {
+    const handleCloseUserOther = () => {
         if (previousRoute) navigate(previousRoute);
         else navigate(`/o/${profileOwner}`);
+    };
+
+    const handleClose = () => {
+        navigate(`/o/${profileOwner}`); // đóng popup thì quay về trang chính
     };
 
     // const handleClose = () => {
@@ -58,7 +92,7 @@ export function OtherUserProfile() {
                 !postDetailOtherRef.current.contains(e.target as Node) &&
                 !showHidePost
             ) {
-                handleCloseUser();
+                handleCloseUserOther();
             }
         };
         document.addEventListener("mousedown", handleClickOutside);
@@ -73,7 +107,34 @@ export function OtherUserProfile() {
     return (
         <div className="w-full max-w-[1100px] mx-auto text-white mt-10 px-6">
             <div className="w-full overflow-hidden">
-                <UserOtherHead />
+                <UserOtherHead
+                    onListFollow={() => navigate(`/o/${profileOwner}/follow`)}
+                    onListFollower={() =>
+                        navigate(`/o/${profileOwner}/follower`)
+                    }
+                />
+
+                {isFollowRoute && (
+                    <div className="fixed inset-0 bg-black/75 z-40 flex justify-center items-center">
+                        <FollowList
+                            onClose={handleClose}
+                            title="Đang theo dõi"
+                            follows={otherFollowList}
+                            isCurrentUser={false}
+                        />
+                    </div>
+                )}
+
+                {isFollowerRoute && (
+                    <div className="fixed inset-0 bg-black/75 z-40 flex justify-center items-center">
+                        <FollowList
+                            onClose={handleClose}
+                            title="Người theo dõi"
+                            follows={otherFollowerList}
+                            isCurrentUser={false}
+                        />
+                    </div>
+                )}
 
                 <OtherTab profileOwner={profileOwner} />
 
@@ -88,7 +149,7 @@ export function OtherUserProfile() {
                         <div ref={postDetailOtherRef} className="relative">
                             <div onClick={(e) => e.stopPropagation()}>
                                 <OtherPostItemDetail
-                                    onClose={handleCloseUser}
+                                    onClose={handleCloseUserOther}
                                     onHidePost={() => setShowHidePost(true)}
                                     isHidePostOpen={hidePostOpenRef}
                                 />
