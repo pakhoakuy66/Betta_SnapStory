@@ -12,9 +12,9 @@ export function OtherTab({ profileOwner }: { profileOwner: string }) {
         if (!profileOwner) return;
 
         if (tabType === "posts") {
-            navigate(`/${profileOwner}`);
+            navigate(`/o/${profileOwner}`);
         } else {
-            navigate(`/${profileOwner}/saved`);
+            navigate(`/o/${profileOwner}/saved`);
         }
     };
 

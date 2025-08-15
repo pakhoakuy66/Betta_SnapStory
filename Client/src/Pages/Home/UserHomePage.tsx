@@ -10,6 +10,8 @@ import { HistoryLogin } from "@/components/customs/Settings/HistoryLogin/History
 import { ReportProblem } from "@/components/customs/Home/SideMenu/reportProblem";
 
 export function UserHome() {
+    const currentUserName = "khoa"; // TODO: sau này lấy từ backend/login
+
     const [showSearch, setShowSearch] = useState(false);
     const [showNotification, setShowNotification] = useState(false);
     const [showNewPost, setShowNewPost] = useState(false);
@@ -28,7 +30,7 @@ export function UserHome() {
                     onNotification={() => setShowNotification(true)}
                     onNewPost={() => setShowNewPost(true)}
                     onFeed={() => navigate("/")}
-                    onProfile={() => navigate("/:username")}
+                    onProfile={() => navigate(`/${currentUserName}`)}
                     onMenuLanguages={() => setShowMenuLanguages(true)}
                     onHistoryLogin={() => setShowHistoryLogin(true)}
                     onReportProblem={() => setShowReportProblem(true)}

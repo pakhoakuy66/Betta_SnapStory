@@ -1,6 +1,14 @@
+import { useNavigate } from "react-router-dom";
+
 export function SuggestionListItem() {
+    const username = "Thu";
+    const navigate = useNavigate();
+
     return (
-        <li className="flex justify-between items-center h-[70px]">
+        <li
+            className="flex justify-between items-center h-[70px] cursor-pointer"
+            onClick={() => navigate(`/o/${username}`)}
+        >
             <img
                 src="./avatar"
                 className="w-10 h-10 rounded-[50%] object-cover"

@@ -129,7 +129,8 @@ export function SideMenu({
                                 } else if (action === "Login_Activity") {
                                     onHistoryLogin();
                                 } else if (action === "Saved_Post") {
-                                    navigate("/:username/saved");
+                                    const currentUserName = "khoa"; // TODO: sau này lấy từ backend/login
+                                    navigate(`/${currentUserName}/saved`); // ✅
                                 } else if (action === "Report") {
                                     onReportProblem();
                                 }
