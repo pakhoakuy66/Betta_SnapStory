@@ -1,7 +1,13 @@
 import { useNavigate } from "react-router-dom";
 import { useState, useEffect, useRef } from "react";
 
-export function UserOtherHead() {
+export function UserOtherHead({
+    onListFollow,
+    onListFollower,
+}: {
+    onListFollow: () => void;
+    onListFollower: () => void;
+}) {
     const [showMenuSettings, setShowMenuSettings] = useState(false);
     const [btnFollow, setBtnFollow] = useState(false);
 
@@ -68,10 +74,16 @@ export function UserOtherHead() {
                     <div className="text-[#C7D5E0] text-[20px]">
                         <span className="font-bold">0</span> bài biết
                     </div>
-                    <div className="text-[#C7D5E0] text-[20px] ml-[50px] cursor-pointer">
+                    <div
+                        onClick={onListFollower}
+                        className="text-[#C7D5E0] text-[20px] ml-[50px] cursor-pointer"
+                    >
                         <span className="font-bold">18</span> follower
                     </div>
-                    <div className="text-[#C7D5E0] text-[20px] ml-[50px] cursor-pointer">
+                    <div
+                        onClick={onListFollow}
+                        className="text-[#C7D5E0] text-[20px] ml-[50px] cursor-pointer"
+                    >
                         <span className="font-bold">0</span> đã follow
                     </div>
                 </div>

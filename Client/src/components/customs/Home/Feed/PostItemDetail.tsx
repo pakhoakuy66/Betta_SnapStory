@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import EmojiPicker from "emoji-picker-react";
+import { useNavigate } from "react-router-dom";
 import type { EmojiClickData, Theme } from "emoji-picker-react";
 import { EditMenu } from "../../Context_menu/editMenu";
 
@@ -60,6 +61,8 @@ export function PostItemDetail({
     const emojiRef = useRef<HTMLDivElement>(null);
     const textareaRef = useRef<HTMLTextAreaElement>(null);
     const postDetailRef = useRef<HTMLDivElement>(null);
+
+    const navigate = useNavigate();
 
     // Xử lý đóng PostDetail
     useEffect(() => {
@@ -141,10 +144,14 @@ export function PostItemDetail({
                     <div className="p-4 border-b-1 border-[#604d4d]">
                         <div className="flex items-center mb-3">
                             <img
+                                onClick={() => navigate(`/o/${post.user.name}`)}
                                 src={post.user.avatar}
                                 className="w-8 h-8 rounded-full mr-2"
                             />
-                            <span className="font-semibold">
+                            <span
+                                onClick={() => navigate(`/o/${post.user.name}`)}
+                                className="font-semibold"
+                            >
                                 {post.user.name}
                             </span>
                             <div className="ml-auto relative" ref={menuRef}>

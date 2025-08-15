@@ -42,6 +42,14 @@ function App() {
                         path="o/:username/saved"
                         element={<OtherUserProfile />}
                     />
+                    <Route
+                        path="o/:username/follow"
+                        element={<OtherUserProfile />}
+                    />
+                    <Route
+                        path="o/:username/follower"
+                        element={<OtherUserProfile />}
+                    />
                 </Route>
                 <Route path="/login" element={<LoginUser />} />
                 <Route path="/register" element={<Register />} />
