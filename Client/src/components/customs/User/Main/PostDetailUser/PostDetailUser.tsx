@@ -43,14 +43,28 @@ const post = {
     ],
 };
 
+const menuOptions = {
+    owner: [
+        { label: "Trạng thái bài viết", action: "Post_Status" },
+        { label: "Sao chép liên kết", action: "copy" },
+    ],
+    other: [
+        { label: "Báo cáo", action: "Report_Post" },
+        { label: "Lưu bài viết", action: "Saved" },
+        { label: "Sao chép liên kết", action: "copy" },
+    ],
+};
+
 export function UserPostItemDetail({
     onClose,
     onHidePost,
     isHidePostOpen,
+    isOwner,
 }: {
     onClose: () => void;
     onHidePost: () => void;
     isHidePostOpen: React.MutableRefObject<boolean>;
+    isOwner: boolean;
 }) {
     const [showMenu, setShowMenu] = useState(false);
     const [showEmoji, setShowEmoji] = useState(false);
@@ -161,19 +175,25 @@ export function UserPostItemDetail({
                                 ></i>
                                 {showMenu && (
                                     <EditMenu
-                                        options={[
-                                            {
-                                                label: "Ẩn bài viết",
-                                                action: "hide",
-                                            },
-                                            {
-                                                label: "Sao chép liên kết",
-                                                action: "copy",
-                                            },
-                                        ]}
+                                        options={
+                                            isOwner
+                                                ? menuOptions.owner
+                                                : menuOptions.other
+                                        }
                                         onOptionClick={(action) => {
-                                            if (action === "hide") {
-                                                onHidePost(); // gọi hàm từ component cha
+                                            switch (action) {
+                                                case "Post_Status":
+                                                    // xử lý bài viết của mình
+                                                    break;
+                                                case "Report_Post":
+                                                    // xử lý báo cáo bài viết
+                                                    break;
+                                                case "Saved":
+                                                    // xử lý lưu
+                                                    break;
+                                                case "copy":
+                                                    // copy link
+                                                    break;
                                             }
                                         }}
                                     />

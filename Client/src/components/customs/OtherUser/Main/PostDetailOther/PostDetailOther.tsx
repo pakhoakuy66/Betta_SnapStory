@@ -165,8 +165,12 @@ export function OtherPostItemDetail({
                                     <EditMenu
                                         options={[
                                             {
-                                                label: "Ẩn bài viết",
-                                                action: "hide",
+                                                label: "Báo cáo",
+                                                action: "Report_Post",
+                                            },
+                                            {
+                                                label: "Lưu bài viết",
+                                                action: "Saved",
                                             },
                                             {
                                                 label: "Sao chép liên kết",
@@ -174,8 +178,7 @@ export function OtherPostItemDetail({
                                             },
                                         ]}
                                         onOptionClick={(action) => {
-                                            if (action === "hide") {
-                                                onHidePost(); // gọi hàm từ component cha
+                                            if (action === "Report_Post") {
                                             }
                                         }}
                                     />

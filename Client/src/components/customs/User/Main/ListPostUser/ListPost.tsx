@@ -1,4 +1,4 @@
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 
 export function PostGrid({
     posts,
@@ -11,6 +11,7 @@ export function PostGrid({
 }) {
     const location = useLocation();
     const isSavedRoute = location.pathname.includes("/saved");
+    const navigate = useNavigate();
 
     const handlePostClick = (post: {
         id: string;
@@ -18,17 +19,18 @@ export function PostGrid({
         image: string;
     }) => {
         if (isSavedRoute) {
-            window.history.pushState(
-                null,
-                "",
-                `/${profileOwner}/saved/${post.id}`
-            );
+            navigate(`/${post.owner}/${post.id}`, {
+                state: { fromSaved: true },
+            });
             onPostDetailUser(post.owner, post.id);
         } else {
-            window.history.pushState(null, "", `/${profileOwner}/${post.id}`);
+            navigate(`/${profileOwner}/${post.id}`, {
+                state: { fromSaved: false },
+            });
             onPostDetailUser(profileOwner, post.id);
         }
     };
+
     return (
         <main className="grid grid-cols-3 gap-1">
             {posts.map((post) => (
