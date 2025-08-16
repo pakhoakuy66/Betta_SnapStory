@@ -1,17 +1,20 @@
 import { useNavigate } from "react-router-dom";
 import { useState, useEffect, useRef } from "react";
+import { OtherMenu } from "../Context_Menu/OtherMenu";
 
 export function UserOtherHead({
     onListFollow,
     onListFollower,
+    onReportAccount,
 }: {
     onListFollow: () => void;
     onListFollower: () => void;
+    onReportAccount: () => void;
 }) {
-    const [showMenuSettings, setShowMenuSettings] = useState(false);
+    const [showOtherMenu, setShowOtherMenu] = useState(false);
     const [btnFollow, setBtnFollow] = useState(false);
 
-    const menuSettingsRef = useRef<HTMLDivElement>(null);
+    const otherMenuRef = useRef<HTMLDivElement>(null);
 
     const navigate = useNavigate();
 
@@ -22,10 +25,10 @@ export function UserOtherHead({
     useEffect(() => {
         const handleClickOutSide = (e: MouseEvent) => {
             if (
-                menuSettingsRef.current &&
-                !menuSettingsRef.current.contains(e.target as Node)
+                otherMenuRef.current &&
+                !otherMenuRef.current.contains(e.target as Node)
             ) {
-                setShowMenuSettings(false);
+                setShowOtherMenu(false);
             }
         };
         document.addEventListener("mousedown", handleClickOutSide);
@@ -58,11 +61,37 @@ export function UserOtherHead({
                             đang ở chế độ riêng tư
                         </span>
                     </div>
-                    <div className="cursor-pointer relative">
+                    <div ref={otherMenuRef} className="cursor-pointer relative">
                         <i
+                            onClick={() => setShowOtherMenu((prev) => !prev)}
                             className="fa-solid fa-ellipsis
                                     text-[20px] hover:text-[25px] duration-500 hover:drop-shadow-[0_0_10px_white]"
                         ></i>
+                        {showOtherMenu && (
+                            <OtherMenu
+                                options={[
+                                    {
+                                        label: "Chặn",
+                                        action: "Block",
+                                    },
+                                    {
+                                        label: "Báo cáo",
+                                        action: "Report_Account",
+                                    },
+                                    {
+                                        label: "Sao chép liên kết",
+                                        action: "Share_Account",
+                                    },
+                                ]}
+                                onOptionClick={(action) => {
+                                    if (action === "Block") {
+                                    } else if (action === "Report_Account") {
+                                        onReportAccount();
+                                    } else if (action === "Share_Account") {
+                                    }
+                                }}
+                            />
+                        )}
                     </div>
                 </div>
                 <div className="flex items-center justify-between mb-[10px]">

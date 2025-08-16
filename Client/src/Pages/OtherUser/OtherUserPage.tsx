@@ -7,6 +7,7 @@ import { OtherSavedTab } from "@/components/customs/OtherUser/Main/OtherSavedTab
 import { OtherPostItemDetail } from "@/components/customs/OtherUser/Main/PostDetailOther/PostDetailOther";
 import { FollowList } from "@/components/customs/Follow/UserFollow";
 import { HidePost } from "@/components/customs/Context_menu/hidePost";
+import { ReportAccount } from "@/components/customs/OtherUser/ReportOther.tsx/ReportAccount";
 
 const otherFollowList = [
     {
@@ -49,6 +50,7 @@ export function OtherUserProfile() {
     const [previousRoute, setPreviousRoute] = useState<string>("");
 
     const [showHidePost, setShowHidePost] = useState(false);
+    const [showReportAccount, setShowReportAccount] = useState(false);
 
     const postDetailOtherRef = useRef<HTMLDivElement>(null);
     const hidePostOpenRef = useRef(false);
@@ -112,6 +114,7 @@ export function OtherUserProfile() {
                     onListFollower={() =>
                         navigate(`/o/${profileOwner}/follower`)
                     }
+                    onReportAccount={() => setShowReportAccount(true)}
                 />
 
                 {isFollowRoute && (
@@ -132,6 +135,14 @@ export function OtherUserProfile() {
                             title="Người theo dõi"
                             follows={otherFollowerList}
                             isCurrentUser={false}
+                        />
+                    </div>
+                )}
+
+                {showReportAccount && (
+                    <div className="fixed inset-0 bg-black/75 z-40 flex justify-center items-center">
+                        <ReportAccount
+                            onClose={() => setShowReportAccount(false)}
                         />
                     </div>
                 )}

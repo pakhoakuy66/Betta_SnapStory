@@ -1,7 +1,7 @@
 import { useRef, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-export function ReportProblem({ onClose }: { onClose: () => void }) {
+export function ReportAccount({ onClose }: { onClose: () => void }) {
     const [content, setContent] = useState("");
     const [slideOut, setSlideOut] = useState(false);
 
@@ -51,7 +51,7 @@ export function ReportProblem({ onClose }: { onClose: () => void }) {
                         className="absolute left-1/2 -translate-x-1/2 text-[#fff] 
                                         text-[18px] text-center font-bold"
                     >
-                        Báo cáo sự cố
+                        Báo cáo tài khoản
                     </h2>
                 </div>
 
@@ -59,7 +59,7 @@ export function ReportProblem({ onClose }: { onClose: () => void }) {
                     <textarea
                         className="bg-transparent text-[#fff] w-full resize-none text-sm 
                             scrollbar-hide outline-none placeholder-gray-500"
-                        placeholder="Vui lòng ghi chi tiết sự cố"
+                        placeholder="Tại sao bạn lại báo cáo tài khoản này?"
                         rows={5}
                         value={content}
                         onChange={(e) => setContent(e.target.value)}

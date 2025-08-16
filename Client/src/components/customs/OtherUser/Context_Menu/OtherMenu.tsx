@@ -1,0 +1,24 @@
+export function OtherMenu({
+    options,
+    onOptionClick,
+}: {
+    options: { label: React.ReactNode; action: string }[];
+    onOptionClick: (action: string) => void;
+}) {
+    return (
+        <ul
+            className="absolute top-[100%] w-[255px] right-4 z-10 bg-neutral-900 text-white text-center text-sm 
+                       rounded shadow-md border border-neutral-700"
+        >
+            {options.map((option, index) => (
+                <li
+                    key={index}
+                    className="px-4 py-2 hover:bg-neutral-800 cursor-pointer"
+                    onClick={() => onOptionClick(option.action)}
+                >
+                    {option.label}
+                </li>
+            ))}
+        </ul>
+    );
+}
