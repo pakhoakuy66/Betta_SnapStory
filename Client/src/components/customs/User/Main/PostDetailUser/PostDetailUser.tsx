@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
+import { useNavigate } from "react-router-dom";
 import EmojiPicker from "emoji-picker-react";
 import type { EmojiClickData, Theme } from "emoji-picker-react";
 import { EditMenu } from "../../../Context_menu/editMenu";
@@ -60,6 +61,8 @@ export function UserPostItemDetail({
     const emojiRef = useRef<HTMLDivElement>(null);
     const textareaRef = useRef<HTMLTextAreaElement>(null);
     const postDetailUserRef = useRef<HTMLDivElement>(null);
+
+    const navigate = useNavigate();
 
     // Xử lý đóng PostDetail
     useEffect(() => {
@@ -141,10 +144,14 @@ export function UserPostItemDetail({
                     <div className="p-4 border-b-1 border-[#604d4d]">
                         <div className="flex items-center mb-3">
                             <img
+                                onClick={() => navigate(`/o/${post.user.name}`)}
                                 src={post.user.avatar}
                                 className="w-8 h-8 rounded-full mr-2"
                             />
-                            <span className="font-semibold">
+                            <span
+                                onClick={() => navigate(`/o/${post.user.name}`)}
+                                className="font-semibold"
+                            >
                                 {post.user.name}
                             </span>
                             <div className="ml-auto relative" ref={menuRef}>
@@ -181,10 +188,18 @@ export function UserPostItemDetail({
                         <div>
                             <div className="flex items-center mb-3">
                                 <img
+                                    onClick={() =>
+                                        navigate(`/o/${post.user.name}`)
+                                    }
                                     src={post.user.avatar}
                                     className="w-8 h-8 rounded-full mr-2"
                                 />
-                                <span className="font-semibold">
+                                <span
+                                    onClick={() =>
+                                        navigate(`/o/${post.user.name}`)
+                                    }
+                                    className="font-semibold"
+                                >
                                     {post.user.name}
                                 </span>
                                 <span className="ml-1 text-[#fff] text-[10px] italic">
@@ -202,12 +217,18 @@ export function UserPostItemDetail({
                                 className="flex break-words whitespace-pre-wrap mt-3"
                             >
                                 <img
+                                    onClick={() => navigate(`/o/${c.user}`)}
                                     src={post.user.avatar}
                                     className="w-8 h-8 rounded-full mr-2 object-cover"
                                 />
                                 <div className="bg-neutral-800 px-3 py-2 rounded-xl max-w-[320px] text-white">
                                     <p className="text-sm font-normal break-words whitespace-normal leading-snug">
-                                        <span className="font-semibold mr-1">
+                                        <span
+                                            onClick={() =>
+                                                navigate(`/o/${c.user}`)
+                                            }
+                                            className="font-semibold mr-1"
+                                        >
                                             {c.user}
                                         </span>
                                         <p className="mt-1">{c.text}</p>

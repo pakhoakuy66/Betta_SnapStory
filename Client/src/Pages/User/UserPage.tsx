@@ -106,6 +106,7 @@ export function Profile() {
         <div className="w-full max-w-[1100px] mx-auto text-white mt-10 px-6">
             <div className="w-full overflow-hidden">
                 <UserHead
+                    username={profileOwner}
                     onMenuImage={() => setShowMenuImage(true)}
                     onEditProfile={() => setShowEditProfile(true)}
                     onListFollow={() => navigate(`/${profileOwner}/follow`)}
