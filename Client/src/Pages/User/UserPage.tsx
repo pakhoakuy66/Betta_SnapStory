@@ -189,6 +189,7 @@ export function Profile() {
                                     onClose={handleCloseUser}
                                     onHidePost={() => setShowHidePost(true)}
                                     isHidePostOpen={hidePostOpenRef}
+                                    isOwner={profileOwner === username}
                                 />
                             </div>
                             {showHidePost && (

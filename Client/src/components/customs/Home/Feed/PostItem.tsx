@@ -87,12 +87,14 @@ export function PostItem({
                     {showMenu && (
                         <EditMenu
                             options={[
-                                { label: "Ẩn bài viết", action: "hide" },
+                                { label: "Báo cáo", action: "Report_Post" },
+                                { label: "Mở bài viết", action: "open" },
+                                { label: "Lưu bài viết", action: "Saved" },
                                 { label: "Sao chép liên kết", action: "copy" },
                             ]}
                             onOptionClick={(action) => {
-                                if (action === "hide") {
-                                    onHidePost(); // gọi hàm từ component cha
+                                if (action === "open") {
+                                    onPostDetail(); // gọi hàm từ component cha
                                 }
                             }}
                         />
