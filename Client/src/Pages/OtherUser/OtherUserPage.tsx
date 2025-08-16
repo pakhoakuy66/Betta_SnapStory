@@ -8,6 +8,7 @@ import { OtherPostItemDetail } from "@/components/customs/OtherUser/Main/PostDet
 import { FollowList } from "@/components/customs/Follow/UserFollow";
 import { HidePost } from "@/components/customs/Context_menu/hidePost";
 import { ReportAccount } from "@/components/customs/OtherUser/ReportOther.tsx/ReportAccount";
+import { BlockConfirm } from "@/components/customs/OtherUser/BlockConfirm/BlockConfirm";
 
 const otherFollowList = [
     {
@@ -44,13 +45,14 @@ export function OtherUserProfile() {
     const navigate = useNavigate();
 
     // Chủ profile gốc
-    const [profileOwner] = useState<string>(username ?? "");
+    const profileOwner = username ?? "";
 
     // Route trước khi mở detail
     const [previousRoute, setPreviousRoute] = useState<string>("");
 
     const [showHidePost, setShowHidePost] = useState(false);
     const [showReportAccount, setShowReportAccount] = useState(false);
+    const [showBlockConfirm, setShowBlockConfirm] = useState(false);
 
     const postDetailOtherRef = useRef<HTMLDivElement>(null);
     const hidePostOpenRef = useRef(false);
@@ -83,10 +85,6 @@ export function OtherUserProfile() {
         navigate(`/o/${profileOwner}`); // đóng popup thì quay về trang chính
     };
 
-    // const handleClose = () => {
-    //     navigate("/:username"); // đóng popup thì quay về trang chính
-    // };
-
     useEffect(() => {
         const handleClickOutside = (e: MouseEvent) => {
             if (
@@ -110,11 +108,13 @@ export function OtherUserProfile() {
         <div className="w-full max-w-[1100px] mx-auto text-white mt-10 px-6">
             <div className="w-full overflow-hidden">
                 <UserOtherHead
+                    username={username ?? ""}
                     onListFollow={() => navigate(`/o/${profileOwner}/follow`)}
                     onListFollower={() =>
                         navigate(`/o/${profileOwner}/follower`)
                     }
                     onReportAccount={() => setShowReportAccount(true)}
+                    onBlockConfirm={() => setShowBlockConfirm(true)}
                 />
 
                 {isFollowRoute && (
@@ -143,6 +143,15 @@ export function OtherUserProfile() {
                     <div className="fixed inset-0 bg-black/75 z-40 flex justify-center items-center">
                         <ReportAccount
                             onClose={() => setShowReportAccount(false)}
+                        />
+                    </div>
+                )}
+
+                {showBlockConfirm && (
+                    <div className="fixed inset-0 bg-black/75 z-40 flex justify-center items-center">
+                        <BlockConfirm
+                            onClose={() => setShowBlockConfirm(false)}
+                            username={username ?? ""}
                         />
                     </div>
                 )}

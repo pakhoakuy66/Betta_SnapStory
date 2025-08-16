@@ -59,7 +59,7 @@ export function UserHead({
             {/* Thông tin bên phải */}
             <div className="flex-1 grid rounded-md p-6">
                 <div className="flex items-center justify-between mb-[10px]">
-                    <div className="text-[#C7D5E0] text-[26px] font-bold">
+                    <div className="text-[#C7D5E0] text-[24px] font-serif">
                         Tên người dùng
                         <span className="ml-2 text-[16px] font-normal italic hidden">
                             <i className="fa-solid fa-lock"></i> Tài khoản này

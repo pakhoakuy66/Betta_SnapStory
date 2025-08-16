@@ -3,13 +3,17 @@ import { useState, useEffect, useRef } from "react";
 import { OtherMenu } from "../Context_Menu/OtherMenu";
 
 export function UserOtherHead({
+    username,
     onListFollow,
     onListFollower,
     onReportAccount,
+    onBlockConfirm,
 }: {
+    username: string;
     onListFollow: () => void;
     onListFollower: () => void;
     onReportAccount: () => void;
+    onBlockConfirm: () => void;
 }) {
     const [showOtherMenu, setShowOtherMenu] = useState(false);
     const [btnFollow, setBtnFollow] = useState(false);
@@ -54,8 +58,8 @@ export function UserOtherHead({
             {/* Thông tin bên phải */}
             <div className="flex-1 grid rounded-md p-6">
                 <div className="flex items-center justify-between mb-[10px]">
-                    <div className="text-[#C7D5E0] text-[26px] font-bold">
-                        Tên người dùng khác
+                    <div className="text-[#C7D5E0] text-[24px] font-serif">
+                        {username}
                         <span className="ml-2 text-[16px] font-normal italic hidden">
                             <i className="fa-solid fa-lock"></i> Tài khoản này
                             đang ở chế độ riêng tư
@@ -85,6 +89,7 @@ export function UserOtherHead({
                                 ]}
                                 onOptionClick={(action) => {
                                     if (action === "Block") {
+                                        onBlockConfirm();
                                     } else if (action === "Report_Account") {
                                         onReportAccount();
                                     } else if (action === "Share_Account") {

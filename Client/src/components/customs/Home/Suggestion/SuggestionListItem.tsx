@@ -5,16 +5,19 @@ export function SuggestionListItem() {
     const navigate = useNavigate();
 
     return (
-        <li
-            className="flex justify-between items-center h-[70px] cursor-pointer"
-            onClick={() => navigate(`/o/${username}`)}
-        >
+        <li className="flex justify-between items-center h-[70px]">
             <img
                 src="./avatar"
-                className="w-10 h-10 rounded-[50%] object-cover"
+                className="w-10 h-10 rounded-[50%] object-cover cursor-pointer"
+                onClick={() => navigate(`/o/${username}`)}
             />
             <nav className="ml-[15px] w-[100%]">
-                <h2 className="text-[#fff] text-[13px] font-bold">Tên</h2>
+                <h2
+                    className="text-[#fff] text-[13px] cursor-pointer font-bold"
+                    onClick={() => navigate(`/o/${username}`)}
+                >
+                    {username}
+                </h2>
                 <span className="text-[#fff] text-[13px]">Gợi ý cho bạn</span>
             </nav>
             <button
