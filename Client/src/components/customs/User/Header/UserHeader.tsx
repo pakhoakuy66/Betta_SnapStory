@@ -4,6 +4,7 @@ import { UserSettings } from "../Context_Menu/UserSettings";
 import QRCode from "react-qr-code";
 
 export function UserHead({
+    username,
     onMenuImage,
     onEditProfile,
     onListFollow,
@@ -12,6 +13,7 @@ export function UserHead({
     onPersonalStatus,
     onHistoryLogin,
 }: {
+    username: string;
     onMenuImage: () => void;
     onEditProfile: () => void;
     onListFollow: () => void;
@@ -60,7 +62,7 @@ export function UserHead({
             <div className="flex-1 grid rounded-md p-6">
                 <div className="flex items-center justify-between mb-[10px]">
                     <div className="text-[#C7D5E0] text-[24px] font-serif">
-                        Tên người dùng
+                        {username}
                         <span className="ml-2 text-[16px] font-normal italic hidden">
                             <i className="fa-solid fa-lock"></i> Tài khoản này
                             đang ở chế độ riêng tư

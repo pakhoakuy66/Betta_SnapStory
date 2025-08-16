@@ -188,10 +188,18 @@ export function PostItemDetail({
                         <div>
                             <div className="flex items-center mb-3">
                                 <img
+                                    onClick={() =>
+                                        navigate(`/o/${post.user.name}`)
+                                    }
                                     src={post.user.avatar}
-                                    className="w-8 h-8 rounded-full mr-2"
+                                    className="w-8 h-8 rounded-full mr-2 cursor-pointer"
                                 />
-                                <span className="font-semibold">
+                                <span
+                                    onClick={() =>
+                                        navigate(`/o/${post.user.name}`)
+                                    }
+                                    className="font-semibold cursor-pointer"
+                                >
                                     {post.user.name}
                                 </span>
                                 <span className="ml-1 text-[#fff] text-[10px] italic">
@@ -209,12 +217,18 @@ export function PostItemDetail({
                                 className="flex break-words whitespace-pre-wrap mt-3"
                             >
                                 <img
+                                    onClick={() => navigate(`/o/${c.user}`)}
                                     src={post.user.avatar}
-                                    className="w-8 h-8 rounded-full mr-2 object-cover"
+                                    className="w-8 h-8 rounded-full mr-2 object-cover cursor-pointer"
                                 />
                                 <div className="bg-neutral-800 px-3 py-2 rounded-xl max-w-[320px] text-white">
                                     <p className="text-sm font-normal break-words whitespace-normal leading-snug">
-                                        <span className="font-semibold mr-1">
+                                        <span
+                                            onClick={() =>
+                                                navigate(`/o/${c.user}`)
+                                            }
+                                            className="font-semibold mr-1"
+                                        >
                                             {c.user}
                                         </span>
                                         <p className="mt-1">{c.text}</p>
