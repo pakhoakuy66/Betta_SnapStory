@@ -12,6 +12,7 @@ import { PersonalStatus } from "@/components/customs/Settings/PersonalStatus/Per
 import { HistoryLogin } from "@/components/customs/Settings/HistoryLogin/HistoryLogin";
 import { UserPostsTab } from "@/components/customs/User/Main/UserPostsTab/UserPostsTab";
 import { UserSavedTab } from "@/components/customs/User/Main/UserSavedTab.tsx/UserSavedTab";
+import { UserPrivateTab } from "@/components/customs/User/Main/UserPrivateTab/UserPrivateTab";
 import { RemovePostConfirm } from "@/components/customs/User/RemovePostConfirm/RemovePostConfirm";
 import { FormPostStatus } from "@/components/customs/User/PostStatus/FormPostStatus";
 
@@ -186,10 +187,12 @@ export function Profile() {
 
                 <UserTab profileOwner={profileOwner} />
 
-                {!isSavedRoute ? (
-                    <UserPostsTab profileOwner={profileOwner} />
-                ) : (
+                {isPrivateRoute ? (
+                    <UserPrivateTab profileOwner={profileOwner} />
+                ) : isSavedRoute ? (
                     <UserSavedTab profileOwner={profileOwner} />
+                ) : (
+                    <UserPostsTab profileOwner={profileOwner} />
                 )}
 
                 {postId && (
@@ -207,6 +210,7 @@ export function Profile() {
                                     }
                                     isFormPostStatusOpen={FormPostStatusRef}
                                     isOwner={profileOwner === username}
+                                    isPrivate={profileOwner === username}
                                 />
                             </div>
                             {showReportPost && (
