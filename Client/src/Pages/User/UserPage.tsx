@@ -12,6 +12,7 @@ import { PersonalStatus } from "@/components/customs/Settings/PersonalStatus/Per
 import { HistoryLogin } from "@/components/customs/Settings/HistoryLogin/HistoryLogin";
 import { UserPostsTab } from "@/components/customs/User/Main/UserPostsTab/UserPostsTab";
 import { UserSavedTab } from "@/components/customs/User/Main/UserSavedTab.tsx/UserSavedTab";
+import { RemovePostConfirm } from "@/components/customs/User/RemovePostConfirm/RemovePostConfirm";
 
 const myFollowList = [
     {
@@ -53,9 +54,11 @@ export function Profile() {
     const [showMenuImage, setShowMenuImage] = useState(false);
     const [showEditProfile, setShowEditProfile] = useState(false);
     const [showReportPost, setShowReportPost] = useState(false);
+    const [showRemovePost, setShowRemovePost] = useState(false);
 
     const postDetailUserRef = useRef<HTMLDivElement>(null);
     const ReportPostOpenRef = useRef(false);
+    const RemovePostRef = useRef(false);
 
     const isFollowRoute = location.pathname.endsWith("/follow");
     const isFollowerRoute = location.pathname.endsWith("/follower");
@@ -88,7 +91,8 @@ export function Profile() {
             if (
                 postDetailUserRef.current &&
                 !postDetailUserRef.current.contains(e.target as Node) &&
-                !showReportPost
+                !showReportPost &&
+                !showRemovePost
             ) {
                 handleCloseUser();
             }
@@ -96,11 +100,12 @@ export function Profile() {
         document.addEventListener("mousedown", handleClickOutside);
         return () =>
             document.removeEventListener("mousedown", handleClickOutside);
-    }, [showReportPost, previousRoute]);
+    }, [showReportPost, showRemovePost, previousRoute]);
 
     useEffect(() => {
         ReportPostOpenRef.current = showReportPost;
-    }, [showReportPost]);
+        RemovePostRef.current = showRemovePost;
+    }, [showReportPost, showRemovePost]);
 
     return (
         <div className="w-full max-w-[1100px] mx-auto text-white mt-10 px-6">
@@ -189,6 +194,8 @@ export function Profile() {
                                     onClose={handleCloseUser}
                                     onReportPost={() => setShowReportPost(true)}
                                     isReportPostOpen={ReportPostOpenRef}
+                                    onRemovePost={() => setShowRemovePost(true)}
+                                    isRemovePostOpen={RemovePostRef}
                                     isOwner={profileOwner === username}
                                 />
                             </div>
@@ -199,6 +206,17 @@ export function Profile() {
                                 >
                                     <Report_Post
                                         onClose={() => setShowReportPost(false)}
+                                    />
+                                </div>
+                            )}
+
+                            {showRemovePost && (
+                                <div
+                                    className="fixed inset-0 bg-black/50 z-50"
+                                    onClick={(e) => e.stopPropagation()}
+                                >
+                                    <RemovePostConfirm
+                                        onClose={() => setShowRemovePost(false)}
                                     />
                                 </div>
                             )}

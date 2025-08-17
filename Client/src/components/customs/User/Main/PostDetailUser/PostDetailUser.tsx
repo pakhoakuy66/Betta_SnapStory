@@ -60,11 +60,15 @@ export function UserPostItemDetail({
     onClose,
     onReportPost,
     isReportPostOpen,
+    onRemovePost,
+    isRemovePostOpen,
     isOwner,
 }: {
     onClose: () => void;
     onReportPost: () => void;
     isReportPostOpen: React.MutableRefObject<boolean>;
+    onRemovePost: () => void;
+    isRemovePostOpen: React.MutableRefObject<boolean>;
     isOwner: boolean;
 }) {
     const [showMenu, setShowMenu] = useState(false);
@@ -86,7 +90,8 @@ export function UserPostItemDetail({
                 postDetailUserRef.current &&
                 !postDetailUserRef.current.contains(e.target as Node)
             ) {
-                if (isReportPostOpen.current) return; // Nếu HidePost đang mở → không đóng PostItemDetail
+                if (isReportPostOpen.current) return; // Nếu ReportPost đang mở → không đóng PostItemDetail
+                if (isRemovePostOpen.current) return; // Nếu RemovePost đang mở → không đóng PostItemDetail
 
                 setSlideOut(true);
                 setTimeout(() => onClose(), 300);
@@ -95,7 +100,7 @@ export function UserPostItemDetail({
         document.addEventListener("mousedown", handleClickOutSide);
         return () =>
             document.removeEventListener("mousedown", handleClickOutSide);
-    }, [onClose, isReportPostOpen]);
+    }, [onClose, isReportPostOpen, isRemovePostOpen]);
 
     // Xử lý Menu nhỏ
     useEffect(() => {
@@ -183,6 +188,9 @@ export function UserPostItemDetail({
                                         }
                                         onOptionClick={(action) => {
                                             switch (action) {
+                                                case "Remove_Post":
+                                                    onRemovePost();
+                                                    break;
                                                 case "Post_Status":
                                                     // xử lý bài viết của mình
                                                     break;
