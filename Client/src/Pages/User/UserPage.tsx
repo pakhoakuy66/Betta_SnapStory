@@ -13,6 +13,7 @@ import { HistoryLogin } from "@/components/customs/Settings/HistoryLogin/History
 import { UserPostsTab } from "@/components/customs/User/Main/UserPostsTab/UserPostsTab";
 import { UserSavedTab } from "@/components/customs/User/Main/UserSavedTab.tsx/UserSavedTab";
 import { RemovePostConfirm } from "@/components/customs/User/RemovePostConfirm/RemovePostConfirm";
+import { FormPostStatus } from "@/components/customs/User/PostStatus/FormPostStatus";
 
 const myFollowList = [
     {
@@ -55,10 +56,12 @@ export function Profile() {
     const [showEditProfile, setShowEditProfile] = useState(false);
     const [showReportPost, setShowReportPost] = useState(false);
     const [showRemovePost, setShowRemovePost] = useState(false);
+    const [showFormPostStatus, setShowFormPostStatus] = useState(false);
 
     const postDetailUserRef = useRef<HTMLDivElement>(null);
     const ReportPostOpenRef = useRef(false);
     const RemovePostRef = useRef(false);
+    const FormPostStatusRef = useRef(false);
 
     const isFollowRoute = location.pathname.endsWith("/follow");
     const isFollowerRoute = location.pathname.endsWith("/follower");
@@ -66,6 +69,7 @@ export function Profile() {
     const isPersonalStatus = location.pathname === "/settings/personalStatus";
     const isHistoryLogin = location.pathname === "/settings/historyLogin";
     const isSavedRoute = location.pathname.split("/").includes("saved");
+    const isPrivateRoute = location.pathname.split("/").includes("private");
 
     // Lưu previous route 1 lần trước khi mở detail
     useEffect(() => {
@@ -92,7 +96,8 @@ export function Profile() {
                 postDetailUserRef.current &&
                 !postDetailUserRef.current.contains(e.target as Node) &&
                 !showReportPost &&
-                !showRemovePost
+                !showRemovePost &&
+                !showFormPostStatus
             ) {
                 handleCloseUser();
             }
@@ -100,12 +105,13 @@ export function Profile() {
         document.addEventListener("mousedown", handleClickOutside);
         return () =>
             document.removeEventListener("mousedown", handleClickOutside);
-    }, [showReportPost, showRemovePost, previousRoute]);
+    }, [showReportPost, showRemovePost, showFormPostStatus, previousRoute]);
 
     useEffect(() => {
         ReportPostOpenRef.current = showReportPost;
         RemovePostRef.current = showRemovePost;
-    }, [showReportPost, showRemovePost]);
+        FormPostStatusRef.current = showFormPostStatus;
+    }, [showReportPost, showRemovePost, showFormPostStatus]);
 
     return (
         <div className="w-full max-w-[1100px] mx-auto text-white mt-10 px-6">
@@ -144,7 +150,7 @@ export function Profile() {
                             onClose={handleClose}
                             title="Đang theo dõi"
                             follows={myFollowList}
-                            isCurrentUser={false}
+                            isCurrentUser={true}
                         />
                     </div>
                 )}
@@ -155,7 +161,7 @@ export function Profile() {
                             onClose={handleClose}
                             title="Người theo dõi"
                             follows={myFollowerList}
-                            isCurrentUser={false}
+                            isCurrentUser={true}
                         />
                     </div>
                 )}
@@ -196,6 +202,10 @@ export function Profile() {
                                     isReportPostOpen={ReportPostOpenRef}
                                     onRemovePost={() => setShowRemovePost(true)}
                                     isRemovePostOpen={RemovePostRef}
+                                    onFormPostStatus={() =>
+                                        setShowFormPostStatus(true)
+                                    }
+                                    isFormPostStatusOpen={FormPostStatusRef}
                                     isOwner={profileOwner === username}
                                 />
                             </div>
@@ -217,6 +227,19 @@ export function Profile() {
                                 >
                                     <RemovePostConfirm
                                         onClose={() => setShowRemovePost(false)}
+                                    />
+                                </div>
+                            )}
+
+                            {showFormPostStatus && (
+                                <div
+                                    className="fixed inset-0 bg-black/50 z-50"
+                                    onClick={(e) => e.stopPropagation()}
+                                >
+                                    <FormPostStatus
+                                        onClose={() =>
+                                            setShowFormPostStatus(false)
+                                        }
                                     />
                                 </div>
                             )}
