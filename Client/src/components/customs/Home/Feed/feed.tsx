@@ -2,15 +2,15 @@ import { useParams, useNavigate } from "react-router-dom";
 import { useState, useEffect, useRef } from "react";
 import { PostItem } from "./PostItem";
 import { PostItemDetail } from "./PostItemDetail";
-import { HidePost } from "../../Chores/Context_menu/hidePost";
+import { Report_Post } from "../../Chores/Report_Post/Report_Post";
 
 export function Feed() {
     const { username, id: postId } = useParams();
     const navigate = useNavigate();
     // const [showPostItemDetail, setShowPostItemDetail] = useState(false);
-    const [showHidePost, setShowHidePost] = useState(false);
+    const [showReportPost, setShowReportPost] = useState(false);
 
-    const hidePostOpenRef = useRef(false);
+    const reportPostOpenRef = useRef(false);
     const postDetailRef = useRef<HTMLDivElement>(null);
 
     const handleCloseDetail = () => {
@@ -22,7 +22,7 @@ export function Feed() {
             if (
                 postDetailRef.current &&
                 !postDetailRef.current.contains(e.target as Node) &&
-                !showHidePost // Chỉ đóng PostItemDetail khi HidePost không hiển thị
+                !showReportPost // Chỉ đóng PostItemDetail khi HidePost không hiển thị
             ) {
                 // setShowPostItemDetail(false);
                 handleCloseDetail();
@@ -31,12 +31,12 @@ export function Feed() {
         document.addEventListener("mousedown", handleClickOutside);
         return () =>
             document.removeEventListener("mousedown", handleClickOutside);
-    }, [showHidePost]);
+    }, [showReportPost]);
 
     // Cập nhật ref theo state
     useEffect(() => {
-        hidePostOpenRef.current = showHidePost;
-    }, [showHidePost]);
+        reportPostOpenRef.current = showReportPost;
+    }, [showReportPost]);
 
     return (
         <main
@@ -48,13 +48,13 @@ export function Feed() {
                     postId="abc123"
                     username="khoa"
                     onPostDetail={() => navigate("/khoa/post/abc123")}
-                    onHidePost={() => setShowHidePost(true)}
+                    onReportPost={() => setShowReportPost(true)}
                 />
                 <PostItem
                     postId="xyz789"
                     username="tien"
                     onPostDetail={() => navigate("/tien/post/xyz789")}
-                    onHidePost={() => setShowHidePost(true)}
+                    onReportPost={() => setShowReportPost(true)}
                 />
             </article>
 
@@ -65,19 +65,19 @@ export function Feed() {
                         <div onClick={(e) => e.stopPropagation()}>
                             <PostItemDetail
                                 onClose={handleCloseDetail}
-                                onHidePost={() => setShowHidePost(true)}
-                                isHidePostOpen={hidePostOpenRef}
+                                onReportPost={() => setShowReportPost(true)}
+                                isHidePostOpen={reportPostOpenRef}
                             />
                         </div>
 
                         {/* HidePost */}
-                        {showHidePost && (
+                        {showReportPost && (
                             <div
                                 className="fixed inset-0 bg-black/50 z-50 flex justify-center items-center"
                                 onClick={(e) => e.stopPropagation()}
                             >
-                                <HidePost
-                                    onClose={() => setShowHidePost(false)}
+                                <Report_Post
+                                    onClose={() => setShowReportPost(false)}
                                 />
                             </div>
                         )}
@@ -85,13 +85,13 @@ export function Feed() {
                 </div>
             )}
 
-            {showHidePost && (
+            {showReportPost && (
                 <div
                     className="fixed inset-0 bg-black/75 z-50 flex justify-center items-center cursor-pointer"
                     onClick={(e) => {
                         // Chỉ đóng khi click vào overlay (background), không phải nội dung modal
                         if (e.target === e.currentTarget) {
-                            setShowHidePost(false);
+                            setShowReportPost(false);
                         }
                     }}
                 >
@@ -99,7 +99,7 @@ export function Feed() {
                         className="fixed inset-0 bg-black/50 z-50"
                         onClick={(e) => e.stopPropagation()}
                     >
-                        <HidePost onClose={() => setShowHidePost(false)} />
+                        <Report_Post onClose={() => setShowReportPost(false)} />
                     </div>
                 </div>
             )}

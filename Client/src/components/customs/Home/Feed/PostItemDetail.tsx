@@ -45,11 +45,11 @@ const post = {
 
 export function PostItemDetail({
     onClose,
-    onHidePost,
+    onReportPost,
     isHidePostOpen,
 }: {
     onClose: () => void;
-    onHidePost: () => void;
+    onReportPost: () => void;
     isHidePostOpen: React.MutableRefObject<boolean>;
 }) {
     const [showMenu, setShowMenu] = useState(false);
@@ -177,6 +177,7 @@ export function PostItemDetail({
                                         ]}
                                         onOptionClick={(action) => {
                                             if (action === "Report_Post") {
+                                                onReportPost();
                                             }
                                         }}
                                     />

@@ -45,12 +45,12 @@ const post = {
 
 export function OtherPostItemDetail({
     onClose,
-    onHidePost,
-    isHidePostOpen,
+    onReportPost,
+    isReportPostOpen,
 }: {
     onClose: () => void;
-    onHidePost: () => void;
-    isHidePostOpen: React.MutableRefObject<boolean>;
+    onReportPost: () => void;
+    isReportPostOpen: React.MutableRefObject<boolean>;
 }) {
     const [showMenu, setShowMenu] = useState(false);
     const [showEmoji, setShowEmoji] = useState(false);
@@ -71,7 +71,7 @@ export function OtherPostItemDetail({
                 postDetailUserRef.current &&
                 !postDetailUserRef.current.contains(e.target as Node)
             ) {
-                if (isHidePostOpen.current) return; // Nếu HidePost đang mở → không đóng PostItemDetail
+                if (isReportPostOpen.current) return; // Nếu HidePost đang mở → không đóng PostItemDetail
 
                 setSlideOut(true);
                 setTimeout(() => {
@@ -82,7 +82,7 @@ export function OtherPostItemDetail({
         document.addEventListener("mousedown", handleClickOutSide);
         return () =>
             document.removeEventListener("mousedown", handleClickOutSide);
-    }, [onClose, isHidePostOpen]);
+    }, [onClose, isReportPostOpen]);
 
     // Xử lý Menu nhỏ
     useEffect(() => {
@@ -179,6 +179,7 @@ export function OtherPostItemDetail({
                                         ]}
                                         onOptionClick={(action) => {
                                             if (action === "Report_Post") {
+                                                onReportPost();
                                             }
                                         }}
                                     />
