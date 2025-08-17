@@ -45,25 +45,26 @@ const post = {
 
 const menuOptions = {
     owner: [
+        { label: "Xóa bài viết", action: "Remove_Post" },
         { label: "Trạng thái bài viết", action: "Post_Status" },
         { label: "Sao chép liên kết", action: "copy" },
     ],
     other: [
         { label: "Báo cáo", action: "Report_Post" },
-        { label: "Lưu bài viết", action: "Saved" },
+        { label: "Xóa bài viết đã lưu", action: "Saved" },
         { label: "Sao chép liên kết", action: "copy" },
     ],
 };
 
 export function UserPostItemDetail({
     onClose,
-    onHidePost,
-    isHidePostOpen,
+    onReportPost,
+    isReportPostOpen,
     isOwner,
 }: {
     onClose: () => void;
-    onHidePost: () => void;
-    isHidePostOpen: React.MutableRefObject<boolean>;
+    onReportPost: () => void;
+    isReportPostOpen: React.MutableRefObject<boolean>;
     isOwner: boolean;
 }) {
     const [showMenu, setShowMenu] = useState(false);
@@ -85,7 +86,7 @@ export function UserPostItemDetail({
                 postDetailUserRef.current &&
                 !postDetailUserRef.current.contains(e.target as Node)
             ) {
-                if (isHidePostOpen.current) return; // Nếu HidePost đang mở → không đóng PostItemDetail
+                if (isReportPostOpen.current) return; // Nếu HidePost đang mở → không đóng PostItemDetail
 
                 setSlideOut(true);
                 setTimeout(() => onClose(), 300);
@@ -94,7 +95,7 @@ export function UserPostItemDetail({
         document.addEventListener("mousedown", handleClickOutSide);
         return () =>
             document.removeEventListener("mousedown", handleClickOutSide);
-    }, [onClose, isHidePostOpen]);
+    }, [onClose, isReportPostOpen]);
 
     // Xử lý Menu nhỏ
     useEffect(() => {
@@ -186,7 +187,7 @@ export function UserPostItemDetail({
                                                     // xử lý bài viết của mình
                                                     break;
                                                 case "Report_Post":
-                                                    // xử lý báo cáo bài viết
+                                                    onReportPost();
                                                     break;
                                                 case "Saved":
                                                     // xử lý lưu

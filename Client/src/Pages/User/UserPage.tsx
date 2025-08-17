@@ -6,7 +6,7 @@ import { MenuImage } from "@/components/customs/User/Context_Menu/UserMenuImage"
 import { EditUser } from "@/components/customs/User/EditProfile/EditUserProfile";
 import { FollowList } from "@/components/customs/Chores/Follow/UserFollow";
 import { UserPostItemDetail } from "@/components/customs/User/Main/PostDetailUser/PostDetailUser";
-import { HidePost } from "@/components/customs/Chores/Context_menu/hidePost";
+import { Report_Post } from "@/components/customs/Chores/Report_Post/Report_Post";
 import { MenuLanguages } from "@/components/customs/Settings/Languages/menuLanguages";
 import { PersonalStatus } from "@/components/customs/Settings/PersonalStatus/PersonalStatus";
 import { HistoryLogin } from "@/components/customs/Settings/HistoryLogin/HistoryLogin";
@@ -52,10 +52,10 @@ export function Profile() {
 
     const [showMenuImage, setShowMenuImage] = useState(false);
     const [showEditProfile, setShowEditProfile] = useState(false);
-    const [showHidePost, setShowHidePost] = useState(false);
+    const [showReportPost, setShowReportPost] = useState(false);
 
     const postDetailUserRef = useRef<HTMLDivElement>(null);
-    const hidePostOpenRef = useRef(false);
+    const ReportPostOpenRef = useRef(false);
 
     const isFollowRoute = location.pathname.endsWith("/follow");
     const isFollowerRoute = location.pathname.endsWith("/follower");
@@ -88,7 +88,7 @@ export function Profile() {
             if (
                 postDetailUserRef.current &&
                 !postDetailUserRef.current.contains(e.target as Node) &&
-                !showHidePost
+                !showReportPost
             ) {
                 handleCloseUser();
             }
@@ -96,11 +96,11 @@ export function Profile() {
         document.addEventListener("mousedown", handleClickOutside);
         return () =>
             document.removeEventListener("mousedown", handleClickOutside);
-    }, [showHidePost, previousRoute]);
+    }, [showReportPost, previousRoute]);
 
     useEffect(() => {
-        hidePostOpenRef.current = showHidePost;
-    }, [showHidePost]);
+        ReportPostOpenRef.current = showReportPost;
+    }, [showReportPost]);
 
     return (
         <div className="w-full max-w-[1100px] mx-auto text-white mt-10 px-6">
@@ -187,18 +187,18 @@ export function Profile() {
                             <div onClick={(e) => e.stopPropagation()}>
                                 <UserPostItemDetail
                                     onClose={handleCloseUser}
-                                    onHidePost={() => setShowHidePost(true)}
-                                    isHidePostOpen={hidePostOpenRef}
+                                    onReportPost={() => setShowReportPost(true)}
+                                    isReportPostOpen={ReportPostOpenRef}
                                     isOwner={profileOwner === username}
                                 />
                             </div>
-                            {showHidePost && (
+                            {showReportPost && (
                                 <div
                                     className="fixed inset-0 bg-black/50 z-50"
                                     onClick={(e) => e.stopPropagation()}
                                 >
-                                    <HidePost
-                                        onClose={() => setShowHidePost(false)}
+                                    <Report_Post
+                                        onClose={() => setShowReportPost(false)}
                                     />
                                 </div>
                             )}

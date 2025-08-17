@@ -8,12 +8,12 @@ export function PostItem({
     postId,
     username,
     onPostDetail,
-    onHidePost,
+    onReportPost,
 }: {
     postId: string;
     username: string;
     onPostDetail: () => void;
-    onHidePost: () => void;
+    onReportPost: () => void;
 }) {
     const [showEmoji, setShowEmoji] = useState(false);
     const [showMenu, setShowMenu] = useState(false);
@@ -93,7 +93,9 @@ export function PostItem({
                                 { label: "Sao chép liên kết", action: "copy" },
                             ]}
                             onOptionClick={(action) => {
-                                if (action === "open") {
+                                if (action === "Report_Post") {
+                                    onReportPost();
+                                } else if (action === "open") {
                                     onPostDetail(); // gọi hàm từ component cha
                                 }
                             }}

@@ -6,7 +6,7 @@ import { OtherPostsTab } from "@/components/customs/OtherUser/Main/OtherPostsTab
 import { OtherSavedTab } from "@/components/customs/OtherUser/Main/OtherSavedTab/OtherSavedTab";
 import { OtherPostItemDetail } from "@/components/customs/OtherUser/Main/PostDetailOther/PostDetailOther";
 import { FollowList } from "@/components/customs/Chores/Follow/UserFollow";
-import { HidePost } from "@/components/customs/Chores/Context_menu/hidePost";
+import { Report_Post } from "@/components/customs/Chores/Report_Post/Report_Post";
 import { ReportAccount } from "@/components/customs/OtherUser/ReportOther.tsx/ReportAccount";
 import { BlockConfirm } from "@/components/customs/OtherUser/BlockConfirm/BlockConfirm";
 
@@ -50,7 +50,7 @@ export function OtherUserProfile() {
     // Route trước khi mở detail
     const [previousRoute, setPreviousRoute] = useState<string>("");
 
-    const [showHidePost, setShowHidePost] = useState(false);
+    const [showReportPost, setShowReportPost] = useState(false);
     const [showReportAccount, setShowReportAccount] = useState(false);
     const [showBlockConfirm, setShowBlockConfirm] = useState(false);
 
@@ -90,7 +90,7 @@ export function OtherUserProfile() {
             if (
                 postDetailOtherRef.current &&
                 !postDetailOtherRef.current.contains(e.target as Node) &&
-                !showHidePost
+                !showReportPost
             ) {
                 handleCloseUserOther();
             }
@@ -98,11 +98,11 @@ export function OtherUserProfile() {
         document.addEventListener("mousedown", handleClickOutside);
         return () =>
             document.removeEventListener("mousedown", handleClickOutside);
-    }, [showHidePost, previousRoute]);
+    }, [showReportPost, previousRoute]);
 
     useEffect(() => {
-        hidePostOpenRef.current = showHidePost;
-    }, [showHidePost]);
+        hidePostOpenRef.current = showReportPost;
+    }, [showReportPost]);
 
     return (
         <div className="w-full max-w-[1100px] mx-auto text-white mt-10 px-6">
@@ -170,17 +170,17 @@ export function OtherUserProfile() {
                             <div onClick={(e) => e.stopPropagation()}>
                                 <OtherPostItemDetail
                                     onClose={handleCloseUserOther}
-                                    onHidePost={() => setShowHidePost(true)}
-                                    isHidePostOpen={hidePostOpenRef}
+                                    onReportPost={() => setShowReportPost(true)}
+                                    isReportPostOpen={hidePostOpenRef}
                                 />
                             </div>
-                            {showHidePost && (
+                            {showReportPost && (
                                 <div
                                     className="fixed inset-0 bg-black/50 z-50"
                                     onClick={(e) => e.stopPropagation()}
                                 >
-                                    <HidePost
-                                        onClose={() => setShowHidePost(false)}
+                                    <Report_Post
+                                        onClose={() => setShowReportPost(false)}
                                     />
                                 </div>
                             )}
