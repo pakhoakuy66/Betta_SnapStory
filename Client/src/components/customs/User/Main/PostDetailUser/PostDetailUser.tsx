@@ -49,6 +49,10 @@ const menuOptions = {
         { label: "Trạng thái bài viết", action: "Post_Status" },
         { label: "Sao chép liên kết", action: "copy" },
     ],
+    private: [
+        { label: "Xóa bài viết", action: "Remove_Post" },
+        { label: "Trạng thái bài viết", action: "Post_Status" },
+    ],
     other: [
         { label: "Báo cáo", action: "Report_Post" },
         { label: "Xóa bài viết đã lưu", action: "Saved" },
@@ -65,6 +69,7 @@ export function UserPostItemDetail({
     onFormPostStatus,
     isFormPostStatusOpen,
     isOwner,
+    isPrivate,
 }: {
     onClose: () => void;
     onReportPost: () => void;
@@ -74,6 +79,7 @@ export function UserPostItemDetail({
     onFormPostStatus: () => void;
     isFormPostStatusOpen: React.MutableRefObject<boolean>;
     isOwner: boolean;
+    isPrivate: boolean;
 }) {
     const [showMenu, setShowMenu] = useState(false);
     const [showEmoji, setShowEmoji] = useState(false);
@@ -189,6 +195,8 @@ export function UserPostItemDetail({
                                         options={
                                             isOwner
                                                 ? menuOptions.owner
+                                                : isPrivate
+                                                ? menuOptions.private
                                                 : menuOptions.other
                                         }
                                         onOptionClick={(action) => {

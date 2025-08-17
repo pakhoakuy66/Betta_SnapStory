@@ -27,7 +27,7 @@ export function UserTab({ profileOwner }: { profileOwner: string }) {
                 onClick={() => handleTabClick("posts")}
                 className={`w-1/3 px-4 py-3 text-sm text-center font-medium transition duration-300 cursor-pointer
                         ${
-                            !isSaved
+                            !isSaved && !isPrivate
                                 ? "text-white duration-500 hover:drop-shadow-[0_0_10px_white] border-b-[2px] border-white font-bold"
                                 : "text-[#C7D5E0] hover:text-white"
                         }`}
@@ -38,7 +38,7 @@ export function UserTab({ profileOwner }: { profileOwner: string }) {
                 onClick={() => handleTabClick("private")}
                 className={`w-1/3 px-4 py-3 text-sm text-center font-medium transition duration-300 cursor-pointer
                         ${
-                            isSaved
+                            isPrivate
                                 ? "text-white duration-500 hover:drop-shadow-[0_0_10px_white] border-b-[2px] border-white font-bold"
                                 : "text-[#C7D5E0] hover:text-white"
                         }`}

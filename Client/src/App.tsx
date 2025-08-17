@@ -17,6 +17,7 @@ function App() {
                     <Route path=":username/post/:id" element={<Feed />} />
                     <Route path=":username" element={<Profile />} />
                     <Route path=":username/saved" element={<Profile />} />
+                    <Route path=":username/private" element={<Profile />} />
                     <Route path=":username/:id" element={<Profile />} />
                     <Route path=":username/follow" element={<Profile />} />
                     <Route path=":username/follower" element={<Profile />} />
