@@ -62,6 +62,8 @@ export function UserPostItemDetail({
     isReportPostOpen,
     onRemovePost,
     isRemovePostOpen,
+    onFormPostStatus,
+    isFormPostStatusOpen,
     isOwner,
 }: {
     onClose: () => void;
@@ -69,6 +71,8 @@ export function UserPostItemDetail({
     isReportPostOpen: React.MutableRefObject<boolean>;
     onRemovePost: () => void;
     isRemovePostOpen: React.MutableRefObject<boolean>;
+    onFormPostStatus: () => void;
+    isFormPostStatusOpen: React.MutableRefObject<boolean>;
     isOwner: boolean;
 }) {
     const [showMenu, setShowMenu] = useState(false);
@@ -92,6 +96,7 @@ export function UserPostItemDetail({
             ) {
                 if (isReportPostOpen.current) return; // Nếu ReportPost đang mở → không đóng PostItemDetail
                 if (isRemovePostOpen.current) return; // Nếu RemovePost đang mở → không đóng PostItemDetail
+                if (isFormPostStatusOpen.current) return; // Nếu FormPostStatus đang mở → không đóng PostItemDetail
 
                 setSlideOut(true);
                 setTimeout(() => onClose(), 300);
@@ -100,7 +105,7 @@ export function UserPostItemDetail({
         document.addEventListener("mousedown", handleClickOutSide);
         return () =>
             document.removeEventListener("mousedown", handleClickOutSide);
-    }, [onClose, isReportPostOpen, isRemovePostOpen]);
+    }, [onClose, isReportPostOpen, isRemovePostOpen, isFormPostStatusOpen]);
 
     // Xử lý Menu nhỏ
     useEffect(() => {
@@ -192,7 +197,7 @@ export function UserPostItemDetail({
                                                     onRemovePost();
                                                     break;
                                                 case "Post_Status":
-                                                    // xử lý bài viết của mình
+                                                    onFormPostStatus();
                                                     break;
                                                 case "Report_Post":
                                                     onReportPost();
