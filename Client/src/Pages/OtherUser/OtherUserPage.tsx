@@ -5,8 +5,8 @@ import { OtherTab } from "@/components/customs/OtherUser/Tab_bar_Other/OtherTaba
 import { OtherPostsTab } from "@/components/customs/OtherUser/Main/OtherPostsTab/OtherPostTab";
 import { OtherSavedTab } from "@/components/customs/OtherUser/Main/OtherSavedTab/OtherSavedTab";
 import { OtherPostItemDetail } from "@/components/customs/OtherUser/Main/PostDetailOther/PostDetailOther";
-import { FollowList } from "@/components/customs/Follow/UserFollow";
-import { HidePost } from "@/components/customs/Context_menu/hidePost";
+import { FollowList } from "@/components/customs/Chores/Follow/UserFollow";
+import { HidePost } from "@/components/customs/Chores/Context_menu/hidePost";
 import { ReportAccount } from "@/components/customs/OtherUser/ReportOther.tsx/ReportAccount";
 import { BlockConfirm } from "@/components/customs/OtherUser/BlockConfirm/BlockConfirm";
 

@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from "react";
 import EmojiPicker from "emoji-picker-react";
 import { useNavigate } from "react-router-dom";
 import type { EmojiClickData, Theme } from "emoji-picker-react";
-import { EditMenu } from "../../Context_menu/editMenu";
+import { EditMenu } from "../../Chores/Context_menu/editMenu";
 
 const post = {
     image: "/posts/spurs_gate.jpg",

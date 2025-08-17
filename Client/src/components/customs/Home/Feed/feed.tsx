@@ -2,7 +2,7 @@ import { useParams, useNavigate } from "react-router-dom";
 import { useState, useEffect, useRef } from "react";
 import { PostItem } from "./PostItem";
 import { PostItemDetail } from "./PostItemDetail";
-import { HidePost } from "../../Context_menu/hidePost";
+import { HidePost } from "../../Chores/Context_menu/hidePost";
 
 export function Feed() {
     const { username, id: postId } = useParams();
