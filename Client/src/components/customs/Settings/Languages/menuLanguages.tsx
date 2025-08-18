@@ -1,7 +1,12 @@
 import { useState, useEffect, useRef } from "react";
+import { useTranslation } from "react-i18next";
+import { useLanguage } from "@/i18n/LanguageContext";
 
 export function MenuLanguages({ onClose }: { onClose: () => void }) {
     const [slideOut, setSlideOut] = useState(false);
+
+    const { t } = useTranslation();
+    const { changeLanguage } = useLanguage();
 
     const menuLanguagesRef = useRef<HTMLDivElement>(null);
 
@@ -36,19 +41,34 @@ export function MenuLanguages({ onClose }: { onClose: () => void }) {
                     </h2>
                 </div>
                 <ul className="text-center text-white">
-                    <li className="px-4 py-2 hover:bg-neutral-800 cursor-pointer">
+                    <li
+                        className="px-4 py-2 hover:bg-neutral-800 cursor-pointer"
+                        onClick={() => changeLanguage("en")}
+                    >
                         English
                     </li>
-                    <li className="px-4 py-2 hover:bg-neutral-800 cursor-pointer">
+                    <li
+                        className="px-4 py-2 hover:bg-neutral-800 cursor-pointer"
+                        onClick={() => changeLanguage("zh")}
+                    >
                         中文
                     </li>
-                    <li className="px-4 py-2 hover:bg-neutral-800 cursor-pointer">
+                    <li
+                        className="px-4 py-2 hover:bg-neutral-800 cursor-pointer"
+                        onClick={() => changeLanguage("ja")}
+                    >
                         日本語
                     </li>
-                    <li className="px-4 py-2 hover:bg-neutral-800 cursor-pointer">
+                    <li
+                        className="px-4 py-2 hover:bg-neutral-800 cursor-pointer"
+                        onClick={() => changeLanguage("ko")}
+                    >
                         한국어
                     </li>
-                    <li className="px-4 py-2 hover:bg-neutral-800 cursor-pointer">
+                    <li
+                        className="px-4 py-2 hover:bg-neutral-800 cursor-pointer"
+                        onClick={() => changeLanguage("vi")}
+                    >
                         Tiếng Việt
                     </li>
                     <li
