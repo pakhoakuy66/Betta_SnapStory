@@ -70,6 +70,7 @@ export function UserPostItemDetail({
     isFormPostStatusOpen,
     isOwner,
     isPrivate,
+    isSaved,
 }: {
     onClose: () => void;
     onReportPost: () => void;
@@ -80,6 +81,7 @@ export function UserPostItemDetail({
     isFormPostStatusOpen: React.MutableRefObject<boolean>;
     isOwner: boolean;
     isPrivate: boolean;
+    isSaved: boolean;
 }) {
     const [showMenu, setShowMenu] = useState(false);
     const [showEmoji, setShowEmoji] = useState(false);
@@ -193,10 +195,12 @@ export function UserPostItemDetail({
                                 {showMenu && (
                                     <EditMenu
                                         options={
-                                            isOwner
-                                                ? menuOptions.owner
-                                                : isPrivate
+                                            isPrivate
                                                 ? menuOptions.private
+                                                : isSaved
+                                                ? menuOptions.other // Saved thì menu như "khách"
+                                                : isOwner
+                                                ? menuOptions.owner
                                                 : menuOptions.other
                                         }
                                         onOptionClick={(action) => {

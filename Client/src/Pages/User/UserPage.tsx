@@ -69,8 +69,8 @@ export function Profile() {
     const isLanguagesRoute = location.pathname === "/settings/languages";
     const isPersonalStatus = location.pathname === "/settings/personalStatus";
     const isHistoryLogin = location.pathname === "/settings/historyLogin";
-    const isSavedRoute = location.pathname.split("/").includes("saved");
-    const isPrivateRoute = location.pathname.split("/").includes("private");
+    const isSavedRoute = previousRoute.split("/").includes("saved");
+    const isPrivateRoute = previousRoute.split("/").includes("private");
 
     // Lưu previous route 1 lần trước khi mở detail
     useEffect(() => {
@@ -210,7 +210,8 @@ export function Profile() {
                                     }
                                     isFormPostStatusOpen={FormPostStatusRef}
                                     isOwner={profileOwner === username}
-                                    isPrivate={profileOwner === username}
+                                    isPrivate={isPrivateRoute}
+                                    isSaved={isSavedRoute}
                                 />
                             </div>
                             {showReportPost && (
