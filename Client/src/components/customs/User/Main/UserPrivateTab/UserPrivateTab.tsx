@@ -9,6 +9,7 @@ export function UserPrivateTab({ profileOwner }: { profileOwner: string }) {
         <PostGrid
             posts={[
                 { id: "hide123", owner: username ?? "", image: "" },
+                { id: "hide382", owner: username ?? "", image: "" },
                 { id: "hide456", owner: username ?? "", image: "" },
                 { id: "hide491", owner: username ?? "", image: "" },
             ]}

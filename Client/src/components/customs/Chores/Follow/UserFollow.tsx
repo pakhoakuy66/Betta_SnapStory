@@ -58,7 +58,7 @@ export function FollowList({
                         <ItemFollow
                             key={user.id}
                             avatar={user.avatar}
-                            name={user.name}
+                            username={user.name}
                             isFollowing={user.isFollowing}
                             isCurrentUser={isCurrentUser}
                         />

@@ -1,19 +1,22 @@
+import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 
 interface ItemFollowProps {
     avatar: string;
-    name: string;
+    username: string;
     isFollowing: boolean;
     isCurrentUser: boolean;
 }
 
 export function ItemFollow({
     avatar,
-    name,
+    username,
     isFollowing: initialFollowing,
     isCurrentUser,
 }: ItemFollowProps) {
     const [isFollowing, setIsFollowing] = useState(initialFollowing);
+
+    const navigate = useNavigate();
 
     const handleFollowing = () => {
         setIsFollowing((prev) => !prev);
@@ -26,14 +29,18 @@ export function ItemFollow({
             {/* Avatar cố định */}
             <img
                 src={avatar}
-                alt={name}
-                className="w-10 h-10 flex-shrink-0 rounded-full object-cover"
+                alt={username}
+                className="w-10 h-10 flex-shrink-0 rounded-full object-cover cursor-pointer"
+                onClick={() => navigate(`/o/${username}`)}
             />
 
             {/* Tên account với ellipsis nếu quá dài */}
             <div className="ml-4 flex-1 min-w-0">
-                <h2 className="text-white text-[13px] font-bold truncate">
-                    {name}
+                <h2
+                    className="text-white text-[13px] font-bold truncate cursor-pointer"
+                    onClick={() => navigate(`/o/${username}`)}
+                >
+                    {username}
                 </h2>
             </div>
 
