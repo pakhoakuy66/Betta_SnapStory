@@ -6,7 +6,7 @@ interface ItemFollowProps {
     username: string;
     isFollowing: boolean;
     isCurrentUser: boolean;
-}
+} 
 
 export function ItemFollow({
     avatar,
