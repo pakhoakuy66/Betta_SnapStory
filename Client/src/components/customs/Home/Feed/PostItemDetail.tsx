@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import type { EmojiClickData, Theme } from "emoji-picker-react";
 import { EditMenu } from "../../Chores/Context_menu/editMenu";
 
+// Cập nhật cấu trúc comment
 const post = {
     image: "/posts/spurs_gate.jpg",
     caption: "See you tonight, Hong Kong ❤️",
@@ -15,30 +16,25 @@ const post = {
         {
             user: "glen_kightley",
             text: "Can't wait to see Gyokeres make his debut 😭",
+            replies: [
+                { user: "arsenal", text: "Me too! ", isAuthor: true },
+                { user: "ramseyli", text: "Same here 😭" },
+                { user: "john_doe", text: "Excited!" },
+                { user: "alice", text: "I can't wait!" },
+                { user: "bob", text: "It's going to be amazing!" },
+            ],
         },
         {
             user: "ramseyli",
             text: "can't wait egweg😭😭😭❤️",
-        },
-        {
-            user: "ramseyli",
-            text: "can't wait egweg😭😭😭❤️",
-        },
-        {
-            user: "ramseyli",
-            text: "can't wait egweg😭😭😭❤️",
-        },
-        {
-            user: "ramseyli",
-            text: "can't wait egweg😭😭😭❤️",
-        },
-        {
-            user: "ramseyli",
-            text: "can't wait egweg😭😭😭❤️",
-        },
-        {
-            user: "ramseyli",
-            text: "can't wait egweg😭😭😭❤️",
+            replies: [
+                {
+                    user: "arsenal",
+                    text: "Be patient!",
+                    isAuthor: true,
+                },
+                { user: "glen_kightley", text: "Can't wait too!" },
+            ],
         },
     ],
 };
@@ -214,32 +210,101 @@ export function PostItemDetail({
                                 <p className="text-sm">{post.caption}</p>
                             </div>
                         </div>
+                        {post.comments.map((c: any, i: number) => {
+                            const [visibleReplies, setVisibleReplies] =
+                                useState(0); // số reply đang hiển thị
+                            const totalReplies = c.replies?.length || 0;
 
-                        {post.comments.map((c: any, i: number) => (
-                            <div
-                                key={i}
-                                className="flex break-words whitespace-pre-wrap mt-3"
-                            >
-                                <img
-                                    onClick={() => navigate(`/o/${c.user}`)}
-                                    src={post.user.avatar}
-                                    className="w-8 h-8 rounded-full mr-2 object-cover cursor-pointer"
-                                />
-                                <div className="bg-neutral-800 px-3 py-2 rounded-xl max-w-[320px] text-white">
-                                    <p className="text-sm font-normal break-words whitespace-normal leading-snug">
-                                        <span
+                            const handleViewMoreReplies = () => {
+                                setVisibleReplies((prev) =>
+                                    Math.min(prev + 3, totalReplies)
+                                );
+                            };
+
+                            return (
+                                <div
+                                    key={i}
+                                    className="flex flex-col break-words whitespace-pre-wrap mt-3"
+                                >
+                                    {/* Comment chính */}
+                                    <div className="flex">
+                                        <img
                                             onClick={() =>
                                                 navigate(`/o/${c.user}`)
                                             }
-                                            className="font-semibold mr-1"
-                                        >
-                                            {c.user}
-                                        </span>
-                                        <p className="mt-1">{c.text}</p>
-                                    </p>
+                                            src={post.user.avatar}
+                                            className="w-8 h-8 rounded-full mr-2 object-cover cursor-pointer"
+                                        />
+                                        <div className="bg-neutral-800 px-3 py-2 rounded-xl max-w-[320px] text-white">
+                                            <p className="text-sm font-normal">
+                                                <span
+                                                    onClick={() =>
+                                                        navigate(`/o/${c.user}`)
+                                                    }
+                                                    className="font-semibold mr-1"
+                                                >
+                                                    {c.user}
+                                                </span>
+                                                <p className="mt-1">{c.text}</p>
+                                                {c.isAuthor && (
+                                                    <span className="ml-1 text-[10px] italic">
+                                                        Tác giả
+                                                    </span>
+                                                )}
+                                            </p>
+                                        </div>
+                                    </div>
+
+                                    {/* Replies */}
+                                    <div className="ml-10 mt-2 flex flex-col gap-2">
+                                        {c.replies
+                                            ?.slice(0, visibleReplies)
+                                            .map((r: any, idx: number) => (
+                                                <div key={idx} className="flex">
+                                                    <img
+                                                        onClick={() =>
+                                                            navigate(
+                                                                `/o/${r.user}`
+                                                            )
+                                                        }
+                                                        src={post.user.avatar}
+                                                        className="w-6 h-6 rounded-full mr-2 object-cover cursor-pointer"
+                                                    />
+                                                    <div className="bg-neutral-700 px-2 py-1 rounded-lg max-w-[280px] text-white text-sm">
+                                                        <span
+                                                            onClick={() =>
+                                                                navigate(
+                                                                    `/o/${r.user}`
+                                                                )
+                                                            }
+                                                            className="font-semibold mr-1"
+                                                        >
+                                                            {r.user}
+                                                        </span>
+                                                        {r.isAuthor && (
+                                                            <span className="text-[10px] italic">
+                                                                Tác giả
+                                                            </span>
+                                                        )}
+                                                        <p>{r.text}</p>
+                                                    </div>
+                                                </div>
+                                            ))}
+
+                                        {visibleReplies < totalReplies && (
+                                            <p
+                                                className="text-gray-400 text-xs cursor-pointer"
+                                                onClick={handleViewMoreReplies}
+                                            >
+                                                Xem{" "}
+                                                {totalReplies - visibleReplies}{" "}
+                                                câu trả lời
+                                            </p>
+                                        )}
+                                    </div>
                                 </div>
-                            </div>
-                        ))}
+                            );
+                        })}
                     </div>
 
                     {/* Reaction & Input */}
