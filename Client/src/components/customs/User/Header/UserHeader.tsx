@@ -100,7 +100,7 @@ export function UserHead({
                                     if (action === "Languages") {
                                         onMenuLanguages();
                                     } else if (action === "QRCode") {
-                                        navigate("/qr");
+                                        navigate(`/qr/${username}`);
                                     } else if (action === "Status") {
                                         onPersonalStatus();
                                     } else if (action === "Login_Activity") {
