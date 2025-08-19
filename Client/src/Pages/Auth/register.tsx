@@ -1,7 +1,10 @@
 import { Link } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import Logo from "../../assets/imgaes/Akuy_logo.png";
 
 export function Register() {
+    const { t } = useTranslation();
+
     return (
         <div className="flex h-screen justify-center items-center">
             <form

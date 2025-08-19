@@ -1,0 +1,27 @@
+{
+    "login": {
+        "title": "Snapstory",
+        "login": "ログイン",
+        "email_placeholder": "メールアドレス",
+        "password_placeholder": "パスワード",
+        "forgot_password": "パスワードを忘れた",
+        "register_prompt": "アカウントをお持ちですか？",
+        "register_link": "登録"
+    },
+    "register": {
+        "title": "Snapstory",
+        "register": "登録",
+        "username_placeholder": "ユーザー名",
+        "email_placeholder": "メールアドレス",
+        "password_placeholder": "パスワード",
+        "confirm_password_placeholder": "パスワードの確認",
+        "login_prompt": "アカウントをお持ちですか？",
+        "login_link": "ログイン"
+    },
+    "forgot_password": {
+        "title": "パスワードを忘れた",
+        "email_placeholder": "メールアドレスを入力",
+        "submit": "送信",
+        "back": "戻る"
+    }
+}

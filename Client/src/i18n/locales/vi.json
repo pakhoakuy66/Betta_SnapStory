@@ -1,0 +1,27 @@
+{
+    "login": {
+        "title": "Snapstory",
+        "login": "Đăng nhập",
+        "email_placeholder": "Email",
+        "password_placeholder": "Mật khẩu",
+        "forgot_password": "Quên mật khẩu",
+        "register_prompt": "Bạn đã có tài khoản?",
+        "register_link": "Đăng ký"
+    },
+    "register": {
+        "title": "Snapstory",
+        "register": "Đăng ký",
+        "username_placeholder": "Tên người dùng",
+        "email_placeholder": "Email",
+        "password_placeholder": "Mật khẩu",
+        "confirm_password_placeholder": "Xác nhận mật khẩu",
+        "login_prompt": "Bạn đã có tài khoản?",
+        "login_link": "Đăng nhập"
+    },
+    "forgot_password": {
+        "title": "Quên mật khẩu",
+        "email_placeholder": "Nhập email của bạn",
+        "submit": "Gửi",
+        "back": "Quay lại"
+    }
+}

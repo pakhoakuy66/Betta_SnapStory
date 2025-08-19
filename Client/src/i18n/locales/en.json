@@ -1,0 +1,27 @@
+{
+  "login": {
+    "title": "Snapstory",
+    "login": "Login",
+    "email_placeholder": "Email",
+    "password_placeholder": "Password",
+    "forgot_password": "Forgot password",
+    "register_prompt": "Have an account?",
+    "register_link": "Register"
+  },
+  "register": {
+    "title": "Snapstory",
+    "register": "Register",
+    "username_placeholder": "Username",
+    "email_placeholder": "Email",
+    "password_placeholder": "Password",
+    "confirm_password_placeholder": "Confirm Password",
+    "login_prompt": "Have an account?",
+    "login_link": "Log in"
+  },
+  "forgot_password": {
+    "title": "Forgot Password",
+    "email_placeholder": "Enter your email",
+    "submit": "Send",
+    "back": "Back"
+  }
+}
