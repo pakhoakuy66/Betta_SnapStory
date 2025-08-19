@@ -62,10 +62,9 @@ export function LoginUser() {
                             {t("login.register_prompt")}
                             <Link
                                 to="/register"
-                                className="underline duration-300 
+                                className="underline duration-300 ml-1
                                 hover:drop-shadow-[0_0_30px_white]"
                             >
-                                {" "}
                                 {t("login.register_link")}
                             </Link>
                         </p>

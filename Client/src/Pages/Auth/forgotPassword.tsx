@@ -1,7 +1,10 @@
 import { Link } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import { useState } from "react";
 
 export function ForgotPassword() {
+    const { t } = useTranslation();
+
     return (
         <div className="flex h-screen justify-center items-center">
             <form
@@ -9,9 +12,7 @@ export function ForgotPassword() {
                 h-auto rounded-sm drop-shadow-[0_0_1px_white] duration-300 hover:drop-shadow-[0_0_3px_white]"
             >
                 <div className="flex h-[20px] items-center my-3">
-                    <Link
-                        to="/login"
-                        className="mr-3 cursor-pointer">
+                    <Link to="/login" className="mr-3 cursor-pointer">
                         <i
                             className="fa-solid fa-arrow-left
                             text-[#C7D5E0] text-[20px] text-center font-bold 
@@ -20,13 +21,13 @@ export function ForgotPassword() {
                         ></i>
                     </Link>
                     <h2 className="text-[#C7D5E0] text-[20px] text-center font-bold block">
-                        Quên mật khẩu
+                        {t("forgot_password.title")}
                     </h2>
                 </div>
                 <nav className="flex flex-col gap-3">
                     <input
                         type="email"
-                        placeholder="Nhập email của bạn"
+                        placeholder={t("forgot_password.email_placeholder")}
                         className="w-[320px] h-[35px] my-3 p-1 rounded-sm bg-[#0a0e1a] 
                                 duration-300 hover:bg-[#12182d]  hover:drop-shadow-[0_0_5px_white]"
                         required
@@ -39,7 +40,7 @@ export function ForgotPassword() {
                             duration-300 hover:drop-shadow-[0_0_3px_white] 
                             active:scale-95 active:drop-shadow-[0_0_5px_white]"
                         >
-                            Gửi
+                            {t("forgot_password.submit")}
                         </button>
                     </nav>
                 </nav>

@@ -15,12 +15,11 @@ i18n.use(LanguageDetector) // tự động detect ngôn ngữ trình duyệt
     .init({
         resources: {
             en: { translation: en },
-            zh: { translation: zh },
+            zh: { translation: zh },    
             ja: { translation: ja },
             ko: { translation: ko },
             vi: { translation: vi },
         },
-        lng: "vi",
         fallbackLng: "en", // nếu ngôn ngữ hiện tại không có thì dùng en
         interpolation: { escapeValue: false }, // React đã escape rồi
         detection: {

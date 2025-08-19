@@ -1,10 +1,8 @@
 import { useState, useEffect, useRef } from "react";
-import { useLanguage } from "@/i18n/LanguageContext";
+import i18n from "@/i18n/I18n";
 
 export function MenuLanguages({ onClose }: { onClose: () => void }) {
     const [slideOut, setSlideOut] = useState(false);
-
-    const { changeLanguage } = useLanguage();
 
     const menuLanguagesRef = useRef<HTMLDivElement>(null);
 
@@ -22,6 +20,11 @@ export function MenuLanguages({ onClose }: { onClose: () => void }) {
         return () =>
             document.removeEventListener("mousedown", handleClickOutSide);
     }, [onClose]);
+
+    const changeLanguage = (lang: string) => {
+        i18n.changeLanguage(lang);
+        onClose();
+    };
 
     return (
         <div

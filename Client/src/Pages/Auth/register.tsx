@@ -12,7 +12,7 @@ export function Register() {
                 h-auto rounded-sm drop-shadow-[0_0_1px_white] duration-300 hover:drop-shadow-[0_0_3px_white]"
             >
                 <h1 className="text-[#C7D5E0] text-[30px] text-center font-bold block">
-                    Snapstory
+                    {t("register.title")}
                 </h1>
                 <nav className="flex">
                     <div className="grid justify-center items-center w-[100%] text-[#C7D5E0] border-r-2 border-[#2c343e]">
@@ -24,28 +24,30 @@ export function Register() {
                     </div>
                     <div className="w-[100%] text-[#C7D5E0]">
                         <h1 className="text-[#C7D5E0] text-[30px] text-center font-bold block">
-                            Register
+                            {t("register.register")}
                         </h1>
                         <nav className="grid justify-center">
                             <input
                                 className="w-[320px] h-[35px] my-3 p-1 rounded-sm bg-[#0a0e1a] 
                                 duration-300 hover:bg-[#12182d]  hover:drop-shadow-[0_0_5px_white]"
-                                placeholder="Username"
+                                placeholder={t("register.username_placeholder")}
                             />
                             <input
                                 className="w-[320px] h-[35px] my-3 p-1 rounded-sm bg-[#0a0e1a] 
                                 duration-300 hover:bg-[#12182d]  hover:drop-shadow-[0_0_5px_white]"
-                                placeholder="Email"
+                                placeholder={t("register.email_placeholder")}
                             />
                             <input
                                 className="w-[320px] h-[35px] my-3 p-1 rounded-sm bg-[#0a0e1a] 
                                 duration-300 hover:bg-[#12182d]  hover:drop-shadow-[0_0_5px_white]"
-                                placeholder="Password"
+                                placeholder={t("register.password_placeholder")}
                             />
                             <input
                                 className="w-[320px] h-[35px] my-3 p-1 rounded-sm bg-[#0a0e1a] 
                                 duration-300 hover:bg-[#12182d]  hover:drop-shadow-[0_0_5px_white]"
-                                placeholder="Confirm Password"
+                                placeholder={t(
+                                    "register.confirm_password_placeholder"
+                                )}
                             />
                         </nav>
                         <div className="grid justify-center mt-3">
@@ -56,18 +58,17 @@ export function Register() {
                                 hover:drop-shadow-[0_0_3px_white] active:scale-95 
                                 active:drop-shadow-[0_0_5px_white] cursor-pointer"
                             >
-                                Register
+                                {t("register.register")}
                             </button>
                         </div>
                         <p className="text-[#C7D5E0] my-5 text-center">
-                            Have an account?
+                            {t("register.login_prompt")}
                             <Link
                                 to="/login"
-                                className="underline duration-300 
+                                className="underline duration-300 ml-1
                                 hover:drop-shadow-[0_0_30px_white]"
                             >
-                                {" "}
-                                Log in
+                                {t("register.login_link")}
                             </Link>
                         </p>
                     </div>
