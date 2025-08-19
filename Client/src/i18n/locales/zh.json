@@ -1,0 +1,27 @@
+{
+    "login": {
+        "title": "Snapstory",
+        "login": "登录",
+        "email_placeholder": "电子邮件",
+        "password_placeholder": "密码",
+        "forgot_password": "忘记密码",
+        "register_prompt": "有账户吗？",
+        "register_link": "注册"
+    },
+    "register": {
+        "title": "Snapstory",
+        "register": "注册",
+        "username_placeholder": "用户名",
+        "email_placeholder": "电子邮件",
+        "password_placeholder": "密码",
+        "confirm_password_placeholder": "确认密码",
+        "login_prompt": "有账户吗？",
+        "login_link": "登录"
+    },
+    "forgot_password": {
+        "title": "忘记密码",
+        "email_placeholder": "输入您的电子邮件",
+        "submit": "发送",
+        "back": "返回"
+    }
+}

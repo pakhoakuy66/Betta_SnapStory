@@ -1,0 +1,27 @@
+{
+    "login": {
+        "title": "Snapstory",
+        "login": "로그인",
+        "email_placeholder": "이메일",
+        "password_placeholder": "비밀번호",
+        "forgot_password": "비밀번호를 잊으셨나요",
+        "register_prompt": "계정이 있으신가요?",
+        "register_link": "등록"
+    },
+    "register": {
+        "title": "Snapstory",
+        "register": "등록",
+        "username_placeholder": "사용자 이름",
+        "email_placeholder": "이메일",
+        "password_placeholder": "비밀번호",
+        "confirm_password_placeholder": "비밀번호 확인",
+        "login_prompt": "계정이 있으신가요?",
+        "login_link": "로그인"
+    },
+    "forgot_password": {
+        "title": "비밀번호를 잊으셨나요",
+        "email_placeholder": "이메일을 입력하세요",
+        "submit": "보내기",
+        "back": "뒤로"
+    }
+}
