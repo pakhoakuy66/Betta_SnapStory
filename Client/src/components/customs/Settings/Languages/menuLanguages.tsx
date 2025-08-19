@@ -1,11 +1,9 @@
 import { useState, useEffect, useRef } from "react";
-import { useTranslation } from "react-i18next";
 import { useLanguage } from "@/i18n/LanguageContext";
 
 export function MenuLanguages({ onClose }: { onClose: () => void }) {
     const [slideOut, setSlideOut] = useState(false);
 
-    const { t } = useTranslation();
     const { changeLanguage } = useLanguage();
 
     const menuLanguagesRef = useRef<HTMLDivElement>(null);
