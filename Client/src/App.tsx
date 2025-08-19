@@ -7,6 +7,8 @@ import { Feed } from "./components/customs/Home/Feed/feed";
 import { Profile } from "./Pages/User/UserPage";
 import { UserQR } from "./components/customs/Settings/QR/UserQR";
 import { OtherUserProfile } from "./Pages/OtherUser/OtherUserPage";
+// Admin
+import { LoginAdmin } from "./Pages/Auth_Admin/LoginAdmin";
 
 function App() {
     return (
@@ -56,6 +58,9 @@ function App() {
                 <Route path="/register" element={<Register />} />
                 <Route path="/forgot-password" element={<ForgotPassword />} />
                 <Route path="/qr/:username" element={<UserQR />} />
+
+                {/* Admin */}
+                <Route path="/betta/admin/login" element={<LoginAdmin />} />
             </Routes>
         </div>
     );
