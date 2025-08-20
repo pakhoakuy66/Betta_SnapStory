@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from "react";
+import { useTranslation } from "react-i18next";
 import { useNavigate } from "react-router-dom";
 import { BarMenu } from "./barMenu";
 import Logo from "../../../../assets/imgaes/Akuy_logo.png";
@@ -27,6 +28,8 @@ export function SideMenu({
     const menuBarRef = useRef<HTMLDivElement>(null);
 
     const navigate = useNavigate();
+
+    const { t } = useTranslation();
 
     useEffect(() => {
         const handleClickOutSide = (e: MouseEvent) => {
@@ -106,22 +109,25 @@ export function SideMenu({
                         <BarMenu
                             options={[
                                 {
-                                    label: "Ngôn ngữ",
+                                    label: `${t("menuBar.languages")}`,
                                     action: "Languages",
                                 },
                                 {
-                                    label: "Hoạt động đăng nhập",
+                                    label: `${t("menuBar.loginActivity")}`,
                                     action: "Login_Activity",
                                 },
                                 {
-                                    label: "Đã lưu",
+                                    label: `${t("menuBar.savedPost")}`,
                                     action: "Saved_Post",
                                 },
                                 {
-                                    label: "Báo cáo sự cố",
+                                    label: `${t("menuBar.reportProblem")}`,
                                     action: "Report",
                                 },
-                                { label: "Đăng xuất", action: "Logout" },
+                                {
+                                    label: `${t("menuBar.logout")}`,
+                                    action: "Logout",
+                                },
                             ]}
                             onOptionClick={(action) => {
                                 if (action === "Languages") {

@@ -1,11 +1,36 @@
 import { useState, useRef, useEffect } from "react";
 import { Link } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import { ItemLogin } from "./ItemLogin";
+
+// Giả lập dữ liệu lịch sử đăng nhập
+const loginHistory = [
+    {
+        id: 1,
+        device: "Windows 11 - Chrome",
+        location: "Hồ Chí Minh, Việt Nam",
+        time: "2025-08-20 10:30",
+    },
+    {
+        id: 2,
+        device: "iPhone 15 - Safari",
+        location: "Hà Nội, Việt Nam",
+        time: "2025-08-19 21:15",
+    },
+    {
+        id: 3,
+        device: "MacBook Air - Edge",
+        location: "Đà Nẵng, Việt Nam",
+        time: "2025-08-19 08:42",
+    },
+];
 
 export function HistoryLogin({ onClose }: { onClose: () => void }) {
     const [slideOut, setShowSlideOut] = useState(false);
 
     const historyLoginRef = useRef<HTMLDivElement>(null);
+
+    const { t } = useTranslation();
 
     useEffect(() => {
         const handleClickOutSide = (e: MouseEvent) => {
@@ -41,18 +66,18 @@ export function HistoryLogin({ onClose }: { onClose: () => void }) {
                         ></i>
                     </button>
                     <h2 className="absolute left-1/2 -translate-x-1/2 font-bold text-[20px] block">
-                        Hoạt động đăng nhập
+                        {t("historyLogin.loginActivity")}
                     </h2>
                 </div>
                 <ul className="w-[100%] max-h-[330px] mt-2 overflow-y-auto scrollbar-hide">
-                    <ItemLogin />
-                    <ItemLogin />
-                    <ItemLogin />
-                    <ItemLogin />
-                    <ItemLogin />
-                    <ItemLogin />
-                    <ItemLogin />
-                    <ItemLogin />
+                    {loginHistory.map((item) => (
+                        <ItemLogin
+                            key={item.id}
+                            device={item.device}
+                            location={item.location}
+                            time={item.time}
+                        />
+                    ))}
                 </ul>
             </div>
         </div>
