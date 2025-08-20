@@ -97,5 +97,26 @@
     "personalStatus": {
         "title": "개인정보 보호",
         "privatePage": "비공개 프로필 페이지"
+    },
+    "privateConfirm": {
+        "title": "계정을 비공개로 전환하시겠습니까?",
+        "description": "팔로워만 귀하의 콘텐츠를 보고 상호작용할 수 있습니다.",
+        "cancel": "취소",
+        "confirm": "확인"
+    },
+    "publicStatusConfirm": {
+        "title": "계정을 공개 모드로 전환하시겠습니까?",
+        "description": "누구나 귀하의 콘텐츠를 보고 상호작용할 수 있습니다.",
+        "cancel": "취소",
+        "confirm": "확인"
+    },
+    "suggestionList": {
+        "title": "추천 사용자",
+        "reload": "다시 불러오기"
+    },
+    "suggestionItem": {
+        "forYou": "추천 사용자",
+        "follow": "팔로우",
+        "following": "팔로잉"
     }
 }

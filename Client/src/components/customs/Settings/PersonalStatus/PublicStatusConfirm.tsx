@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef } from "react";
+import { useTranslation } from "react-i18next";
 
 export function PublicStatusConfirm({
     onClose,
@@ -9,6 +10,8 @@ export function PublicStatusConfirm({
 }) {
     const [slideOut, setSlideOut] = useState(false);
     const publicStatusConfirmRef = useRef<HTMLDivElement>(null);
+
+    const { t } = useTranslation();
 
     useEffect(() => {
         const handleClickOutSide = (e: MouseEvent) => {
@@ -37,13 +40,12 @@ export function PublicStatusConfirm({
             >
                 <div className="w-full">
                     <h2 className="text-[#C7D5E0] text-[20px] text-center font-bold">
-                        Chuyển tài khoản sang chế độ công khai?
+                        {t("publicStatusConfirm.title")}
                     </h2>
                 </div>
                 <div className="w-full">
                     <p className="text-[#C7D5E0] text-center text-[16px]">
-                        Bất kỳ ai đều có thể xem và tương tác với nội dung của
-                        bạn.
+                        {t("publicStatusConfirm.description")}
                     </p>
                 </div>
                 <div className="flex w-full justify-evenly mt-auto">
@@ -54,7 +56,7 @@ export function PublicStatusConfirm({
                         duration-300 hover:drop-shadow-[0_0_3px_white] 
                         active:scale-95 active:drop-shadow-[0_0_5px_white]"
                     >
-                        Hủy
+                        {t("publicStatusConfirm.cancel")}
                     </button>
                     <button
                         onClick={onConfirm}
@@ -63,7 +65,7 @@ export function PublicStatusConfirm({
                         duration-300 hover:drop-shadow-[0_0_3px_white] 
                         active:scale-95 active:drop-shadow-[0_0_5px_white]"
                     >
-                        Đồng ý
+                        {t("publicStatusConfirm.confirm")}
                     </button>
                 </div>
             </div>

@@ -97,5 +97,26 @@
     "personalStatus": {
         "title": "Quyền riêng tư",
         "privatePage": "Trang cá nhân riêng tư"
+    },
+    "privateConfirm": {
+        "title": "Chuyển tài khoản sang chế độ riêng tư?",
+        "description": "Chỉ những người theo dõi bạn mới có thể xem và tương tác với nội dung của bạn.",
+        "cancel": "Hủy",
+        "confirm": "Đồng ý"
+    },
+    "publicStatusConfirm": {
+        "title": "Chuyển tài khoản sang chế độ công khai?",
+        "description": "Bất kỳ ai đều có thể xem và tương tác với nội dung của bạn.",
+        "cancel": "Hủy",
+        "confirm": "Đồng ý"
+    },
+    "suggestionList": {
+        "title": "Gợi ý cho bạn",
+        "reload": "Tải lại"
+    },
+    "suggestionItem": {
+        "forYou": "Gợi ý cho bạn",
+        "follow": "Theo dõi",
+        "following": "Đang theo dõi"
     }
 }
