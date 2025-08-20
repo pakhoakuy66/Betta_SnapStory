@@ -62,5 +62,26 @@
         "placeholder": "왜 이 게시물을 신고하시나요?",
         "note": "좋은 경험 되시길 바랍니다",
         "send": "보내기"
+    },
+    "reportProblem": {
+        "cancel": "취소",
+        "title": "문제 신고",
+        "placeholder": "문제를 자세히 작성해주세요",
+        "note": "좋은 경험 되시길 바랍니다",
+        "send": "보내기"
+    },
+    "notification": {
+        "title": "알림",
+        "likeAction": "회원님의 게시물을 좋아했습니다",
+        "commentAction": "댓글을 남겼습니다: {{comment}}",
+        "saveAction": "회원님의 게시물을 저장했습니다",
+        "timeAgo": "{{time}}시간 전"
+    },
+    "search": {
+        "title": "검색",
+        "placeholder": "검색",
+        "recent": "최근",
+        "clearAll": "모두 삭제",
+        "suggestion": "추천"
     }
 }

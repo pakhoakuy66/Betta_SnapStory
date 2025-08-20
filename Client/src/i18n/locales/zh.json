@@ -62,5 +62,26 @@
         "placeholder": "你为什么要举报这篇帖子？",
         "note": "祝你有一个良好的体验",
         "send": "发送"
+    },
+    "reportProblem": {
+        "cancel": "取消",
+        "title": "报告问题",
+        "placeholder": "请详细描述问题",
+        "note": "祝你有一个良好的体验",
+        "send": "发送"
+    },
+    "notification": {
+        "title": "通知",
+        "likeAction": "赞了你的帖子",
+        "commentAction": "评论了: {{comment}}",
+        "saveAction": "收藏了你的帖子",
+        "timeAgo": "{{time}}小时前"
+    },
+    "search": {
+        "title": "搜索",
+        "placeholder": "搜索",
+        "recent": "最近",
+        "clearAll": "清除全部",
+        "suggestion": "为你推荐"
     }
 }
