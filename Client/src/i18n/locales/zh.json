@@ -45,5 +45,22 @@
         "commentPlaceholder": "添加评论…",
         "submit": "发布",
         "submitDisabled": "发布（不可用）"
+    },
+    "newPost": {
+        "cancel": "取消",
+        "createTitle": "创建新帖子",
+        "placeholder": "有什么新鲜事？",
+        "post": "发布",
+        "whoCanSee": "谁可以看到此帖子？",
+        "public": "公开",
+        "follower": "你的关注者",
+        "private": "仅自己"
+    },
+    "reportPost": {
+        "cancel": "取消",
+        "title": "要举报这篇帖子吗？",
+        "placeholder": "你为什么要举报这篇帖子？",
+        "note": "祝你有一个良好的体验",
+        "send": "发送"
     }
 }

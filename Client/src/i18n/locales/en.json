@@ -45,5 +45,22 @@
         "commentPlaceholder": "Add a comment...",
         "submit": "Post",
         "submitDisabled": "Post (disabled)"
+    },
+    "newPost": {
+        "cancel": "Cancel",
+        "createTitle": "Create new post",
+        "placeholder": "What's new?",
+        "post": "Post",
+        "whoCanSee": "Who can see this post?",
+        "public": "Public",
+        "follower": "Your followers",
+        "private": "Only me"
+    },
+    "reportPost": {
+        "cancel": "Cancel",
+        "title": "Report this post?",
+        "placeholder": "Why are you reporting this post?",
+        "note": "Wish you have a good experience",
+        "send": "Send"
     }
 }

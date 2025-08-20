@@ -1,10 +1,13 @@
 import { useState, useEffect, useRef } from "react";
+import { useTranslation } from "react-i18next";
 
 export function Report_Post({ onClose }: { onClose: () => void }) {
     const [content, setContent] = useState("");
     const [slideOut, setSlideOut] = useState(false);
 
     const reportProblemRef = useRef<HTMLDivElement>(null);
+
+    const { t } = useTranslation();
 
     useEffect(() => {
         const handleClickOutSide = (e: MouseEvent) => {
@@ -44,13 +47,13 @@ export function Report_Post({ onClose }: { onClose: () => void }) {
                         className="text-[#fff] cursor-pointer
                                         duration-300 hover:text-[#848383]"
                     >
-                        Hủy
+                        {t("reportPost.cancel")}
                     </span>
                     <h2
                         className="absolute left-1/2 -translate-x-1/2 text-[#fff] 
                                         text-[18px] text-center font-bold"
                     >
-                        Báo cáo bài viết này?
+                        {t("reportPost.title")}
                     </h2>
                 </div>
 
@@ -58,7 +61,7 @@ export function Report_Post({ onClose }: { onClose: () => void }) {
                     <textarea
                         className="bg-transparent text-[#fff] w-full resize-none text-sm 
                             scrollbar-hide outline-none placeholder-gray-500"
-                        placeholder="Tại sao bạn lại báo cáo bài viết này?"
+                        placeholder={t("reportPost.placeholder")}
                         rows={5}
                         value={content}
                         onChange={(e) => setContent(e.target.value)}
@@ -67,7 +70,7 @@ export function Report_Post({ onClose }: { onClose: () => void }) {
 
                 <div className="flex h-[100%] items-center justify-between">
                     <span className="mt-6 text-[13px] ml-1 text-[#b7b7b7]">
-                        Chúc bạn có một trải nghiệm tốt
+                        {t("reportPost.note")}
                     </span>
 
                     {/* Button Gửi */}
@@ -82,7 +85,7 @@ export function Report_Post({ onClose }: { onClose: () => void }) {
                             }`}
                             disabled={!content.trim()}
                         >
-                            Gửi
+                            {t("reportPost.send")}
                         </button>
                     </div>
                 </div>

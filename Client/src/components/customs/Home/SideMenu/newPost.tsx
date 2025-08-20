@@ -1,9 +1,12 @@
 import { useState, useRef, useEffect } from "react";
 import EmojiPicker from "emoji-picker-react";
+import { useTranslation } from "react-i18next";
 import type { EmojiClickData, Theme } from "emoji-picker-react";
 import { EditMenu } from "../../Chores/Context_menu/editMenu";
 
 export function NewPost({ onClose }: { onClose: () => void }) {
+    const { t } = useTranslation();
+
     const [content, setContent] = useState("");
     const [showEmoji, setShowEmoji] = useState(false);
     const [images, setImages] = useState<string[]>([]);
@@ -12,7 +15,8 @@ export function NewPost({ onClose }: { onClose: () => void }) {
     const [selectedOption, setSelectedOption] = useState({
         label: (
             <>
-                <i className="fa-solid fa-earth-americas mr-2" /> Cộng đồng
+                <i className="fa-solid fa-earth-americas mr-2" />{" "}
+                {t("newPost.public")}
             </>
         ),
         action: "public",
@@ -126,7 +130,8 @@ export function NewPost({ onClose }: { onClose: () => void }) {
         {
             label: (
                 <>
-                    <i className="fa-solid fa-earth-americas mr-2" /> Cộng đồng
+                    <i className="fa-solid fa-earth-americas mr-1" />{" "}
+                    {t("newPost.public")}
                 </>
             ),
             action: "public",
@@ -134,7 +139,8 @@ export function NewPost({ onClose }: { onClose: () => void }) {
         {
             label: (
                 <>
-                    <i className="fa-solid fa-users mr-2" /> Người theo dõi bạn
+                    <i className="fa-solid fa-users mr-1" />{" "}
+                    {t("newPost.follower")}
                 </>
             ),
             action: "follower",
@@ -142,7 +148,8 @@ export function NewPost({ onClose }: { onClose: () => void }) {
         {
             label: (
                 <>
-                    <i className="fa-solid fa-user mr-2" /> Cá nhân
+                    <i className="fa-solid fa-user mr-1" />{" "}
+                    {t("newPost.private")}
                 </>
             ),
             action: "private",
@@ -168,13 +175,13 @@ export function NewPost({ onClose }: { onClose: () => void }) {
                         className="text-[#fff] cursor-pointer
                         duration-300 hover:text-[#848383]"
                     >
-                        Hủy
+                        {t("newPost.cancel")}
                     </span>
                     <h2
                         className="absolute left-1/2 -translate-x-1/2 text-[#fff] 
                         text-[18px] text-center font-bold"
                     >
-                        Tạo bài viết mới
+                        {t("newPost.createTitle")}
                     </h2>
                 </div>
 
@@ -195,7 +202,7 @@ export function NewPost({ onClose }: { onClose: () => void }) {
                             ref={textareaRef}
                             className="bg-transparent text-[#fff] w-full resize-none text-sm 
                             scrollbar-hide outline-none placeholder-gray-500"
-                            placeholder="Có gì mới?"
+                            placeholder={t("newPost.placeholder")}
                             rows={3}
                             value={content}
                             onChange={(e) => setContent(e.target.value)}
@@ -291,7 +298,7 @@ export function NewPost({ onClose }: { onClose: () => void }) {
                             className="mt-6 text-[13px] ml-1 text-[#b7b7b7] cursor-pointer
                              duration-300 hover:text-[#848383]"
                         >
-                            Ai có thể xem bài viết này?{" "}
+                            {t("newPost.whoCanSee")}{" "}
                             <span className="ml-2">{selectedOption.label}</span>
                         </span>
 
@@ -314,7 +321,7 @@ export function NewPost({ onClose }: { onClose: () => void }) {
                             }`}
                             disabled={!content.trim()}
                         >
-                            Đăng
+                            {t("newPost.post")}
                         </button>
                     </div>
                 </div>

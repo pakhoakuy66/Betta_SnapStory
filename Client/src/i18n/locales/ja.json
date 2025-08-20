@@ -45,5 +45,22 @@
         "commentPlaceholder": "コメントを追加...",
         "submit": "投稿",
         "submitDisabled": "投稿（無効）"
+    },
+    "newPost": {
+        "cancel": "キャンセル",
+        "createTitle": "新しい投稿を作成",
+        "placeholder": "新着情報は？",
+        "post": "投稿",
+        "whoCanSee": "この投稿を見られる人は？",
+        "public": "公開",
+        "follower": "フォロワー",
+        "private": "自分のみ"
+    },
+    "reportPost": {
+        "cancel": "キャンセル",
+        "title": "この投稿を報告しますか？",
+        "placeholder": "なぜこの投稿を報告するのですか？",
+        "note": "良い体験をお祈りします",
+        "send": "送信"
     }
 }

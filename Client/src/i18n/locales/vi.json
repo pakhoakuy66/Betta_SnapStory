@@ -45,5 +45,22 @@
         "commentPlaceholder": "Bình luận...",
         "submit": "Đăng",
         "submitDisabled": "Đăng (không khả dụng)"
+    },
+    "newPost": {
+        "cancel": "Hủy",
+        "createTitle": "Tạo bài viết mới",
+        "placeholder": "Có gì mới?",
+        "post": "Đăng",
+        "whoCanSee": "Ai có thể xem bài viết này?",
+        "public": "Cộng đồng",
+        "follower": "Người theo dõi",
+        "private": "Cá nhân"
+    },
+    "reportPost": {
+        "cancel": "Hủy",
+        "title": "Báo cáo bài viết này?",
+        "placeholder": "Tại sao bạn lại báo cáo bài viết này?",
+        "note": "Chúc bạn có một trải nghiệm tốt",
+        "send": "Gửi"
     }
 }

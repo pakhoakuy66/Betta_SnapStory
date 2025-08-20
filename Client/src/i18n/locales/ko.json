@@ -45,5 +45,22 @@
         "commentPlaceholder": "댓글 추가...",
         "submit": "게시",
         "submitDisabled": "게시 (비활성화됨)"
+    },
+    "newPost": {
+        "cancel": "취소",
+        "createTitle": "새 게시물 만들기",
+        "placeholder": "새로운 소식은?",
+        "post": "게시",
+        "whoCanSee": "이 게시물을 볼 수 있는 사람은?",
+        "public": "공개",
+        "follower": "팔로워",
+        "private": "나만"
+    },
+    "reportPost": {
+        "cancel": "취소",
+        "title": "이 게시물을 신고하시겠습니까?",
+        "placeholder": "왜 이 게시물을 신고하시나요?",
+        "note": "좋은 경험 되시길 바랍니다",
+        "send": "보내기"
     }
 }
