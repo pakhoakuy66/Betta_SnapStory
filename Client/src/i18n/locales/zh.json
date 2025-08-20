@@ -23,5 +23,27 @@
         "email_placeholder": "输入您的电子邮件",
         "submit": "发送",
         "back": "返回"
+    },
+    "postItem": {
+        "report": "举报",
+        "open": "打开帖子",
+        "save": "保存帖子",
+        "copy": "复制链接",
+        "timeAgo": "19小时前",
+        "seeMore": "查看更多",
+        "commentPlaceholder": "添加评论…",
+        "submit": "发布",
+        "submitDisabled": "发布（不可用）"
+    },
+    "postDetail": {
+        "report": "举报",
+        "save": "保存帖子",
+        "copy": "复制链接",
+        "author": "作者",
+        "view": "查看",
+        "replies": "条回复",
+        "commentPlaceholder": "添加评论…",
+        "submit": "发布",
+        "submitDisabled": "发布（不可用）"
     }
 }

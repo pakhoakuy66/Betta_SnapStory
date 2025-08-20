@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef } from "react";
 import EmojiPicker from "emoji-picker-react";
 import { useNavigate } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import type { EmojiClickData, Theme } from "emoji-picker-react";
 import { EditMenu } from "../../Chores/Context_menu/editMenu";
 
@@ -24,6 +25,8 @@ export function PostItem({
     const textareaRef = useRef<HTMLTextAreaElement>(null);
 
     const navigate = useNavigate();
+
+    const { t } = useTranslation();
 
     // Xử lý Menu của icon 3 chấm
     useEffect(() => {
@@ -77,7 +80,9 @@ export function PostItem({
                     className="flex flex-col text-sm cursor-pointer"
                 >
                     <span className="font-semibold">spursofficial</span>
-                    <span className="text-gray-400 text-xs">19 giờ</span>
+                    <span className="text-gray-400 text-xs">
+                        {t("postItem.timeAgo")}
+                    </span>
                 </div>
                 <div className="ml-auto relative" ref={menuRef}>
                     <i
@@ -87,10 +92,22 @@ export function PostItem({
                     {showMenu && (
                         <EditMenu
                             options={[
-                                { label: "Báo cáo", action: "Report_Post" },
-                                { label: "Mở bài viết", action: "open" },
-                                { label: "Lưu bài viết", action: "Saved" },
-                                { label: "Sao chép liên kết", action: "copy" },
+                                {
+                                    label: `${t("postItem.report")}`,
+                                    action: "Report_Post",
+                                },
+                                {
+                                    label: `${t("postItem.open")}`,
+                                    action: "open",
+                                },
+                                {
+                                    label: `${t("postItem.save")}`,
+                                    action: "Saved",
+                                },
+                                {
+                                    label: `${t("postItem.copy")}`,
+                                    action: "copy",
+                                },
                             ]}
                             onOptionClick={(action) => {
                                 if (action === "Report_Post") {
@@ -139,12 +156,14 @@ export function PostItem({
             </div>
             <p className="px-4 py-1 text-sm">
                 The famous Bill Nicholson Gates are now officially back home...
-                <button className="text-gray-400 ml-1">xem thêm</button>
+                <button className="text-gray-400 ml-1 cursor-pointer">
+                    {t("postItem.seeMore")}
+                </button>
             </p>
             <div className="flex items-center px-4 py-3 border-t border-neutral-800">
                 <textarea
                     ref={textareaRef}
-                    placeholder="Bình luận..."
+                    placeholder={t("postItem.commentPlaceholder")}
                     value={comment}
                     onChange={(e) => setComment(e.target.value)}
                     className="bg-transparent flex-1 outline-none text-sm placeholder-gray-500 scrollbar-hide"
@@ -181,7 +200,7 @@ export function PostItem({
                     }`}
                     disabled={!comment.trim()}
                 >
-                    Đăng
+                    {t("postItem.submit")}
                 </button>
             </div>
         </div>

@@ -23,5 +23,27 @@
         "email_placeholder": "이메일을 입력하세요",
         "submit": "보내기",
         "back": "뒤로"
+    },
+    "postItem": {
+        "report": "신고",
+        "open": "게시물 열기",
+        "save": "게시물 저장",
+        "copy": "링크 복사",
+        "timeAgo": "19시간 전",
+        "seeMore": "더 보기",
+        "commentPlaceholder": "댓글 추가...",
+        "submit": "게시",
+        "submitDisabled": "게시 (비활성화됨)"
+    },
+    "postDetail": {
+        "report": "신고",
+        "save": "게시물 저장",
+        "copy": "링크 복사",
+        "author": "작성자",
+        "view": "보기",
+        "replies": "개의 답글",
+        "commentPlaceholder": "댓글 추가...",
+        "submit": "게시",
+        "submitDisabled": "게시 (비활성화됨)"
     }
 }
