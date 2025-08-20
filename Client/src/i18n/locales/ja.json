@@ -97,5 +97,26 @@
     "personalStatus": {
         "title": "プライバシー",
         "privatePage": "非公開プロフィールページ"
+    },
+    "privateConfirm": {
+        "title": "アカウントを非公開にしますか？",
+        "description": "フォロワーのみがあなたのコンテンツを閲覧・交流できます。",
+        "cancel": "キャンセル",
+        "confirm": "確認"
+    },
+    "publicStatusConfirm": {
+        "title": "アカウントを公開モードに切り替えますか？",
+        "description": "誰でもあなたのコンテンツを閲覧・交流できます。",
+        "cancel": "キャンセル",
+        "confirm": "確認"
+    },
+    "suggestionList": {
+        "title": "あなたへのおすすめ",
+        "reload": "更新"
+    },
+    "suggestionItem": {
+        "forYou": "あなたへのおすすめ",
+        "follow": "フォロー",
+        "following": "フォロー中"
     }
 }

@@ -97,5 +97,26 @@
     "personalStatus": {
         "title": "Privacy",
         "privatePage": "Private profile page"
+    },
+    "privateConfirm": {
+        "title": "Switch account to private mode?",
+        "description": "Only your followers can view and interact with your content.",
+        "cancel": "Cancel",
+        "confirm": "Confirm"
+    },
+    "publicStatusConfirm": {
+        "title": "Switch account to public mode?",
+        "description": "Anyone can view and interact with your content.",
+        "cancel": "Cancel",
+        "confirm": "Confirm"
+    },
+    "suggestionList": {
+        "title": "Suggested for you",
+        "reload": "Reload"
+    },
+    "suggestionItem": {
+        "forYou": "Suggested for you",
+        "follow": "Follow",
+        "following": "Following"
     }
 }

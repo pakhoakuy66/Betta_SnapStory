@@ -97,5 +97,26 @@
     "personalStatus": {
         "title": "隐私",
         "privatePage": "私人主页"
+    },
+    "privateConfirm": {
+        "title": "将账户切换为私人模式？",
+        "description": "只有关注你的人才能查看和互动你的内容。",
+        "cancel": "取消",
+        "confirm": "确认"
+    },
+    "publicStatusConfirm": {
+        "title": "将账户切换为公开模式？",
+        "description": "任何人都可以查看并与您的内容互动。",
+        "cancel": "取消",
+        "confirm": "确认"
+    },
+    "suggestionList": {
+        "title": "为你推荐",
+        "reload": "重新加载"
+    },
+    "suggestionItem": {
+        "forYou": "为你推荐",
+        "follow": "关注",
+        "following": "已关注"
     }
 }
