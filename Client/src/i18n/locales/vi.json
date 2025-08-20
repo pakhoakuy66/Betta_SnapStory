@@ -62,5 +62,26 @@
         "placeholder": "Tại sao bạn lại báo cáo bài viết này?",
         "note": "Chúc bạn có một trải nghiệm tốt",
         "send": "Gửi"
+    },
+    "reportProblem": {
+        "cancel": "Hủy",
+        "title": "Báo cáo sự cố",
+        "placeholder": "Vui lòng ghi chi tiết sự cố",
+        "note": "Chúc bạn có một trải nghiệm tốt",
+        "send": "Gửi"
+    },
+    "notification": {
+        "title": "Thông báo",
+        "likeAction": "đã thích bài viết của bạn",
+        "commentAction": "đã bình luận: {{comment}}",
+        "saveAction": "đã lưu bài viết của bạn",
+        "timeAgo": "{{time}} giờ trước"
+    },
+    "search": {
+        "title": "Tìm kiếm",
+        "placeholder": "Tìm kiếm",
+        "recent": "Mới đây",
+        "clearAll": "Xóa tất cả",
+        "suggestion": "Gợi ý cho bạn"
     }
 }

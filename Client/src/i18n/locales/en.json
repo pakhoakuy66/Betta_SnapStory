@@ -62,5 +62,26 @@
         "placeholder": "Why are you reporting this post?",
         "note": "Wish you have a good experience",
         "send": "Send"
+    },
+    "reportProblem": {
+        "cancel": "Cancel",
+        "title": "Report a problem",
+        "placeholder": "Please describe the problem in detail",
+        "note": "Wish you have a good experience",
+        "send": "Send"
+    },
+    "notification": {
+        "title": "Notifications",
+        "likeAction": "liked your post",
+        "commentAction": "commented: {{comment}}",
+        "saveAction": "saved your post",
+        "timeAgo": "{{time}} hours ago"
+    },
+    "search": {
+        "title": "Search",
+        "placeholder": "Search",
+        "recent": "Recent",
+        "clearAll": "Clear all",
+        "suggestion": "Suggested for you"
     }
 }

@@ -62,5 +62,26 @@
         "placeholder": "なぜこの投稿を報告するのですか？",
         "note": "良い体験をお祈りします",
         "send": "送信"
+    },
+    "reportProblem": {
+        "cancel": "キャンセル",
+        "title": "問題を報告する",
+        "placeholder": "問題を詳しく記入してください",
+        "note": "良い体験をお祈りします",
+        "send": "送信"
+    },
+    "notification": {
+        "title": "通知",
+        "likeAction": "あなたの投稿に「いいね！」しました",
+        "commentAction": "コメントしました: {{comment}}",
+        "saveAction": "あなたの投稿を保存しました",
+        "timeAgo": "{{time}}時間前"
+    },
+    "search": {
+        "title": "検索",
+        "placeholder": "検索",
+        "recent": "最近",
+        "clearAll": "すべて削除",
+        "suggestion": "おすすめ"
     }
 }

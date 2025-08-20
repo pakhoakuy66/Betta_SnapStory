@@ -1,8 +1,37 @@
 import { useState, useEffect, useRef } from "react";
+import { useTranslation } from "react-i18next";
+import { useNavigate } from "react-router-dom";
+
+const recentUsers = [
+    {
+        id: 1,
+        avatar: "https://i.pravatar.cc/50?img=11",
+        username: "linh.ng",
+    },
+    {
+        id: 2,
+        avatar: "https://i.pravatar.cc/50?img=12",
+        username: "khanhtran",
+    },
+    {
+        id: 3,
+        avatar: "https://i.pravatar.cc/50?img=13",
+        username: "anhdao",
+    },
+    {
+        id: 4,
+        avatar: "https://i.pravatar.cc/50?img=14",
+        username: "minhpham",
+    },
+];
 
 export function Search({ onClose }: { onClose: () => void }) {
     const [slideOut, setSlideOut] = useState(false);
     const searchRef = useRef<HTMLDivElement>(null);
+
+    const navigate = useNavigate();
+
+    const { t } = useTranslation();
 
     // Bấm ở ngoài sẽ đóng - xử lý form search
     useEffect(() => {
@@ -28,7 +57,9 @@ export function Search({ onClose }: { onClose: () => void }) {
               transition-transform duration-300
               ${slideOut ? "-translate-x-full" : "translate-x-0"}`}
         >
-            <h2 className="text-[#fff] text-[18px] font-bold">Tìm kiếm</h2>
+            <h2 className="text-[#fff] text-[18px] font-bold">
+                {t("search.title")}
+            </h2>
             <nav className="h-[55px] border-b-1 border-[#604d4d]">
                 <div className="relative w-full mt-[30px]">
                     {/* Icon kính lúp */}
@@ -44,7 +75,7 @@ export function Search({ onClose }: { onClose: () => void }) {
                     {/* Input */}
                     <input
                         type="text"
-                        placeholder="Tìm kiếm"
+                        placeholder={t("search.placeholder")}
                         className="w-full pl-10 pr-4 h-[35px] rounded-sm 
                 bg-[#0a0e1a] text-white placeholder-gray-400
                 duration-300 focus:outline-none
@@ -54,36 +85,49 @@ export function Search({ onClose }: { onClose: () => void }) {
             </nav>
 
             <div className="flex justify-between items-center my-2">
-                <h3 className="text-[#fff] text-[16px] font-bold">Mới đây</h3>
+                <h3 className="text-[#fff] text-[16px] font-bold">
+                    {t("search.recent")}
+                </h3>
                 <button
                     className="text-[#fff] text-[13px] text-end cursor-pointer 
                     duration-300 hover:text-[#848383]"
                 >
-                    Xóa tất cả
+                    {t("search.clearAll")}
                 </button>
             </div>
 
             <ul className="grid max-h-[350px] overflow-y-auto w-[100%] mt-5 scrollbar-hide">
-                <li className="flex justify-between items-center h-[70px]">
-                    <img
-                        src="./avatar"
-                        className="w-10 h-10 rounded-[50%] object-cover"
-                    />
-                    <nav className="ml-[15px] w-[100%]">
-                        <h2 className="text-[#fff] text-[13px] font-bold">
-                            Tên
-                        </h2>
-                        <span className="text-[#fff] text-[13px]">
-                            Gợi ý cho bạn
-                        </span>
-                    </nav>
-                    <button
-                        className="text-[#fff] w-[90px] text-[20px] text-end cursor-pointer
-                        duration-300 hover:text-[#848383] h-[100%]"
+                {recentUsers.map((user) => (
+                    <li
+                        onClick={() => {
+                            navigate(`/o/${user.username}`);
+                            onClose();
+                        }}
+                        key={user.id}
+                        className="flex justify-between items-center p-2 h-[70px] 
+                        hover:bg-[#111827] rounded-lg transition cursor-pointer"
                     >
-                        <i className="fa-solid fa-xmark"></i>
-                    </button>
-                </li>
+                        <img
+                            src={user.avatar}
+                            alt={user.username}
+                            className="w-10 h-10 rounded-[50%] object-cover"
+                        />
+                        <nav className="ml-[15px] w-[100%]">
+                            <h2 className="text-[#fff] text-[13px] font-bold">
+                                {user.username}
+                            </h2>
+                            <span className="text-[#fff] text-[13px]">
+                                {t("search.suggestion")}
+                            </span>
+                        </nav>
+                        <button
+                            className="text-[#fff] w-[90px] text-[20px] text-end cursor-pointer
+                            duration-300 hover:text-[#848383] h-[100%]"
+                        >
+                            <i className="fa-solid fa-xmark"></i>
+                        </button>
+                    </li>
+                ))}
             </ul>
         </div>
     );
