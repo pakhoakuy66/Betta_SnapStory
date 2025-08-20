@@ -83,5 +83,19 @@
         "recent": "Recent",
         "clearAll": "Clear all",
         "suggestion": "Suggested for you"
+    },
+    "menuBar": {
+        "languages": "Languages",
+        "loginActivity": "Login activity",
+        "savedPost": "Saved",
+        "reportProblem": "Report a problem",
+        "logout": "Log out"
+    },
+    "historyLogin": {
+        "loginActivity": "Login Activity"
+    },
+    "personalStatus": {
+        "title": "Privacy",
+        "privatePage": "Private profile page"
     }
 }

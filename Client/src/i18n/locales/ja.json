@@ -83,5 +83,19 @@
         "recent": "最近",
         "clearAll": "すべて削除",
         "suggestion": "おすすめ"
+    },
+    "menuBar": {
+        "languages": "言語",
+        "loginActivity": "ログインアクティビティ",
+        "savedPost": "保存済み",
+        "reportProblem": "問題を報告",
+        "logout": "ログアウト"
+    },
+    "historyLogin": {
+        "loginActivity": "ログインアクティビティ"
+    },
+    "personalStatus": {
+        "title": "プライバシー",
+        "privatePage": "非公開プロフィールページ"
     }
 }

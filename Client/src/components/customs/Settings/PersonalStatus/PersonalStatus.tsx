@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { useState, useEffect, useRef } from "react";
+import { useTranslation } from "react-i18next";
 import { PrivateStatusConfirm } from "./PrivateStatusConfirm";
 import { PublicStatusConfirm } from "./PublicStatusConfirm";
 
@@ -10,6 +11,8 @@ export function PersonalStatus({ onClose }: { onClose: () => void }) {
     const [showPublicConfirm, setShowPublicConfirm] = useState(false);
 
     const personalStatusRef = useRef<HTMLDivElement>(null);
+
+    const { t } = useTranslation();
 
     useEffect(() => {
         const handleClickOutSide = (e: MouseEvent) => {
@@ -78,7 +81,7 @@ export function PersonalStatus({ onClose }: { onClose: () => void }) {
                             ></i>
                         </button>
                         <h2 className="text-[#C7D5E0] text-[16px] text-center font-bold block">
-                            Quyền riêng tư
+                            {t("personalStatus.title")}
                         </h2>
                     </div>
                     <div className="flex items-center justify-between bg-[#181818] px-4 py-2 rounded-lg">
@@ -88,7 +91,7 @@ export function PersonalStatus({ onClose }: { onClose: () => void }) {
                                 text-[16px] text-[#C7D5E0]"
                             ></i>
                             <span className="text-[#C7D5E0] text-sm">
-                                Trang cá nhân riêng tư
+                                {t("personalStatus.privatePage")}
                             </span>
                         </div>
 

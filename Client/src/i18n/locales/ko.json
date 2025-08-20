@@ -83,5 +83,19 @@
         "recent": "최근",
         "clearAll": "모두 삭제",
         "suggestion": "추천"
+    },
+    "menuBar": {
+        "languages": "언어",
+        "loginActivity": "로그인 활동",
+        "savedPost": "저장됨",
+        "reportProblem": "문제 신고",
+        "logout": "로그아웃"
+    },
+    "historyLogin": {
+        "loginActivity": "로그인 활동"
+    },
+    "personalStatus": {
+        "title": "개인정보 보호",
+        "privatePage": "비공개 프로필 페이지"
     }
 }

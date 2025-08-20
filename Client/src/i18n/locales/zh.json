@@ -83,5 +83,19 @@
         "recent": "最近",
         "clearAll": "清除全部",
         "suggestion": "为你推荐"
+    },
+    "menuBar": {
+        "languages": "语言",
+        "loginActivity": "登录活动",
+        "savedPost": "已保存",
+        "reportProblem": "报告问题",
+        "logout": "退出登录"
+    },
+    "historyLogin": {
+        "loginActivity": "登录活动"
+    },
+    "personalStatus": {
+        "title": "隐私",
+        "privatePage": "私人主页"
     }
 }

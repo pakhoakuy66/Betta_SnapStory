@@ -83,5 +83,19 @@
         "recent": "Mới đây",
         "clearAll": "Xóa tất cả",
         "suggestion": "Gợi ý cho bạn"
+    },
+    "menuBar": {
+        "languages": "Ngôn ngữ",
+        "loginActivity": "Hoạt động đăng nhập",
+        "savedPost": "Đã lưu",
+        "reportProblem": "Báo cáo sự cố",
+        "logout": "Đăng xuất"
+    },
+    "historyLogin": {
+        "loginActivity": "Hoạt động đăng nhập"
+    },
+    "personalStatus": {
+        "title": "Quyền riêng tư",
+        "privatePage": "Trang cá nhân riêng tư"
     }
 }
