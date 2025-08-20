@@ -23,5 +23,27 @@
         "email_placeholder": "メールアドレスを入力",
         "submit": "送信",
         "back": "戻る"
+    },
+    "postItem": {
+        "report": "報告する",
+        "open": "投稿を開く",
+        "save": "投稿を保存",
+        "copy": "リンクをコピー",
+        "timeAgo": "19時間前",
+        "seeMore": "もっと見る",
+        "commentPlaceholder": "コメントを追加...",
+        "submit": "投稿",
+        "submitDisabled": "投稿（無効）"
+    },
+    "postDetail": {
+        "report": "報告する",
+        "save": "投稿を保存",
+        "copy": "リンクをコピー",
+        "author": "作者",
+        "view": "表示",
+        "replies": "件の返信",
+        "commentPlaceholder": "コメントを追加...",
+        "submit": "投稿",
+        "submitDisabled": "投稿（無効）"
     }
 }

@@ -23,5 +23,27 @@
         "email_placeholder": "Nhập email của bạn",
         "submit": "Gửi",
         "back": "Quay lại"
+    },
+    "postItem": {
+        "report": "Báo cáo",
+        "open": "Mở bài viết",
+        "save": "Lưu bài viết",
+        "copy": "Sao chép liên kết",
+        "timeAgo": "19 giờ trước",
+        "seeMore": "xem thêm",
+        "commentPlaceholder": "Bình luận...",
+        "submit": "Đăng",
+        "submitDisabled": "Đăng (không khả dụng)"
+    },
+    "postDetail": {
+        "report": "Báo cáo",
+        "save": "Lưu bài viết",
+        "copy": "Sao chép liên kết",
+        "author": "Tác giả",
+        "view": "Xem",
+        "replies": "câu trả lời",
+        "commentPlaceholder": "Bình luận...",
+        "submit": "Đăng",
+        "submitDisabled": "Đăng (không khả dụng)"
     }
 }
