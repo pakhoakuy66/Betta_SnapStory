@@ -44,7 +44,9 @@
         "copy": "링크 복사",
         "author": "작성자",
         "view": "보기",
-        "replies": "개의 답글",
+        "replies": "답글",
+        "viewReplies": "{{count}}개의 답글 보기",
+        "viewReplies_plural": "{{count}}개의 답글 보기",
         "commentPlaceholder": "댓글 추가...",
         "submit": "게시",
         "submitDisabled": "게시 (비활성화됨)"
@@ -150,7 +152,9 @@
         "privateAccount": "이 계정은 비공개입니다",
         "bio": "자기소개가 없습니다",
         "yourLink": "내 링크",
-        "posts": "게시물",
+        "posts": "{{count}} 게시물",
+        "followers": "{{count}} 팔로워",
+        "following": "{{count}} 팔로잉",
         "editProfile": "프로필 편집",
         "settings": {
             "languages": "언어",
@@ -177,5 +181,39 @@
         "posts": "게시물",
         "private": "개인",
         "saved": "저장된 게시물"
+    },
+    "blockConfirm": {
+        "title": "{{username}} 님을 차단하시겠습니까?",
+        "description": "상대방은 Snapstory에서 당신의 프로필, 게시물 또는 스토리를 찾을 수 없습니다. Snapstory는 차단 사실을 알리지 않습니다.",
+        "cancel": "취소",
+        "confirm": "확인"
+    },
+    "userOtherHead": {
+        "privateAccount": "이 계정은 비공개입니다",
+        "menu": {
+            "block": "차단",
+            "report": "신고",
+            "share": "링크 복사"
+        },
+        "bio": "자기소개가 없습니다",
+        "yourLink": "내 링크",
+        "posts": "{{count}} 게시물",
+        "followers": "{{count}} 팔로워",
+        "following": "{{count}} 팔로잉",
+        "followBtn": {
+            "follow": "팔로우",
+            "following": "팔로잉 중"
+        }
+    },
+    "reportAccount": {
+        "cancel": "취소",
+        "title": "계정 신고",
+        "placeholder": "이 계정을 신고하는 이유는 무엇입니까?",
+        "note": "좋은 경험 되시길 바랍니다",
+        "send": "보내기"
+    },
+    "otherTab": {
+        "postsTab": "게시물",
+        "savedPostsTab": "저장된 게시물"
     }
 }

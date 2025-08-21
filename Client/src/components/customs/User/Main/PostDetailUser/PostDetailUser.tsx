@@ -342,14 +342,16 @@ export function UserPostItemDetail({
                                             ))}
 
                                         {visibleReplies < totalReplies && (
-                                            <p
-                                                className="text-gray-400 text-xs cursor-pointer"
+                                            <span
                                                 onClick={handleViewMoreReplies}
+                                                className="text-gray-400 text-xs cursor-pointer"
                                             >
-                                                {t("postDetail.view")}{" "}
-                                                {totalReplies - visibleReplies}{" "}
-                                                {t("postDetail.replies")}
-                                            </p>
+                                                {t("postDetail.viewReplies", {
+                                                    count:
+                                                        totalReplies -
+                                                        visibleReplies,
+                                                })}
+                                            </span>
                                         )}
                                     </div>
                                 </div>

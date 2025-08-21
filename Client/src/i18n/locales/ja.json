@@ -38,16 +38,18 @@
     "postDetail": {
         "delete": "投稿を削除",
         "status": "投稿のステータス",
-        "removeSaved": "保存した投稿を削除",
-        "report": "報告する",
+        "removeSaved": "保存済みの投稿を削除",
+        "report": "報告",
         "save": "投稿を保存",
         "copy": "リンクをコピー",
-        "author": "作者",
+        "author": "投稿者",
         "view": "表示",
-        "replies": "件の返信",
+        "replies": "返信",
+        "viewReplies": "{{count}} 件の返信を表示",
+        "viewReplies_plural": "{{count}} 件の返信を表示",
         "commentPlaceholder": "コメントを追加...",
         "submit": "投稿",
-        "submitDisabled": "投稿（無効）"
+        "submitDisabled": "投稿 (無効)"
     },
     "newPost": {
         "cancel": "キャンセル",
@@ -150,7 +152,9 @@
         "privateAccount": "このアカウントは非公開です",
         "bio": "自己紹介がまだありません",
         "yourLink": "あなたのリンク",
-        "posts": "投稿",
+        "posts": "{{count}} 件の投稿",
+        "followers": "{{count}} フォロワー",
+        "following": "{{count}} フォロー中",
         "editProfile": "プロフィールを編集",
         "settings": {
             "languages": "言語",
@@ -177,5 +181,39 @@
         "posts": "投稿",
         "private": "個人",
         "saved": "保存済みの投稿"
+    },
+    "blockConfirm": {
+        "title": "{{username}} をブロックしますか？",
+        "description": "相手は Snapstory 上であなたのプロフィール、投稿、ストーリーを見つけられなくなります。Snapstory は相手にブロックしたことを知らせません。",
+        "cancel": "キャンセル",
+        "confirm": "確認"
+    },
+    "userOtherHead": {
+        "privateAccount": "このアカウントは非公開です",
+        "menu": {
+            "block": "ブロック",
+            "report": "報告",
+            "share": "リンクをコピー"
+        },
+        "bio": "自己紹介はまだありません",
+        "yourLink": "あなたのリンク",
+        "posts": "{{count}} 件の投稿",
+        "followers": "{{count}} フォロワー",
+        "following": "{{count}} フォロー中",
+        "followBtn": {
+            "follow": "フォロー",
+            "following": "フォロー中"
+        }
+    },
+    "reportAccount": {
+        "cancel": "キャンセル",
+        "title": "アカウントを報告",
+        "placeholder": "なぜこのアカウントを報告するのですか？",
+        "note": "良い体験をお祈りします",
+        "send": "送信"
+    },
+    "otherTab": {
+        "postsTab": "投稿",
+        "savedPostsTab": "保存した投稿"
     }
 }

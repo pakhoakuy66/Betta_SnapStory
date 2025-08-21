@@ -142,20 +142,25 @@ export function UserHead({
                 </div>
                 <div className="flex items-center my-[10px]">
                     <div className="text-[#C7D5E0] text-[20px]">
-                        <span className="font-bold">0</span>{" "}
-                        {t("userHead.posts")}
+                        <span className="font-semibold">
+                            {t("userOtherHead.posts", { count: 0 })}
+                        </span>
                     </div>
                     <div
                         onClick={onListFollower}
                         className="text-[#C7D5E0] text-[20px] ml-[50px] cursor-pointer"
                     >
-                        <span className="font-bold">0</span> follower
+                        <span className="font-semibold">
+                            {t("userOtherHead.followers", { count: 0 })}
+                        </span>
                     </div>
                     <div
                         onClick={onListFollow}
                         className="text-[#C7D5E0] text-[20px] ml-[50px] cursor-pointer"
                     >
-                        <span className="font-bold">10</span> following
+                        <span className="font-semibold">
+                            {t("userOtherHead.following", { count: 0 })}
+                        </span>
                     </div>
                 </div>
                 <div className="flex items-center my-[10px]">
