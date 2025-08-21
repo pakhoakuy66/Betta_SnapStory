@@ -36,6 +36,9 @@
         "submitDisabled": "投稿（無効）"
     },
     "postDetail": {
+        "delete": "投稿を削除",
+        "status": "投稿のステータス",
+        "removeSaved": "保存した投稿を削除",
         "report": "報告する",
         "save": "投稿を保存",
         "copy": "リンクをコピー",
@@ -118,5 +121,61 @@
         "forYou": "あなたへのおすすめ",
         "follow": "フォロー",
         "following": "フォロー中"
+    },
+    "followList": {
+        "follower": "フォロワー",
+        "following": "フォロー中"
+    },
+    "followItem": {
+        "follow": "フォロー",
+        "following": "フォロー中"
+    },
+    "menuImage": {
+        "title": "画像",
+        "changeAvatar": "プロフィール写真を変更",
+        "deleteAvatar": "プロフィール写真を削除",
+        "cancel": "キャンセル"
+    },
+    "editUser": {
+        "name": "名前",
+        "usernamePlaceholder": "ユーザー名",
+        "bio": "自己紹介",
+        "bioPlaceholder": "自己紹介を入力",
+        "link": "リンク",
+        "linkPlaceholder": "あなたのリンク",
+        "save": "保存",
+        "avatarAlt": "アバター"
+    },
+    "userHead": {
+        "privateAccount": "このアカウントは非公開です",
+        "bio": "自己紹介がまだありません",
+        "yourLink": "あなたのリンク",
+        "posts": "投稿",
+        "editProfile": "プロフィールを編集",
+        "settings": {
+            "languages": "言語",
+            "shareQr": "QRを共有",
+            "status": "プロフィールのステータス",
+            "loginActivity": "ログインアクティビティ",
+            "logout": "ログアウト"
+        }
+    },
+    "formPostStatus": {
+        "title": "誰がこの投稿を見られますか",
+        "community": "コミュニティ",
+        "followers": "フォロワー",
+        "personal": "自分のみ",
+        "cancel": "キャンセル"
+    },
+    "removePost": {
+        "title": "この投稿を削除しますか？",
+        "description": "削除すると、この投稿はプロフィールやフィードから消え、復元できません。",
+        "cancel": "キャンセル",
+        "confirm": "削除"
+    },
+    "userTab": {
+        "posts": "投稿",
+        "private": "個人",
+        "saved": "保存済みの投稿"
     }
 }

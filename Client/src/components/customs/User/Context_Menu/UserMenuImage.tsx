@@ -1,9 +1,12 @@
 import { useState, useEffect, useRef } from "react";
+import { useTranslation } from "react-i18next";
 
 export function MenuImage({ onClose }: { onClose: () => void }) {
     const [slideOut, setSlideOut] = useState(false);
 
     const menuImageRef = useRef<HTMLDivElement>(null);
+
+    const { t } = useTranslation();
 
     useEffect(() => {
         const handleClickOutSide = (e: MouseEvent) => {
@@ -32,21 +35,21 @@ export function MenuImage({ onClose }: { onClose: () => void }) {
             >
                 <div className="w-[100%]">
                     <h2 className="text-[#C7D5E0] text-[20px] text-center font-bold block">
-                        Hình ảnh
+                        {t("menuImage.title")}
                     </h2>
                 </div>
                 <ul className="text-center text-white">
                     <li className="px-4 py-2 hover:bg-neutral-800 cursor-pointer">
-                        Đổi ảnh đại diện
+                        {t("menuImage.changeAvatar")}
                     </li>
                     <li className="px-4 py-2 hover:bg-neutral-800 cursor-pointer">
-                        Xóa ảnh đại diện
+                        {t("menuImage.deleteAvatar")}
                     </li>
                     <li
                         onClick={onClose}
                         className="px-4 py-2 hover:bg-neutral-800 cursor-pointer"
                     >
-                        Hủy
+                        {t("menuImage.cancel")}
                     </li>
                 </ul>
             </div>

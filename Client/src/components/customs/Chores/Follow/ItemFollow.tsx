@@ -1,12 +1,13 @@
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
+import { useTranslation } from "react-i18next";
 
 interface ItemFollowProps {
     avatar: string;
     username: string;
     isFollowing: boolean;
     isCurrentUser: boolean;
-} 
+}
 
 export function ItemFollow({
     avatar,
@@ -18,11 +19,15 @@ export function ItemFollow({
 
     const navigate = useNavigate();
 
+    const { t } = useTranslation();
+
     const handleFollowing = () => {
         setIsFollowing((prev) => !prev);
     };
 
-    const buttonText = isFollowing ? "Đang theo dõi" : "Theo dõi";
+    const buttonText = isFollowing
+        ? `${t("followItem.following")}`
+        : `${t("followItem.follow")}`;
 
     return (
         <li className="flex items-center h-[70px] px-3">

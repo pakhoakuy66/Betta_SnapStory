@@ -1,8 +1,11 @@
 import { useState, useEffect, useRef } from "react";
+import { useTranslation } from "react-i18next";
 
 export function RemovePostConfirm({ onClose }: { onClose: () => void }) {
     const [slideOut, setSlideOut] = useState(false);
     const postRemoveConfirmRef = useRef<HTMLDivElement>(null);
+
+    const { t } = useTranslation();
 
     useEffect(() => {
         const handleClickOutSide = (e: MouseEvent) => {
@@ -33,13 +36,12 @@ export function RemovePostConfirm({ onClose }: { onClose: () => void }) {
             >
                 <div className="w-full">
                     <h2 className="text-[#C7D5E0] text-[20px] text-center font-bold">
-                        Bạn muốn xóa bài viết này?
+                        {t("removePost.title")}
                     </h2>
                 </div>
                 <div className="w-full">
                     <p className="text-[#C7D5E0] text-center text-[16px]">
-                        Sau khi xóa, bài viết này sẽ biến mất khỏi trang cá nhân
-                        và bảng tin, và bạn sẽ không thể khôi phục lại.
+                        {t("removePost.description")}
                     </p>
                 </div>
                 <div className="flex w-full justify-evenly mt-auto">
@@ -50,7 +52,7 @@ export function RemovePostConfirm({ onClose }: { onClose: () => void }) {
                         duration-300 hover:drop-shadow-[0_0_3px_white] 
                         active:scale-95 active:drop-shadow-[0_0_5px_white]"
                     >
-                        Hủy
+                        {t("removePost.cancel")}
                     </button>
                     <button
                         className="w-[90px] h-[30px] bg-[#fa0000] 
@@ -58,7 +60,7 @@ export function RemovePostConfirm({ onClose }: { onClose: () => void }) {
                         duration-300 hover:drop-shadow-[0_0_3px_white] 
                         active:scale-95 active:drop-shadow-[0_0_5px_white]"
                     >
-                        Đồng ý
+                        {t("removePost.confirm")}
                     </button>
                 </div>
             </div>

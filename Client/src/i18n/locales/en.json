@@ -36,6 +36,9 @@
         "submitDisabled": "Post (disabled)"
     },
     "postDetail": {
+        "delete": "Delete post",
+        "status": "Post status",
+        "removeSaved": "Remove saved post",
         "report": "Report",
         "save": "Save post",
         "copy": "Copy link",
@@ -118,5 +121,61 @@
         "forYou": "Suggested for you",
         "follow": "Follow",
         "following": "Following"
+    },
+    "followList": {
+        "follower": "Followers",
+        "following": "Following"
+    },
+    "followItem": {
+        "follow": "Follow",
+        "following": "Following"
+    },
+    "menuImage": {
+        "title": "Image",
+        "changeAvatar": "Change profile picture",
+        "deleteAvatar": "Delete profile picture",
+        "cancel": "Cancel"
+    },
+    "editUser": {
+        "name": "Name",
+        "usernamePlaceholder": "Username",
+        "bio": "Bio",
+        "bioPlaceholder": "Your bio",
+        "link": "Link",
+        "linkPlaceholder": "Your link",
+        "save": "Save",
+        "avatarAlt": "Avatar"
+    },
+    "userHead": {
+        "privateAccount": "This account is private",
+        "bio": "No bio yet",
+        "yourLink": "Your link",
+        "posts": "posts",
+        "editProfile": "Edit profile",
+        "settings": {
+            "languages": "Languages",
+            "shareQr": "Share QR",
+            "status": "Profile status",
+            "loginActivity": "Login activity",
+            "logout": "Logout"
+        }
+    },
+    "formPostStatus": {
+        "title": "Who can see this post",
+        "community": "Community",
+        "followers": "Your followers",
+        "personal": "Only me",
+        "cancel": "Cancel"
+    },
+    "removePost": {
+        "title": "Do you want to delete this post?",
+        "description": "Once deleted, this post will disappear from your profile and feed, and cannot be restored.",
+        "cancel": "Cancel",
+        "confirm": "Confirm"
+    },
+    "userTab": {
+        "posts": "Posts",
+        "private": "Private",
+        "saved": "Saved Posts"
     }
 }

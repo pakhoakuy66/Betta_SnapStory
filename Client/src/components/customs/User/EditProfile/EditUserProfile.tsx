@@ -1,4 +1,5 @@
-import { useState, useRef, useEffect } from "react";
+import { useState, useRef, useEffect, useTransition } from "react";
+import { useTranslation } from "react-i18next";
 
 export function EditUser({
     onClose,
@@ -10,6 +11,8 @@ export function EditUser({
     const [slideOut, setSlideOut] = useState(false);
 
     const profileEditRef = useRef<HTMLDivElement>(null);
+
+    const { t } = useTranslation();
 
     useEffect(() => {
         const handleClickOutSide = (e: MouseEvent) => {
@@ -62,29 +65,33 @@ export function EditUser({
                 </div>
                 <div className="px-[10px]">
                     <div className="grid w-[100%] my-1">
-                        <label className="text-[18px] font-bold">Tên</label>
-                        <input
-                            className="w-[100%] h-[35px] my-1.5 p-1 rounded-sm bg-[#0a0e1a] 
-                                duration-300 hover:bg-[#12182d]  hover:drop-shadow-[0_0_5px_white]"
-                            placeholder="Username"
-                        />
-                    </div>
-                    <div className="grid w-[100%] my-1">
-                        <label className="text-[18px] font-bold">Tiểu sử</label>
-                        <input
-                            className="w-[100%] h-[35px] my-1.5 p-1 rounded-sm bg-[#0a0e1a] 
-                                duration-300 hover:bg-[#12182d]  hover:drop-shadow-[0_0_5px_white]"
-                            placeholder="Username"
-                        />
-                    </div>
-                    <div className="grid w-[100%] my-1">
                         <label className="text-[18px] font-bold">
-                            Liên kết
+                            {t("editUser.name")}
                         </label>
                         <input
                             className="w-[100%] h-[35px] my-1.5 p-1 rounded-sm bg-[#0a0e1a] 
                                 duration-300 hover:bg-[#12182d]  hover:drop-shadow-[0_0_5px_white]"
-                            placeholder="Username"
+                            placeholder={t("editUser.usernamePlaceholder")}
+                        />
+                    </div>
+                    <div className="grid w-[100%] my-1">
+                        <label className="text-[18px] font-bold">
+                            {t("editUser.bio")}
+                        </label>
+                        <input
+                            className="w-[100%] h-[35px] my-1.5 p-1 rounded-sm bg-[#0a0e1a] 
+                                duration-300 hover:bg-[#12182d]  hover:drop-shadow-[0_0_5px_white]"
+                            placeholder={t("editUser.bioPlaceholder")}
+                        />
+                    </div>
+                    <div className="grid w-[100%] my-1">
+                        <label className="text-[18px] font-bold">
+                            {t("editUser.link")}
+                        </label>
+                        <input
+                            className="w-[100%] h-[35px] my-1.5 p-1 rounded-sm bg-[#0a0e1a] 
+                                duration-300 hover:bg-[#12182d]  hover:drop-shadow-[0_0_5px_white]"
+                            placeholder={t("editUser.linkPlaceholder")}
                         />
                     </div>
                     <div className="w-[100%] my-5">
@@ -94,7 +101,7 @@ export function EditUser({
                             hover:drop-shadow-[0_0_3px_white] active:scale-95 
                             active:drop-shadow-[0_0_5px_white] cursor-pointer"
                         >
-                            Lưu
+                            {t("editUser.save")}
                         </button>
                     </div>
                 </div>

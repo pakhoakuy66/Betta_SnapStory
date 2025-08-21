@@ -1,4 +1,5 @@
 import { useNavigate } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import { useState, useEffect, useRef } from "react";
 import { UserSettings } from "../Context_Menu/UserSettings";
 import QRCode from "react-qr-code";
@@ -27,6 +28,8 @@ export function UserHead({
     const menuSettingsRef = useRef<HTMLDivElement>(null);
 
     const navigate = useNavigate();
+
+    const { t } = useTranslation();
 
     useEffect(() => {
         const handleClickOutSide = (e: MouseEvent) => {
@@ -64,8 +67,8 @@ export function UserHead({
                     <div className="text-[#C7D5E0] text-[24px] font-serif">
                         {username}
                         <span className="ml-2 text-[16px] font-normal italic hidden">
-                            <i className="fa-solid fa-lock"></i> Tài khoản này
-                            đang ở chế độ riêng tư
+                            <i className="fa-solid fa-lock"></i>{" "}
+                            {t("userHead.privateAccount")}
                         </span>
                     </div>
                     <div
@@ -81,20 +84,36 @@ export function UserHead({
                             <UserSettings
                                 options={[
                                     {
-                                        label: "Ngôn ngữ",
+                                        label: `${t(
+                                            "userHead.settings.languages"
+                                        )}`,
                                         action: "Languages",
                                     },
 
-                                    { label: "Chia sẻ QR", action: "QRCode" },
                                     {
-                                        label: "Trạng thái trang cá nhân",
+                                        label: `${t(
+                                            "userHead.settings.shareQr"
+                                        )}`,
+                                        action: "QRCode",
+                                    },
+                                    {
+                                        label: `${t(
+                                            "userHead.settings.status"
+                                        )}`,
                                         action: "Status",
                                     },
                                     {
-                                        label: "Hoạt động đăng nhập",
+                                        label: `${t(
+                                            "userHead.settings.loginActivity"
+                                        )}`,
                                         action: "Login_Activity",
                                     },
-                                    { label: "Đăng xuất", action: "Logout" },
+                                    {
+                                        label: `${t(
+                                            "userHead.settings.logout"
+                                        )}`,
+                                        action: "Logout",
+                                    },
                                 ]}
                                 onOptionClick={(action) => {
                                     if (action === "Languages") {
@@ -113,12 +132,18 @@ export function UserHead({
                 </div>
                 <div className="flex items-center justify-between mb-[10px]">
                     <p className="text-[#C7D5E0] text-[16px]">
-                        Chưa có tiểu sử
+                        {t("userHead.bio")}
+                    </p>
+                </div>
+                <div className="flex items-center justify-between mb-[10px]">
+                    <p className="text-[#C7D5E0] text-[16px]">
+                        {t("userHead.yourLink")}
                     </p>
                 </div>
                 <div className="flex items-center my-[10px]">
                     <div className="text-[#C7D5E0] text-[20px]">
-                        <span className="font-bold">0</span> bài biết
+                        <span className="font-bold">0</span>{" "}
+                        {t("userHead.posts")}
                     </div>
                     <div
                         onClick={onListFollower}
@@ -130,7 +155,7 @@ export function UserHead({
                         onClick={onListFollow}
                         className="text-[#C7D5E0] text-[20px] ml-[50px] cursor-pointer"
                     >
-                        <span className="font-bold">10</span> đã follow
+                        <span className="font-bold">10</span> following
                     </div>
                 </div>
                 <div className="flex items-center my-[10px]">
@@ -141,8 +166,8 @@ export function UserHead({
                                 duration-300 hover:drop-shadow-[0_0_3px_white] 
                                 active:scale-95 active:drop-shadow-[0_0_5px_white]"
                     >
-                        <i className="fa-solid fa-pen-to-square"></i> Chỉnh sửa
-                        trang cá nhân
+                        <i className="fa-solid fa-pen-to-square"></i>{" "}
+                        {t("userHead.editProfile")}
                     </button>
                 </div>
             </div>

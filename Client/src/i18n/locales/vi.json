@@ -36,6 +36,9 @@
         "submitDisabled": "Đăng (không khả dụng)"
     },
     "postDetail": {
+        "delete": "Xóa bài viết",
+        "status": "Trạng thái bài viết",
+        "removeSaved": "Xóa bài viết đã lưu",
         "report": "Báo cáo",
         "save": "Lưu bài viết",
         "copy": "Sao chép liên kết",
@@ -118,5 +121,61 @@
         "forYou": "Gợi ý cho bạn",
         "follow": "Theo dõi",
         "following": "Đang theo dõi"
+    },
+    "followList": {
+        "follower": "Người theo dõi",
+        "following": "Đang theo dõi"
+    },
+    "followItem": {
+        "follow": "Theo dõi",
+        "following": "Đang theo dõi"
+    },
+    "menuImage": {
+        "title": "Hình ảnh",
+        "changeAvatar": "Đổi ảnh đại diện",
+        "deleteAvatar": "Xóa ảnh đại diện",
+        "cancel": "Hủy"
+    },
+    "editUser": {
+        "name": "Tên",
+        "usernamePlaceholder": "Username",
+        "bio": "Tiểu sử",
+        "bioPlaceholder": "Tiểu sử",
+        "link": "Liên kết",
+        "linkPlaceholder": "Liên kết của bạn",
+        "save": "Lưu",
+        "avatarAlt": "Ảnh đại diện"
+    },
+    "userHead": {
+        "privateAccount": "Tài khoản này đang ở chế độ riêng tư",
+        "bio": "Chưa có tiểu sử",
+        "yourLink": "Liên kết của bạn",
+        "posts": "bài viết",
+        "editProfile": "Chỉnh sửa trang cá nhân",
+        "settings": {
+            "languages": "Ngôn ngữ",
+            "shareQr": "Chia sẻ QR",
+            "status": "Trạng thái trang cá nhân",
+            "loginActivity": "Hoạt động đăng nhập",
+            "logout": "Đăng xuất"
+        }
+    },
+    "formPostStatus": {
+        "title": "Ai có thể xem bài viết",
+        "community": "Cộng đồng",
+        "followers": "Người theo dõi bạn",
+        "personal": "Cá nhân",
+        "cancel": "Hủy"
+    },
+    "removePost": {
+        "title": "Bạn muốn xóa bài viết này?",
+        "description": "Sau khi xóa, bài viết này sẽ biến mất khỏi trang cá nhân và bảng tin, và bạn sẽ không thể khôi phục lại.",
+        "cancel": "Hủy",
+        "confirm": "Đồng ý"
+    },
+    "userTab": {
+        "posts": "Bài viết",
+        "private": "Cá nhân",
+        "saved": "Bài viết đã lưu"
     }
 }
