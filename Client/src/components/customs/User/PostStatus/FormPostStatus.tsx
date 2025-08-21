@@ -1,9 +1,12 @@
 import { useState, useEffect, useRef } from "react";
+import { useTranslation } from "react-i18next";
 
 export function FormPostStatus({ onClose }: { onClose: () => void }) {
     const [slideOut, setSlideOut] = useState(false);
 
     const formPostStatusRef = useRef<HTMLDivElement>(null);
+
+    const { t } = useTranslation();
 
     useEffect(() => {
         const handleClickOutSide = (e: MouseEvent) => {
@@ -32,26 +35,27 @@ export function FormPostStatus({ onClose }: { onClose: () => void }) {
             >
                 <div className="w-[100%]">
                     <h2 className="text-[#C7D5E0] text-[20px] text-center font-bold block">
-                        Ai có thể xem bài viết
+                        {t("formPostStatus.title")}
                     </h2>
                 </div>
                 <ul className="text-center text-white">
                     <li className="px-4 py-2 hover:bg-neutral-800 cursor-pointer">
-                        <i className="fa-solid fa-earth-americas mr-2" /> Cộng
-                        đồng
+                        <i className="fa-solid fa-earth-americas mr-2" />{" "}
+                        {t("formPostStatus.community")}
                     </li>
                     <li className="px-4 py-2 hover:bg-neutral-800 cursor-pointer">
-                        <i className="fa-solid fa-users mr-2" /> Người theo dõi
-                        bạn
+                        <i className="fa-solid fa-users mr-2" />{" "}
+                        {t("formPostStatus.followers")}
                     </li>
                     <li className="px-4 py-2 hover:bg-neutral-800 cursor-pointer">
-                        <i className="fa-solid fa-user mr-2" /> Cá nhân
+                        <i className="fa-solid fa-user mr-2" />{" "}
+                        {t("formPostStatus.personal")}
                     </li>
                     <li
                         onClick={onClose}
                         className="px-4 py-2 hover:bg-neutral-800 cursor-pointer"
                     >
-                        Hủy
+                        {t("formPostStatus.cancel")}
                     </li>
                 </ul>
             </div>

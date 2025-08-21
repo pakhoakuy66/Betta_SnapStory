@@ -1,5 +1,6 @@
 import { useParams, useNavigate, useLocation } from "react-router-dom";
 import { useEffect, useState, useRef } from "react";
+import { useTranslation } from "react-i18next";
 import { UserHead } from "@/components/customs/User/Header/UserHeader";
 import { UserTab } from "@/components/customs/User/Tab_bar/UserTabar";
 import { MenuImage } from "@/components/customs/User/Context_Menu/UserMenuImage";
@@ -71,6 +72,8 @@ export function Profile() {
     const isHistoryLogin = location.pathname === "/settings/historyLogin";
     const isSavedRoute = previousRoute.split("/").includes("saved");
     const isPrivateRoute = previousRoute.split("/").includes("private");
+
+    const { t } = useTranslation();
 
     // Lưu previous route 1 lần trước khi mở detail
     useEffect(() => {
@@ -149,7 +152,7 @@ export function Profile() {
                     <div className="fixed inset-0 bg-black/75 z-40 flex justify-center items-center">
                         <FollowList
                             onClose={handleClose}
-                            title="Đang theo dõi"
+                            title={t("followList.following")}
                             follows={myFollowList}
                             isCurrentUser={true}
                         />
@@ -160,7 +163,7 @@ export function Profile() {
                     <div className="fixed inset-0 bg-black/75 z-40 flex justify-center items-center">
                         <FollowList
                             onClose={handleClose}
-                            title="Người theo dõi"
+                            title={t("followList.follower")}
                             follows={myFollowerList}
                             isCurrentUser={true}
                         />

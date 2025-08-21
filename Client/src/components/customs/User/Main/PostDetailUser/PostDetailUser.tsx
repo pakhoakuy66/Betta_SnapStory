@@ -1,5 +1,6 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef, useMemo } from "react";
 import { useNavigate } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import EmojiPicker from "emoji-picker-react";
 import type { EmojiClickData, Theme } from "emoji-picker-react";
 import { EditMenu } from "../../../Chores/Context_menu/editMenu";
@@ -38,23 +39,6 @@ const post = {
     ],
 };
 
-const menuOptions = {
-    owner: [
-        { label: "Xóa bài viết", action: "Remove_Post" },
-        { label: "Trạng thái bài viết", action: "Post_Status" },
-        { label: "Sao chép liên kết", action: "copy" },
-    ],
-    private: [
-        { label: "Xóa bài viết", action: "Remove_Post" },
-        { label: "Trạng thái bài viết", action: "Post_Status" },
-    ],
-    other: [
-        { label: "Báo cáo", action: "Report_Post" },
-        { label: "Xóa bài viết đã lưu", action: "Saved" },
-        { label: "Sao chép liên kết", action: "copy" },
-    ],
-};
-
 export function UserPostItemDetail({
     onClose,
     onReportPost,
@@ -78,6 +62,28 @@ export function UserPostItemDetail({
     isPrivate: boolean;
     isSaved: boolean;
 }) {
+    const { t } = useTranslation();
+
+    const menuOptions = useMemo(
+        () => ({
+            owner: [
+                { label: t("postDetail.delete"), action: "Remove_Post" },
+                { label: t("postDetail.status"), action: "Post_Status" },
+                { label: t("postDetail.copy"), action: "copy" },
+            ],
+            private: [
+                { label: t("postDetail.delete"), action: "Remove_Post" },
+                { label: t("postDetail.status"), action: "Post_Status" },
+            ],
+            other: [
+                { label: t("postDetail.report"), action: "Report_Post" },
+                { label: t("postDetail.removeSaved"), action: "Saved" },
+                { label: t("postDetail.copy"), action: "copy" },
+            ],
+        }),
+        [t]
+    ); // chỉ re-calc khi t thay đổi (ngôn ngữ đổi)
+
     const [showMenu, setShowMenu] = useState(false);
     const [showEmoji, setShowEmoji] = useState(false);
     const [slideOut, setSlideOut] = useState(false);
@@ -244,7 +250,7 @@ export function UserPostItemDetail({
                                     {post.user.name}
                                 </span>
                                 <span className="ml-1 text-[#fff] text-[10px] italic">
-                                    Tác giả
+                                    {t("postDetail.author")}
                                 </span>
                             </div>
                             <div className="bg-neutral-800 px-3 py-2 rounded-xl ">
@@ -290,7 +296,7 @@ export function UserPostItemDetail({
                                                 <p className="mt-1">{c.text}</p>
                                                 {c.isAuthor && (
                                                     <span className="ml-1 text-[10px] italic">
-                                                        Tác giả
+                                                        {t("postDetail.author")}
                                                     </span>
                                                 )}
                                             </p>
@@ -325,7 +331,9 @@ export function UserPostItemDetail({
                                                         </span>
                                                         {r.isAuthor && (
                                                             <span className="text-[10px] italic">
-                                                                Tác giả
+                                                                {t(
+                                                                    "postDetail.author"
+                                                                )}
                                                             </span>
                                                         )}
                                                         <p>{r.text}</p>
@@ -338,9 +346,9 @@ export function UserPostItemDetail({
                                                 className="text-gray-400 text-xs cursor-pointer"
                                                 onClick={handleViewMoreReplies}
                                             >
-                                                Xem{" "}
+                                                {t("postDetail.view")}{" "}
                                                 {totalReplies - visibleReplies}{" "}
-                                                câu trả lời
+                                                {t("postDetail.replies")}
                                             </p>
                                         )}
                                     </div>
@@ -360,7 +368,7 @@ export function UserPostItemDetail({
                         <div className="flex items-center max-h-[500px] ">
                             <textarea
                                 ref={textareaRef}
-                                placeholder="Bình luận..."
+                                placeholder={t("postDetail.commentPlaceholder")}
                                 value={comment}
                                 onChange={(e) => setComment(e.target.value)}
                                 className="scrollbar-hide bg-transparent flex-1 outline-none text-sm placeholder-gray-500"
@@ -399,7 +407,7 @@ export function UserPostItemDetail({
                                 }`}
                                 disabled={!comment.trim()}
                             >
-                                Đăng
+                                {t("postDetail.submit")}
                             </button>
                         </div>
                     </div>

@@ -1,8 +1,11 @@
 import { useNavigate, useLocation } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
 export function UserTab({ profileOwner }: { profileOwner: string }) {
     const navigate = useNavigate();
     const location = useLocation();
+
+    const { t } = useTranslation();
 
     // Kiểm tra saved dựa trên route gốc, không phải route hiện tại khi có postDetail
     const isPrivate = location.pathname.includes("/private");
@@ -32,7 +35,7 @@ export function UserTab({ profileOwner }: { profileOwner: string }) {
                                 : "text-[#C7D5E0] hover:text-white"
                         }`}
             >
-                <i className="fa-solid fa-list"></i> Bài viết
+                <i className="fa-solid fa-list"></i> {t("userTab.posts")}
             </button>
             <button
                 onClick={() => handleTabClick("private")}
@@ -43,7 +46,7 @@ export function UserTab({ profileOwner }: { profileOwner: string }) {
                                 : "text-[#C7D5E0] hover:text-white"
                         }`}
             >
-                <i className="fa-solid fa-user"></i> Cá nhân
+                <i className="fa-solid fa-user"></i> {t("userTab.private")}
             </button>
             <button
                 onClick={() => handleTabClick("saved")}
@@ -54,7 +57,7 @@ export function UserTab({ profileOwner }: { profileOwner: string }) {
                                 : "text-[#C7D5E0] hover:text-white"
                         }`}
             >
-                <i className="fa-solid fa-bookmark"></i> Bài viết đã lưu
+                <i className="fa-solid fa-bookmark"></i> {t("userTab.saved")}
             </button>
         </nav>
     );

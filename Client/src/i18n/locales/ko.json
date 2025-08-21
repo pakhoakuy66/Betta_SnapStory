@@ -36,6 +36,9 @@
         "submitDisabled": "게시 (비활성화됨)"
     },
     "postDetail": {
+        "delete": "게시물 삭제",
+        "status": "게시물 상태",
+        "removeSaved": "저장된 게시물 삭제",
         "report": "신고",
         "save": "게시물 저장",
         "copy": "링크 복사",
@@ -118,5 +121,61 @@
         "forYou": "추천 사용자",
         "follow": "팔로우",
         "following": "팔로잉"
+    },
+    "followList": {
+        "follower": "팔로워",
+        "following": "팔로잉"
+    },
+    "followItem": {
+        "follow": "팔로우",
+        "following": "팔로잉"
+    },
+    "menuImage": {
+        "title": "이미지",
+        "changeAvatar": "프로필 사진 변경",
+        "deleteAvatar": "프로필 사진 삭제",
+        "cancel": "취소"
+    },
+    "editUser": {
+        "name": "이름",
+        "usernamePlaceholder": "사용자 이름",
+        "bio": "소개",
+        "bioPlaceholder": "소개글",
+        "link": "링크",
+        "linkPlaceholder": "내 링크",
+        "save": "저장",
+        "avatarAlt": "프로필 사진"
+    },
+    "userHead": {
+        "privateAccount": "이 계정은 비공개입니다",
+        "bio": "자기소개가 없습니다",
+        "yourLink": "내 링크",
+        "posts": "게시물",
+        "editProfile": "프로필 편집",
+        "settings": {
+            "languages": "언어",
+            "shareQr": "QR 공유",
+            "status": "프로필 상태",
+            "loginActivity": "로그인 활동",
+            "logout": "로그아웃"
+        }
+    },
+    "formPostStatus": {
+        "title": "누가 이 게시물을 볼 수 있나요",
+        "community": "커뮤니티",
+        "followers": "팔로워",
+        "personal": "나만",
+        "cancel": "취소"
+    },
+    "removePost": {
+        "title": "이 게시물을 삭제하시겠습니까?",
+        "description": "삭제하면 이 게시물은 프로필과 피드에서 사라지며 복구할 수 없습니다.",
+        "cancel": "취소",
+        "confirm": "삭제"
+    },
+    "userTab": {
+        "posts": "게시물",
+        "private": "개인",
+        "saved": "저장된 게시물"
     }
 }

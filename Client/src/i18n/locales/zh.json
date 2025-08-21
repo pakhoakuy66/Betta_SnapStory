@@ -36,6 +36,9 @@
         "submitDisabled": "发布（不可用）"
     },
     "postDetail": {
+        "delete": "删除帖子",
+        "status": "帖子状态",
+        "removeSaved": "移除已保存的帖子",
         "report": "举报",
         "save": "保存帖子",
         "copy": "复制链接",
@@ -118,5 +121,61 @@
         "forYou": "为你推荐",
         "follow": "关注",
         "following": "已关注"
+    },
+    "followList": {
+        "follower": "关注者",
+        "following": "正在关注"
+    },
+    "followItem": {
+        "follow": "关注",
+        "following": "已关注"
+    },
+    "menuImage": {
+        "title": "图片",
+        "changeAvatar": "更换头像",
+        "deleteAvatar": "删除头像",
+        "cancel": "取消"
+    },
+    "editUser": {
+        "name": "姓名",
+        "usernamePlaceholder": "用户名",
+        "bio": "简介",
+        "bioPlaceholder": "个人简介",
+        "link": "链接",
+        "linkPlaceholder": "你的链接",
+        "save": "保存",
+        "avatarAlt": "头像"
+    },
+    "userHead": {
+        "privateAccount": "此帐户为私人帐户",
+        "bio": "暂无简介",
+        "yourLink": "你的链接",
+        "posts": "帖子",
+        "editProfile": "编辑个人资料",
+        "settings": {
+            "languages": "语言",
+            "shareQr": "分享二维码",
+            "status": "个人资料状态",
+            "loginActivity": "登录活动",
+            "logout": "退出登录"
+        }
+    },
+    "formPostStatus": {
+        "title": "谁可以看到这篇帖子",
+        "community": "社区",
+        "followers": "你的关注者",
+        "personal": "仅自己",
+        "cancel": "取消"
+    },
+    "removePost": {
+        "title": "你要删除这篇帖子吗？",
+        "description": "删除后，此帖子将从个人主页和动态中消失，且无法恢复。",
+        "cancel": "取消",
+        "confirm": "确定"
+    },
+    "userTab": {
+        "posts": "帖子",
+        "private": "个人",
+        "saved": "已保存的帖子"
     }
 }
