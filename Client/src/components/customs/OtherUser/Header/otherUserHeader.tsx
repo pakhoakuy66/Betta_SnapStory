@@ -1,5 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import { useState, useEffect, useRef } from "react";
+import { useTranslation } from "react-i18next";
 import { OtherMenu } from "../Context_Menu/OtherMenu";
 
 export function UserOtherHead({
@@ -21,6 +22,8 @@ export function UserOtherHead({
     const otherMenuRef = useRef<HTMLDivElement>(null);
 
     const navigate = useNavigate();
+
+    const { t } = useTranslation();
 
     const handleBtnFollow = () => {
         setBtnFollow((prev) => !prev);
@@ -61,8 +64,8 @@ export function UserOtherHead({
                     <div className="text-[#C7D5E0] text-[24px] font-serif">
                         {username}
                         <span className="ml-2 text-[16px] font-normal italic hidden">
-                            <i className="fa-solid fa-lock"></i> Tài khoản này
-                            đang ở chế độ riêng tư
+                            <i className="fa-solid fa-lock"></i>{" "}
+                            {t("userOtherHead.privateAccount")}
                         </span>
                     </div>
                     <div ref={otherMenuRef} className="cursor-pointer relative">
@@ -75,15 +78,21 @@ export function UserOtherHead({
                             <OtherMenu
                                 options={[
                                     {
-                                        label: "Chặn",
+                                        label: `${t(
+                                            "userOtherHead.menu.block"
+                                        )}`,
                                         action: "Block",
                                     },
                                     {
-                                        label: "Báo cáo",
+                                        label: `${t(
+                                            "userOtherHead.menu.report"
+                                        )}`,
                                         action: "Report_Account",
                                     },
                                     {
-                                        label: "Sao chép liên kết",
+                                        label: `${t(
+                                            "userOtherHead.menu.share"
+                                        )}`,
                                         action: "Share_Account",
                                     },
                                 ]}
@@ -101,24 +110,35 @@ export function UserOtherHead({
                 </div>
                 <div className="flex items-center justify-between mb-[10px]">
                     <p className="text-[#C7D5E0] text-[16px]">
-                        Chưa có tiểu sử
+                        {t("userOtherHead.bio")}
+                    </p>
+                </div>
+                <div className="flex items-center justify-between mb-[10px]">
+                    <p className="text-[#C7D5E0] text-[16px]">
+                        {t("userOtherHead.yourLink")}
                     </p>
                 </div>
                 <div className="flex items-center my-[10px]">
                     <div className="text-[#C7D5E0] text-[20px]">
-                        <span className="font-bold">0</span> bài biết
+                        <span className="font-semibold">
+                            {t("userOtherHead.posts", { count: 0 })}
+                        </span>
                     </div>
                     <div
                         onClick={onListFollower}
                         className="text-[#C7D5E0] text-[20px] ml-[50px] cursor-pointer"
                     >
-                        <span className="font-bold">18</span> follower
+                        <span className="font-semibold">
+                            {t("userOtherHead.followers", { count: 0 })}
+                        </span>
                     </div>
                     <div
                         onClick={onListFollow}
                         className="text-[#C7D5E0] text-[20px] ml-[50px] cursor-pointer"
                     >
-                        <span className="font-bold">0</span> đã follow
+                        <span className="font-semibold">
+                            {t("userOtherHead.following", { count: 0 })}
+                        </span>
                     </div>
                 </div>
                 <div className="flex items-center my-[10px]">
@@ -129,7 +149,9 @@ export function UserOtherHead({
                                 duration-300 hover:drop-shadow-[0_0_3px_white] 
                                 active:scale-95 active:drop-shadow-[0_0_5px_white]"
                     >
-                        {btnFollow ? "Đang theo dõi" : "Theo dõi"}
+                        {btnFollow
+                            ? `${t("userOtherHead.followBtn.following")}`
+                            : `${t("userOtherHead.followBtn.follow")}`}
                     </button>
                 </div>
             </div>

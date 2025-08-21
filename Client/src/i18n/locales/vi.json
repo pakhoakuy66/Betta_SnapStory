@@ -44,8 +44,10 @@
         "copy": "Sao chép liên kết",
         "author": "Tác giả",
         "view": "Xem",
-        "replies": "câu trả lời",
-        "commentPlaceholder": "Bình luận...",
+        "replies": "phản hồi",
+        "viewReplies": "Xem {{count}} phản hồi",
+        "viewReplies_plural": "Xem {{count}} phản hồi",
+        "commentPlaceholder": "Thêm bình luận...",
         "submit": "Đăng",
         "submitDisabled": "Đăng (không khả dụng)"
     },
@@ -150,7 +152,9 @@
         "privateAccount": "Tài khoản này đang ở chế độ riêng tư",
         "bio": "Chưa có tiểu sử",
         "yourLink": "Liên kết của bạn",
-        "posts": "bài viết",
+        "posts": "{{count}} bài viết",
+        "followers": "{{count}} follower",
+        "following": "{{count}} đã follow",
         "editProfile": "Chỉnh sửa trang cá nhân",
         "settings": {
             "languages": "Ngôn ngữ",
@@ -177,5 +181,39 @@
         "posts": "Bài viết",
         "private": "Cá nhân",
         "saved": "Bài viết đã lưu"
+    },
+    "blockConfirm": {
+        "title": "Chặn {{username}}?",
+        "description": "Họ sẽ không thể tìm trang cá nhân, bài viết hoặc tin của bạn trên Snapstory. Snapstory sẽ không cho họ biết là bạn đã chặn họ.",
+        "cancel": "Hủy",
+        "confirm": "Đồng ý"
+    },
+    "userOtherHead": {
+        "privateAccount": "Tài khoản này đang ở chế độ riêng tư",
+        "menu": {
+            "block": "Chặn",
+            "report": "Báo cáo",
+            "share": "Sao chép liên kết"
+        },
+        "bio": "Chưa có tiểu sử",
+        "yourLink": "Liên kết của bạn",
+        "posts": "{{count}} bài viết",
+        "followers": "{{count}} follower",
+        "following": "{{count}} đã follow",
+        "followBtn": {
+            "follow": "Theo dõi",
+            "following": "Đang theo dõi"
+        }
+    },
+    "reportAccount": {
+        "cancel": "Hủy",
+        "title": "Báo cáo tài khoản",
+        "placeholder": "Tại sao bạn lại báo cáo tài khoản này?",
+        "note": "Chúc bạn có một trải nghiệm tốt",
+        "send": "Gửi"
+    },
+    "otherTab": {
+        "postsTab": "Bài viết",
+        "savedPostsTab": "Bài viết đã lưu"
     }
 }

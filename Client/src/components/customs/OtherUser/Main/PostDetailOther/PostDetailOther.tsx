@@ -1,5 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import React, { useState, useEffect, useRef } from "react";
+import { useTranslation } from "react-i18next";
 import EmojiPicker from "emoji-picker-react";
 import type { EmojiClickData, Theme } from "emoji-picker-react";
 import { EditMenu } from "../../../Chores/Context_menu/editMenu";
@@ -58,6 +59,8 @@ export function OtherPostItemDetail({
     const postDetailUserRef = useRef<HTMLDivElement>(null);
 
     const navigate = useNavigate();
+
+    const { t } = useTranslation();
 
     // Xử lý đóng PostDetail
     useEffect(() => {
@@ -160,15 +163,21 @@ export function OtherPostItemDetail({
                                     <EditMenu
                                         options={[
                                             {
-                                                label: "Báo cáo",
+                                                label: `${t(
+                                                    "postDetail.report"
+                                                )}`,
                                                 action: "Report_Post",
                                             },
                                             {
-                                                label: "Lưu bài viết",
+                                                label: `${t(
+                                                    "postDetail.save"
+                                                )}`,
                                                 action: "Saved",
                                             },
                                             {
-                                                label: "Sao chép liên kết",
+                                                label: `${t(
+                                                    "postDetail.copy"
+                                                )}`,
                                                 action: "copy",
                                             },
                                         ]}
@@ -204,7 +213,7 @@ export function OtherPostItemDetail({
                                     {post.user.name}
                                 </span>
                                 <span className="ml-1 text-[#fff] text-[10px] italic">
-                                    Tác giả
+                                    {t("postDetail.author")}
                                 </span>
                             </div>
                             <div className="bg-neutral-800 px-3 py-2 rounded-xl ">
@@ -250,7 +259,7 @@ export function OtherPostItemDetail({
                                                 <p className="mt-1">{c.text}</p>
                                                 {c.isAuthor && (
                                                     <span className="ml-1 text-[10px] italic">
-                                                        Tác giả
+                                                        {t("postDetail.author")}
                                                     </span>
                                                 )}
                                             </p>
@@ -285,7 +294,9 @@ export function OtherPostItemDetail({
                                                         </span>
                                                         {r.isAuthor && (
                                                             <span className="text-[10px] italic">
-                                                                Tác giả
+                                                                {t(
+                                                                    "postDetail.author"
+                                                                )}
                                                             </span>
                                                         )}
                                                         <p>{r.text}</p>
@@ -294,14 +305,16 @@ export function OtherPostItemDetail({
                                             ))}
 
                                         {visibleReplies < totalReplies && (
-                                            <p
-                                                className="text-gray-400 text-xs cursor-pointer"
+                                            <span
                                                 onClick={handleViewMoreReplies}
+                                                className="text-gray-400 text-xs cursor-pointer"
                                             >
-                                                Xem{" "}
-                                                {totalReplies - visibleReplies}{" "}
-                                                câu trả lời
-                                            </p>
+                                                {t("postDetail.viewReplies", {
+                                                    count:
+                                                        totalReplies -
+                                                        visibleReplies,
+                                                })}
+                                            </span>
                                         )}
                                     </div>
                                 </div>

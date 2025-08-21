@@ -43,8 +43,8 @@
         "save": "Save post",
         "copy": "Copy link",
         "author": "Author",
-        "view": "View",
-        "replies": "replies",
+        "viewReplies": "View {{count}} reply",
+        "viewReplies_plural": "View {{count}} replies",
         "commentPlaceholder": "Add a comment...",
         "submit": "Post",
         "submitDisabled": "Post (disabled)"
@@ -150,7 +150,9 @@
         "privateAccount": "This account is private",
         "bio": "No bio yet",
         "yourLink": "Your link",
-        "posts": "posts",
+        "posts": "{{count}} posts",
+        "followers": "{{count}} followers",
+        "following": "{{count}} following",
         "editProfile": "Edit profile",
         "settings": {
             "languages": "Languages",
@@ -177,5 +179,39 @@
         "posts": "Posts",
         "private": "Private",
         "saved": "Saved Posts"
+    },
+    "blockConfirm": {
+        "title": "Block {{username}}?",
+        "description": "They won’t be able to find your profile, posts, or stories on Snapstory. Snapstory will not notify them that you blocked them.",
+        "cancel": "Cancel",
+        "confirm": "Confirm"
+    },
+    "userOtherHead": {
+        "privateAccount": "This account is private",
+        "menu": {
+            "block": "Block",
+            "report": "Report",
+            "share": "Copy link"
+        },
+        "bio": "No bio yet",
+        "yourLink": "Your link",
+        "posts": "{{count}} posts",
+        "followers": "{{count}} followers",
+        "following": "{{count}} following",
+        "followBtn": {
+            "follow": "Follow",
+            "following": "Following"
+        }
+    },
+    "reportAccount": {
+        "cancel": "Cancel",
+        "title": "Report account",
+        "placeholder": "Why are you reporting this account?",
+        "note": "Wish you a great experience",
+        "send": "Send"
+    },
+    "otherTab": {
+        "postsTab": "Posts",
+        "savedPostsTab": "Saved Posts"
     }
 }

@@ -1,4 +1,5 @@
 import { useNavigate, useLocation } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
 export function OtherTab({ profileOwner }: { profileOwner: string }) {
     const navigate = useNavigate();
@@ -6,6 +7,8 @@ export function OtherTab({ profileOwner }: { profileOwner: string }) {
 
     // Kiểm tra saved dựa trên route gốc, không phải route hiện tại khi có postDetail
     const isSaved = location.pathname.includes("/saved");
+
+    const { t } = useTranslation();
 
     const handleTabClick = (tabType: "posts" | "saved") => {
         // Đảm bảo profileOwner tồn tại trước khi navigate
@@ -29,7 +32,7 @@ export function OtherTab({ profileOwner }: { profileOwner: string }) {
                                 : "text-[#C7D5E0] hover:text-white"
                         }`}
             >
-                <i className="fa-solid fa-list"></i> Bài viết
+                <i className="fa-solid fa-list"></i> {t("otherTab.postsTab")}
             </button>
             <button
                 onClick={() => handleTabClick("saved")}
@@ -40,7 +43,8 @@ export function OtherTab({ profileOwner }: { profileOwner: string }) {
                                 : "text-[#C7D5E0] hover:text-white"
                         }`}
             >
-                <i className="fa-solid fa-bookmark"></i> Bài viết đã lưu
+                <i className="fa-solid fa-bookmark"></i>{" "}
+                {t("otherTab.savedPostsTab")}
             </button>
         </nav>
     );

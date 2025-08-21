@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef } from "react";
+import { useTranslation } from "react-i18next";
 
 export function BlockConfirm({
     onClose,
@@ -9,6 +10,8 @@ export function BlockConfirm({
 }) {
     const [slideOut, setSlideOut] = useState(false);
     const blockConfirmRef = useRef<HTMLDivElement>(null);
+
+    const { t } = useTranslation();
 
     useEffect(() => {
         const handleClickOutSide = (e: MouseEvent) => {
@@ -37,14 +40,12 @@ export function BlockConfirm({
             >
                 <div className="w-full">
                     <h2 className="text-[#C7D5E0] text-[20px] text-center font-bold">
-                        Chặn {username}?
+                        {t("blockConfirm.title", { username })}
                     </h2>
                 </div>
                 <div className="w-full">
                     <p className="text-[#C7D5E0] text-center text-[16px]">
-                        Họ sẽ không thể tìm trang cá nhân, bài viết hoặc tin của
-                        bạn trên Snapstory. Snapstory sẽ không cho họ biết là
-                        bạn đã chặn họ.
+                        {t("blockConfirm.description")}
                     </p>
                 </div>
                 <div className="flex w-full justify-evenly mt-auto">
@@ -55,7 +56,7 @@ export function BlockConfirm({
                         duration-300 hover:drop-shadow-[0_0_3px_white] 
                         active:scale-95 active:drop-shadow-[0_0_5px_white]"
                     >
-                        Hủy
+                        {t("blockConfirm.cancel")}
                     </button>
                     <button
                         className="w-[90px] h-[30px] bg-[#fa0000] 
@@ -63,7 +64,7 @@ export function BlockConfirm({
                         duration-300 hover:drop-shadow-[0_0_3px_white] 
                         active:scale-95 active:drop-shadow-[0_0_5px_white]"
                     >
-                        Đồng ý
+                        {t("blockConfirm.confirm")}
                     </button>
                 </div>
             </div>
