@@ -5,7 +5,7 @@
         "email_placeholder": "电子邮件",
         "password_placeholder": "密码",
         "forgot_password": "忘记密码",
-        "register_prompt": "有账户吗？",
+        "register_prompt": "还没有账号？",
         "register_link": "注册"
     },
     "register": {
@@ -15,7 +15,7 @@
         "email_placeholder": "电子邮件",
         "password_placeholder": "密码",
         "confirm_password_placeholder": "确认密码",
-        "login_prompt": "有账户吗？",
+        "login_prompt": "已经有账号？",
         "login_link": "登录"
     },
     "forgot_password": {
@@ -27,72 +27,70 @@
     "postItem": {
         "report": "举报",
         "open": "打开帖子",
-        "save": "保存帖子",
+        "repost": "转发",
         "copy": "复制链接",
         "timeAgo": "19小时前",
         "seeMore": "查看更多",
-        "commentPlaceholder": "添加评论…",
+        "commentPlaceholder": "添加评论...",
         "submit": "发布",
         "submitDisabled": "发布（不可用）"
     },
     "postDetail": {
         "delete": "删除帖子",
         "status": "帖子状态",
-        "removeSaved": "移除已保存的帖子",
+        "removeReposted": "删除转发的帖子",
         "report": "举报",
-        "save": "保存帖子",
+        "repost": "转发",
         "copy": "复制链接",
         "author": "作者",
-        "view": "查看",
-        "replies": "条回复",
         "viewReplies": "查看 {{count}} 条回复",
         "viewReplies_plural": "查看 {{count}} 条回复",
         "commentPlaceholder": "添加评论...",
         "submit": "发布",
-        "submitDisabled": "发布（已禁用）"
+        "submitDisabled": "发布（不可用）"
     },
     "newPost": {
         "cancel": "取消",
         "createTitle": "创建新帖子",
         "placeholder": "有什么新鲜事？",
         "post": "发布",
-        "whoCanSee": "谁可以看到此帖子？",
+        "whoCanSee": "谁可以看到这条帖子？",
         "public": "公开",
         "follower": "你的关注者",
         "private": "仅自己"
     },
     "reportPost": {
         "cancel": "取消",
-        "title": "要举报这篇帖子吗？",
-        "placeholder": "你为什么要举报这篇帖子？",
-        "note": "祝你有一个良好的体验",
+        "title": "举报这条帖子？",
+        "placeholder": "你为什么要举报这条帖子？",
+        "note": "祝您有良好的体验",
         "send": "发送"
     },
     "reportProblem": {
         "cancel": "取消",
         "title": "报告问题",
         "placeholder": "请详细描述问题",
-        "note": "祝你有一个良好的体验",
+        "note": "祝您有良好的体验",
         "send": "发送"
     },
     "notification": {
         "title": "通知",
         "likeAction": "赞了你的帖子",
-        "commentAction": "评论了: {{comment}}",
-        "saveAction": "收藏了你的帖子",
+        "commentAction": "评论了：{{comment}}",
+        "repostedAction": "转发了你的帖子",
         "timeAgo": "{{time}}小时前"
     },
     "search": {
         "title": "搜索",
         "placeholder": "搜索",
         "recent": "最近",
-        "clearAll": "清除全部",
+        "clearAll": "清除所有",
         "suggestion": "为你推荐"
     },
     "menuBar": {
         "languages": "语言",
         "loginActivity": "登录活动",
-        "savedPost": "已保存",
+        "repostPost": "转发",
         "reportProblem": "报告问题",
         "logout": "退出登录"
     },
@@ -105,13 +103,13 @@
     },
     "privateConfirm": {
         "title": "将账户切换为私人模式？",
-        "description": "只有关注你的人才能查看和互动你的内容。",
+        "description": "只有你的关注者才能查看和互动你的内容。",
         "cancel": "取消",
         "confirm": "确认"
     },
     "publicStatusConfirm": {
         "title": "将账户切换为公开模式？",
-        "description": "任何人都可以查看并与您的内容互动。",
+        "description": "任何人都可以查看和互动你的内容。",
         "cancel": "取消",
         "confirm": "确认"
     },
@@ -122,15 +120,15 @@
     "suggestionItem": {
         "forYou": "为你推荐",
         "follow": "关注",
-        "following": "已关注"
+        "following": "正在关注"
     },
     "followList": {
-        "follower": "关注者",
+        "follower": "粉丝",
         "following": "正在关注"
     },
     "followItem": {
         "follow": "关注",
-        "following": "已关注"
+        "following": "正在关注"
     },
     "menuImage": {
         "title": "图片",
@@ -142,19 +140,19 @@
         "name": "姓名",
         "usernamePlaceholder": "用户名",
         "bio": "简介",
-        "bioPlaceholder": "个人简介",
+        "bioPlaceholder": "你的简介",
         "link": "链接",
         "linkPlaceholder": "你的链接",
         "save": "保存",
         "avatarAlt": "头像"
     },
     "userHead": {
-        "privateAccount": "此帐户为私人帐户",
+        "privateAccount": "该账户为私人模式",
         "bio": "暂无简介",
         "yourLink": "你的链接",
         "posts": "{{count}} 篇帖子",
         "followers": "{{count}} 位粉丝",
-        "following": "已关注 {{count}} 人",
+        "following": "{{count}} 个关注",
         "editProfile": "编辑个人资料",
         "settings": {
             "languages": "语言",
@@ -165,31 +163,31 @@
         }
     },
     "formPostStatus": {
-        "title": "谁可以看到这篇帖子",
+        "title": "谁可以看到这条帖子",
         "community": "社区",
         "followers": "你的关注者",
         "personal": "仅自己",
         "cancel": "取消"
     },
     "removePost": {
-        "title": "你要删除这篇帖子吗？",
-        "description": "删除后，此帖子将从个人主页和动态中消失，且无法恢复。",
+        "title": "你要删除这条帖子吗？",
+        "description": "删除后，该帖子将从个人主页和动态中消失，且无法恢复。",
         "cancel": "取消",
-        "confirm": "确定"
+        "confirm": "确认"
     },
     "userTab": {
         "posts": "帖子",
-        "private": "个人",
-        "saved": "已保存的帖子"
+        "private": "私人",
+        "reposted": "转发的帖子"
     },
     "blockConfirm": {
         "title": "要屏蔽 {{username}} 吗？",
-        "description": "他们将无法在 Snapstory 上找到你的个人主页、帖子或动态。Snapstory 不会通知他们你已屏蔽。",
+        "description": "他们将无法找到你的主页、帖子或故事。Snapstory 不会通知他们你已屏蔽。",
         "cancel": "取消",
         "confirm": "确认"
     },
     "userOtherHead": {
-        "privateAccount": "此账号为私密账号",
+        "privateAccount": "该账户为私人模式",
         "menu": {
             "block": "屏蔽",
             "report": "举报",
@@ -199,7 +197,7 @@
         "yourLink": "你的链接",
         "posts": "{{count}} 篇帖子",
         "followers": "{{count}} 位粉丝",
-        "following": "已关注 {{count}} 人",
+        "following": "{{count}} 个关注",
         "followBtn": {
             "follow": "关注",
             "following": "正在关注"
@@ -209,11 +207,11 @@
         "cancel": "取消",
         "title": "举报账号",
         "placeholder": "你为什么要举报这个账号？",
-        "note": "祝你有愉快的体验",
+        "note": "祝您有良好的体验",
         "send": "发送"
     },
     "otherTab": {
         "postsTab": "帖子",
-        "savedPostsTab": "已保存的帖子"
+        "repostPostsTab": "转发的帖子"
     }
 }

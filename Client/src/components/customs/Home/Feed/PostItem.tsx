@@ -101,8 +101,8 @@ export function PostItem({
                                     action: "open",
                                 },
                                 {
-                                    label: `${t("postItem.save")}`,
-                                    action: "Saved",
+                                    label: `${t("postItem.repost")}`,
+                                    action: "repost",
                                 },
                                 {
                                     label: `${t("postItem.copy")}`,
@@ -149,7 +149,7 @@ export function PostItem({
                 </div>
                 <div>
                     <i
-                        className="fa-regular fa-bookmark hover:scale-110 
+                        className="fas fa-repeat hover:rotate-90 hover:scale-110 
                         duration-500 hover:drop-shadow-[0_0_10px_white] cursor-pointer"
                     ></i>
                 </div>

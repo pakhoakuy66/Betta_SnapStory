@@ -10,7 +10,7 @@ export function PostGrid({
     profileOwner: string;
 }) {
     const location = useLocation();
-    const isSavedRoute = location.pathname.includes("/saved");
+    const isRepostRoute = location.pathname.includes("/repost");
     const navigate = useNavigate();
 
     const handlePostClick = (post: {
@@ -18,7 +18,7 @@ export function PostGrid({
         owner: string;
         image: string;
     }) => {
-        if (isSavedRoute) {
+        if (isRepostRoute) {
             navigate(`/${post.owner}/${post.id}`, {
                 state: { fromSaved: true },
             });

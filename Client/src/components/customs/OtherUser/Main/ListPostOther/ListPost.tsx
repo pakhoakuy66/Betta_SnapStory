@@ -10,18 +10,18 @@ export function PostGridOther({
     profileOwner: string;
 }) {
     const location = useLocation();
-    const isSavedRoute = location.pathname.includes("/saved");
+    const isRepostRoute = location.pathname.includes("/repost");
 
     const handlePostClick = (post: {
         id: string;
         owner: string;
         image: string;
     }) => {
-        if (isSavedRoute) {
+        if (isRepostRoute) {
             window.history.pushState(
                 null,
                 "",
-                `/${profileOwner}/saved/${post.id}`
+                `/${profileOwner}/repost/${post.id}`
             );
             onPostDetailUser(post.owner, post.id);
         } else {
