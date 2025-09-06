@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import type { EmojiClickData, Theme } from "emoji-picker-react";
 import { EditMenu } from "../../Chores/Context_menu/editMenu";
+import { LikeAction } from "../../Chores/ActionPost/Like_Post";
 
 export function PostItem({
     postId,
@@ -135,11 +136,12 @@ export function PostItem({
             </div>
             <div className="flex items-center justify-between px-4 py-2">
                 <div className="flex gap-3 text-[20px]">
-                    <i
+                    {/* <i
                         className="fa-regular fa-heart hover:scale-110 
                         duration-500 hover:drop-shadow-[0_0_10px_white] cursor-pointer"
                     ></i>
-                    <div className="px-1 text-sm text-white">0</div>
+                    <div className="px-1 text-sm text-white">0</div> */}
+                    <LikeAction />
                     <i
                         onClick={onPostDetail}
                         className="fa-regular fa-comment hover:scale-110 
@@ -147,11 +149,12 @@ export function PostItem({
                     ></i>
                     <div className="px-1 text-sm text-white">0</div>
                 </div>
-                <div>
+                <div className="flex gap-2 text-[20px]">
                     <i
                         className="fas fa-repeat hover:rotate-90 hover:scale-110 
                         duration-500 hover:drop-shadow-[0_0_10px_white] cursor-pointer"
                     ></i>
+                    <div className="px-1 text-sm text-white">1</div>
                 </div>
             </div>
             <p className="px-4 py-1 text-sm">
