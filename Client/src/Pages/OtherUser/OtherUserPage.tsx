@@ -3,7 +3,7 @@ import { useEffect, useState, useRef } from "react";
 import { UserOtherHead } from "@/components/customs/OtherUser/Header/otherUserHeader";
 import { OtherTab } from "@/components/customs/OtherUser/Tab_bar_Other/OtherTabar";
 import { OtherPostsTab } from "@/components/customs/OtherUser/Main/OtherPostsTab/OtherPostTab";
-import { OtherSavedTab } from "@/components/customs/OtherUser/Main/OtherSavedTab/OtherSavedTab";
+import { OtherRepostTab } from "@/components/customs/OtherUser/Main/OtherRepostTab/OtherRepostTab";
 import { OtherPostItemDetail } from "@/components/customs/OtherUser/Main/PostDetailOther/PostDetailOther";
 import { FollowList } from "@/components/customs/Chores/Follow/UserFollow";
 import { Report_Post } from "@/components/customs/Chores/Report_Post/Report_Post";
@@ -59,14 +59,14 @@ export function OtherUserProfile() {
 
     const isFollowRoute = location.pathname.endsWith("/follow");
     const isFollowerRoute = location.pathname.endsWith("/follower");
-    const isSavedRoute = location.pathname.split("/").includes("saved");
+    const isRepostRoute = location.pathname.split("/").includes("repost");
 
     // Lưu previous route 1 lần trước khi mở detail
     useEffect(() => {
         if (!postId) {
             const base = `/o/${username ?? ""}`;
             let suffix = "";
-            if (location.pathname.endsWith("/saved")) suffix = "/saved";
+            if (location.pathname.endsWith("/repost")) suffix = "/repost";
             else if (location.pathname.endsWith("/follow")) suffix = "/follow";
             else if (location.pathname.endsWith("/follower"))
                 suffix = "/follower";
@@ -158,10 +158,10 @@ export function OtherUserProfile() {
 
                 <OtherTab profileOwner={profileOwner} />
 
-                {!isSavedRoute ? (
+                {!isRepostRoute ? (
                     <OtherPostsTab profileOwner={profileOwner} />
                 ) : (
-                    <OtherSavedTab profileOwner={profileOwner} />
+                    <OtherRepostTab profileOwner={profileOwner} />
                 )}
 
                 {postId && (

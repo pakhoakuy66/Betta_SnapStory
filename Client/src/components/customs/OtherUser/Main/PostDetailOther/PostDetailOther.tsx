@@ -170,9 +170,9 @@ export function OtherPostItemDetail({
                                             },
                                             {
                                                 label: `${t(
-                                                    "postDetail.save"
+                                                    "postDetail.repost"
                                                 )}`,
-                                                action: "Saved",
+                                                action: "repost",
                                             },
                                             {
                                                 label: `${t(
@@ -372,7 +372,7 @@ export function OtherPostItemDetail({
                                 }`}
                                 disabled={!comment.trim()}
                             >
-                                Đăng
+                                {t("postDetail.submit")}
                             </button>
                         </div>
                     </div>

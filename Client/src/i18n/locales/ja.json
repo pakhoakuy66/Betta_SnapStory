@@ -4,8 +4,8 @@
         "login": "ログイン",
         "email_placeholder": "メールアドレス",
         "password_placeholder": "パスワード",
-        "forgot_password": "パスワードを忘れた",
-        "register_prompt": "アカウントをお持ちですか？",
+        "forgot_password": "パスワードをお忘れですか",
+        "register_prompt": "アカウントをお持ちでないですか？",
         "register_link": "登録"
     },
     "register": {
@@ -14,20 +14,20 @@
         "username_placeholder": "ユーザー名",
         "email_placeholder": "メールアドレス",
         "password_placeholder": "パスワード",
-        "confirm_password_placeholder": "パスワードの確認",
-        "login_prompt": "アカウントをお持ちですか？",
+        "confirm_password_placeholder": "パスワードを確認",
+        "login_prompt": "すでにアカウントをお持ちですか？",
         "login_link": "ログイン"
     },
     "forgot_password": {
-        "title": "パスワードを忘れた",
-        "email_placeholder": "メールアドレスを入力",
+        "title": "パスワードをお忘れですか",
+        "email_placeholder": "メールアドレスを入力してください",
         "submit": "送信",
         "back": "戻る"
     },
     "postItem": {
-        "report": "報告する",
+        "report": "報告",
         "open": "投稿を開く",
-        "save": "投稿を保存",
+        "repost": "再投稿",
         "copy": "リンクをコピー",
         "timeAgo": "19時間前",
         "seeMore": "もっと見る",
@@ -38,25 +38,23 @@
     "postDetail": {
         "delete": "投稿を削除",
         "status": "投稿のステータス",
-        "removeSaved": "保存済みの投稿を削除",
+        "removeReposted": "再投稿を削除",
         "report": "報告",
-        "save": "投稿を保存",
+        "repost": "再投稿",
         "copy": "リンクをコピー",
         "author": "投稿者",
-        "view": "表示",
-        "replies": "返信",
-        "viewReplies": "{{count}} 件の返信を表示",
-        "viewReplies_plural": "{{count}} 件の返信を表示",
+        "viewReplies": "{{count}}件の返信を見る",
+        "viewReplies_plural": "{{count}}件の返信を見る",
         "commentPlaceholder": "コメントを追加...",
         "submit": "投稿",
-        "submitDisabled": "投稿 (無効)"
+        "submitDisabled": "投稿（無効）"
     },
     "newPost": {
         "cancel": "キャンセル",
         "createTitle": "新しい投稿を作成",
-        "placeholder": "新着情報は？",
+        "placeholder": "新しいことは？",
         "post": "投稿",
-        "whoCanSee": "この投稿を見られる人は？",
+        "whoCanSee": "誰がこの投稿を見られますか？",
         "public": "公開",
         "follower": "フォロワー",
         "private": "自分のみ"
@@ -64,22 +62,22 @@
     "reportPost": {
         "cancel": "キャンセル",
         "title": "この投稿を報告しますか？",
-        "placeholder": "なぜこの投稿を報告するのですか？",
+        "placeholder": "なぜこの投稿を報告しますか？",
         "note": "良い体験をお祈りします",
         "send": "送信"
     },
     "reportProblem": {
         "cancel": "キャンセル",
-        "title": "問題を報告する",
-        "placeholder": "問題を詳しく記入してください",
+        "title": "問題を報告",
+        "placeholder": "問題を詳しく説明してください",
         "note": "良い体験をお祈りします",
         "send": "送信"
     },
     "notification": {
         "title": "通知",
-        "likeAction": "あなたの投稿に「いいね！」しました",
-        "commentAction": "コメントしました: {{comment}}",
-        "saveAction": "あなたの投稿を保存しました",
+        "likeAction": "があなたの投稿に「いいね」しました",
+        "commentAction": "がコメントしました: {{comment}}",
+        "repostedAction": "があなたの投稿を再投稿しました",
         "timeAgo": "{{time}}時間前"
     },
     "search": {
@@ -87,17 +85,17 @@
         "placeholder": "検索",
         "recent": "最近",
         "clearAll": "すべて削除",
-        "suggestion": "おすすめ"
+        "suggestion": "あなたへのおすすめ"
     },
     "menuBar": {
         "languages": "言語",
-        "loginActivity": "ログインアクティビティ",
-        "savedPost": "保存済み",
+        "loginActivity": "ログイン履歴",
+        "repostPost": "再投稿",
         "reportProblem": "問題を報告",
         "logout": "ログアウト"
     },
     "historyLogin": {
-        "loginActivity": "ログインアクティビティ"
+        "loginActivity": "ログイン履歴"
     },
     "personalStatus": {
         "title": "プライバシー",
@@ -105,19 +103,19 @@
     },
     "privateConfirm": {
         "title": "アカウントを非公開にしますか？",
-        "description": "フォロワーのみがあなたのコンテンツを閲覧・交流できます。",
+        "description": "フォロワーのみがあなたのコンテンツを閲覧・操作できます。",
         "cancel": "キャンセル",
         "confirm": "確認"
     },
     "publicStatusConfirm": {
-        "title": "アカウントを公開モードに切り替えますか？",
-        "description": "誰でもあなたのコンテンツを閲覧・交流できます。",
+        "title": "アカウントを公開にしますか？",
+        "description": "誰でもあなたのコンテンツを閲覧・操作できます。",
         "cancel": "キャンセル",
         "confirm": "確認"
     },
     "suggestionList": {
         "title": "あなたへのおすすめ",
-        "reload": "更新"
+        "reload": "再読み込み"
     },
     "suggestionItem": {
         "forYou": "あなたへのおすすめ",
@@ -150,22 +148,22 @@
     },
     "userHead": {
         "privateAccount": "このアカウントは非公開です",
-        "bio": "自己紹介がまだありません",
+        "bio": "自己紹介はまだありません",
         "yourLink": "あなたのリンク",
-        "posts": "{{count}} 件の投稿",
-        "followers": "{{count}} フォロワー",
-        "following": "{{count}} フォロー中",
+        "posts": "{{count}}件の投稿",
+        "followers": "{{count}}人のフォロワー",
+        "following": "{{count}}人をフォロー中",
         "editProfile": "プロフィールを編集",
         "settings": {
             "languages": "言語",
-            "shareQr": "QRを共有",
-            "status": "プロフィールのステータス",
-            "loginActivity": "ログインアクティビティ",
+            "shareQr": "QRコードを共有",
+            "status": "プロフィールの状態",
+            "loginActivity": "ログイン履歴",
             "logout": "ログアウト"
         }
     },
     "formPostStatus": {
-        "title": "誰がこの投稿を見られますか",
+        "title": "誰がこの投稿を見られるか",
         "community": "コミュニティ",
         "followers": "フォロワー",
         "personal": "自分のみ",
@@ -175,16 +173,16 @@
         "title": "この投稿を削除しますか？",
         "description": "削除すると、この投稿はプロフィールやフィードから消え、復元できません。",
         "cancel": "キャンセル",
-        "confirm": "削除"
+        "confirm": "確認"
     },
     "userTab": {
         "posts": "投稿",
-        "private": "個人",
-        "saved": "保存済みの投稿"
+        "private": "非公開",
+        "reposted": "再投稿"
     },
     "blockConfirm": {
-        "title": "{{username}} をブロックしますか？",
-        "description": "相手は Snapstory 上であなたのプロフィール、投稿、ストーリーを見つけられなくなります。Snapstory は相手にブロックしたことを知らせません。",
+        "title": "{{username}}をブロックしますか？",
+        "description": "Snapstory上で相手はあなたのプロフィール、投稿、ストーリーを見つけられなくなります。Snapstoryはブロックを通知しません。",
         "cancel": "キャンセル",
         "confirm": "確認"
     },
@@ -197,9 +195,9 @@
         },
         "bio": "自己紹介はまだありません",
         "yourLink": "あなたのリンク",
-        "posts": "{{count}} 件の投稿",
-        "followers": "{{count}} フォロワー",
-        "following": "{{count}} フォロー中",
+        "posts": "{{count}}件の投稿",
+        "followers": "{{count}}人のフォロワー",
+        "following": "{{count}}人をフォロー中",
         "followBtn": {
             "follow": "フォロー",
             "following": "フォロー中"
@@ -208,12 +206,12 @@
     "reportAccount": {
         "cancel": "キャンセル",
         "title": "アカウントを報告",
-        "placeholder": "なぜこのアカウントを報告するのですか？",
+        "placeholder": "なぜこのアカウントを報告しますか？",
         "note": "良い体験をお祈りします",
         "send": "送信"
     },
     "otherTab": {
         "postsTab": "投稿",
-        "savedPostsTab": "保存した投稿"
+        "repostPostsTab": "再投稿"
     }
 }

@@ -1,7 +1,7 @@
 import { useNavigate, useParams } from "react-router-dom";
 import { PostGridOther } from "../ListPostOther/ListPost";
 
-export function OtherSavedTab({ profileOwner }: { profileOwner: string }) {
+export function OtherRepostTab({ profileOwner }: { profileOwner: string }) {
     const { username } = useParams();
     const navigate = useNavigate();
 

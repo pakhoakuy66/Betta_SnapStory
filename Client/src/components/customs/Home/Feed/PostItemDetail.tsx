@@ -169,9 +169,9 @@ export function PostItemDetail({
                                             },
                                             {
                                                 label: `${t(
-                                                    "postDetail.save"
+                                                    "postDetail.repost"
                                                 )}`,
-                                                action: "Saved",
+                                                action: "repost",
                                             },
                                             {
                                                 label: `${t(

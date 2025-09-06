@@ -4,33 +4,33 @@
         "login": "로그인",
         "email_placeholder": "이메일",
         "password_placeholder": "비밀번호",
-        "forgot_password": "비밀번호를 잊으셨나요",
-        "register_prompt": "계정이 있으신가요?",
-        "register_link": "등록"
+        "forgot_password": "비밀번호를 잊으셨나요?",
+        "register_prompt": "계정이 없으신가요?",
+        "register_link": "회원가입"
     },
     "register": {
         "title": "Snapstory",
-        "register": "등록",
+        "register": "회원가입",
         "username_placeholder": "사용자 이름",
         "email_placeholder": "이메일",
         "password_placeholder": "비밀번호",
         "confirm_password_placeholder": "비밀번호 확인",
-        "login_prompt": "계정이 있으신가요?",
+        "login_prompt": "이미 계정이 있으신가요?",
         "login_link": "로그인"
     },
     "forgot_password": {
-        "title": "비밀번호를 잊으셨나요",
+        "title": "비밀번호 찾기",
         "email_placeholder": "이메일을 입력하세요",
         "submit": "보내기",
-        "back": "뒤로"
+        "back": "뒤로가기"
     },
     "postItem": {
         "report": "신고",
         "open": "게시물 열기",
-        "save": "게시물 저장",
+        "repost": "다시 올리기",
         "copy": "링크 복사",
         "timeAgo": "19시간 전",
-        "seeMore": "더 보기",
+        "seeMore": "더보기",
         "commentPlaceholder": "댓글 추가...",
         "submit": "게시",
         "submitDisabled": "게시 (비활성화됨)"
@@ -38,13 +38,11 @@
     "postDetail": {
         "delete": "게시물 삭제",
         "status": "게시물 상태",
-        "removeSaved": "저장된 게시물 삭제",
+        "removeReposted": "다시 올린 글 삭제",
         "report": "신고",
-        "save": "게시물 저장",
+        "repost": "다시 올리기",
         "copy": "링크 복사",
         "author": "작성자",
-        "view": "보기",
-        "replies": "답글",
         "viewReplies": "{{count}}개의 답글 보기",
         "viewReplies_plural": "{{count}}개의 답글 보기",
         "commentPlaceholder": "댓글 추가...",
@@ -53,46 +51,46 @@
     },
     "newPost": {
         "cancel": "취소",
-        "createTitle": "새 게시물 만들기",
-        "placeholder": "새로운 소식은?",
+        "createTitle": "새 게시물 작성",
+        "placeholder": "무슨 일이 있나요?",
         "post": "게시",
-        "whoCanSee": "이 게시물을 볼 수 있는 사람은?",
+        "whoCanSee": "누가 이 게시물을 볼 수 있나요?",
         "public": "공개",
-        "follower": "팔로워",
-        "private": "나만"
+        "follower": "내 팔로워",
+        "private": "나만 보기"
     },
     "reportPost": {
         "cancel": "취소",
         "title": "이 게시물을 신고하시겠습니까?",
-        "placeholder": "왜 이 게시물을 신고하시나요?",
-        "note": "좋은 경험 되시길 바랍니다",
+        "placeholder": "이 게시물을 신고하는 이유는 무엇인가요?",
+        "note": "좋은 경험이 되시길 바랍니다",
         "send": "보내기"
     },
     "reportProblem": {
         "cancel": "취소",
         "title": "문제 신고",
-        "placeholder": "문제를 자세히 작성해주세요",
-        "note": "좋은 경험 되시길 바랍니다",
+        "placeholder": "문제를 자세히 설명해 주세요",
+        "note": "좋은 경험이 되시길 바랍니다",
         "send": "보내기"
     },
     "notification": {
         "title": "알림",
-        "likeAction": "회원님의 게시물을 좋아했습니다",
-        "commentAction": "댓글을 남겼습니다: {{comment}}",
-        "saveAction": "회원님의 게시물을 저장했습니다",
+        "likeAction": "님이 회원님의 게시물을 좋아합니다",
+        "commentAction": "님이 댓글을 남겼습니다: {{comment}}",
+        "repostedAction": "님이 회원님의 게시물을 다시 올렸습니다",
         "timeAgo": "{{time}}시간 전"
     },
     "search": {
         "title": "검색",
         "placeholder": "검색",
         "recent": "최근",
-        "clearAll": "모두 삭제",
+        "clearAll": "모두 지우기",
         "suggestion": "추천"
     },
     "menuBar": {
         "languages": "언어",
         "loginActivity": "로그인 활동",
-        "savedPost": "저장됨",
+        "repostPost": "다시 올리기",
         "reportProblem": "문제 신고",
         "logout": "로그아웃"
     },
@@ -104,25 +102,25 @@
         "privatePage": "비공개 프로필 페이지"
     },
     "privateConfirm": {
-        "title": "계정을 비공개로 전환하시겠습니까?",
-        "description": "팔로워만 귀하의 콘텐츠를 보고 상호작용할 수 있습니다.",
+        "title": "계정을 비공개 모드로 전환하시겠습니까?",
+        "description": "회원님의 팔로워만 콘텐츠를 볼 수 있고 상호작용할 수 있습니다.",
         "cancel": "취소",
         "confirm": "확인"
     },
     "publicStatusConfirm": {
         "title": "계정을 공개 모드로 전환하시겠습니까?",
-        "description": "누구나 귀하의 콘텐츠를 보고 상호작용할 수 있습니다.",
+        "description": "누구나 회원님의 콘텐츠를 보고 상호작용할 수 있습니다.",
         "cancel": "취소",
         "confirm": "확인"
     },
     "suggestionList": {
-        "title": "추천 사용자",
-        "reload": "다시 불러오기"
+        "title": "추천",
+        "reload": "새로고침"
     },
     "suggestionItem": {
-        "forYou": "추천 사용자",
+        "forYou": "추천",
         "follow": "팔로우",
-        "following": "팔로잉"
+        "following": "팔로잉 중"
     },
     "followList": {
         "follower": "팔로워",
@@ -130,7 +128,7 @@
     },
     "followItem": {
         "follow": "팔로우",
-        "following": "팔로잉"
+        "following": "팔로잉 중"
     },
     "menuImage": {
         "title": "이미지",
@@ -142,15 +140,15 @@
         "name": "이름",
         "usernamePlaceholder": "사용자 이름",
         "bio": "소개",
-        "bioPlaceholder": "소개글",
+        "bioPlaceholder": "자기 소개",
         "link": "링크",
         "linkPlaceholder": "내 링크",
         "save": "저장",
         "avatarAlt": "프로필 사진"
     },
     "userHead": {
-        "privateAccount": "이 계정은 비공개입니다",
-        "bio": "자기소개가 없습니다",
+        "privateAccount": "이 계정은 비공개 상태입니다",
+        "bio": "소개가 없습니다",
         "yourLink": "내 링크",
         "posts": "{{count}} 게시물",
         "followers": "{{count}} 팔로워",
@@ -167,35 +165,35 @@
     "formPostStatus": {
         "title": "누가 이 게시물을 볼 수 있나요",
         "community": "커뮤니티",
-        "followers": "팔로워",
-        "personal": "나만",
+        "followers": "내 팔로워",
+        "personal": "나만 보기",
         "cancel": "취소"
     },
     "removePost": {
         "title": "이 게시물을 삭제하시겠습니까?",
-        "description": "삭제하면 이 게시물은 프로필과 피드에서 사라지며 복구할 수 없습니다.",
+        "description": "삭제하면 게시물이 프로필과 피드에서 사라지며 복구할 수 없습니다.",
         "cancel": "취소",
-        "confirm": "삭제"
+        "confirm": "확인"
     },
     "userTab": {
         "posts": "게시물",
-        "private": "개인",
-        "saved": "저장된 게시물"
+        "private": "비공개",
+        "reposted": "다시 올린 게시물"
     },
     "blockConfirm": {
-        "title": "{{username}} 님을 차단하시겠습니까?",
-        "description": "상대방은 Snapstory에서 당신의 프로필, 게시물 또는 스토리를 찾을 수 없습니다. Snapstory는 차단 사실을 알리지 않습니다.",
+        "title": "{{username}}님을 차단하시겠습니까?",
+        "description": "그들은 Snapstory에서 회원님의 프로필, 게시물 또는 스토리를 찾을 수 없습니다. Snapstory는 차단 사실을 알리지 않습니다.",
         "cancel": "취소",
         "confirm": "확인"
     },
     "userOtherHead": {
-        "privateAccount": "이 계정은 비공개입니다",
+        "privateAccount": "이 계정은 비공개 상태입니다",
         "menu": {
             "block": "차단",
             "report": "신고",
             "share": "링크 복사"
         },
-        "bio": "자기소개가 없습니다",
+        "bio": "소개가 없습니다",
         "yourLink": "내 링크",
         "posts": "{{count}} 게시물",
         "followers": "{{count}} 팔로워",
@@ -208,12 +206,12 @@
     "reportAccount": {
         "cancel": "취소",
         "title": "계정 신고",
-        "placeholder": "이 계정을 신고하는 이유는 무엇입니까?",
-        "note": "좋은 경험 되시길 바랍니다",
+        "placeholder": "이 계정을 신고하는 이유는 무엇인가요?",
+        "note": "좋은 경험이 되시길 바랍니다",
         "send": "보내기"
     },
     "otherTab": {
         "postsTab": "게시물",
-        "savedPostsTab": "저장된 게시물"
+        "repostPostsTab": "다시 올린 게시물"
     }
 }

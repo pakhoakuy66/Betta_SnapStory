@@ -5,7 +5,7 @@
         "email_placeholder": "Email",
         "password_placeholder": "Mật khẩu",
         "forgot_password": "Quên mật khẩu",
-        "register_prompt": "Bạn đã có tài khoản?",
+        "register_prompt": "Chưa có tài khoản?",
         "register_link": "Đăng ký"
     },
     "register": {
@@ -15,7 +15,7 @@
         "email_placeholder": "Email",
         "password_placeholder": "Mật khẩu",
         "confirm_password_placeholder": "Xác nhận mật khẩu",
-        "login_prompt": "Bạn đã có tài khoản?",
+        "login_prompt": "Đã có tài khoản?",
         "login_link": "Đăng nhập"
     },
     "forgot_password": {
@@ -27,26 +27,24 @@
     "postItem": {
         "report": "Báo cáo",
         "open": "Mở bài viết",
-        "save": "Lưu bài viết",
+        "repost": "Đăng lại",
         "copy": "Sao chép liên kết",
         "timeAgo": "19 giờ trước",
         "seeMore": "xem thêm",
-        "commentPlaceholder": "Bình luận...",
+        "commentPlaceholder": "Thêm bình luận...",
         "submit": "Đăng",
         "submitDisabled": "Đăng (không khả dụng)"
     },
     "postDetail": {
         "delete": "Xóa bài viết",
         "status": "Trạng thái bài viết",
-        "removeSaved": "Xóa bài viết đã lưu",
+        "removeReposted": "Xóa bài đã đăng lại",
         "report": "Báo cáo",
-        "save": "Lưu bài viết",
+        "repost": "Đăng lại",
         "copy": "Sao chép liên kết",
         "author": "Tác giả",
-        "view": "Xem",
-        "replies": "phản hồi",
-        "viewReplies": "Xem {{count}} phản hồi",
-        "viewReplies_plural": "Xem {{count}} phản hồi",
+        "viewReplies": "Xem {{count}} trả lời",
+        "viewReplies_plural": "Xem {{count}} trả lời",
         "commentPlaceholder": "Thêm bình luận...",
         "submit": "Đăng",
         "submitDisabled": "Đăng (không khả dụng)"
@@ -57,42 +55,42 @@
         "placeholder": "Có gì mới?",
         "post": "Đăng",
         "whoCanSee": "Ai có thể xem bài viết này?",
-        "public": "Cộng đồng",
-        "follower": "Người theo dõi",
-        "private": "Cá nhân"
+        "public": "Công khai",
+        "follower": "Người theo dõi của bạn",
+        "private": "Chỉ mình tôi"
     },
     "reportPost": {
         "cancel": "Hủy",
         "title": "Báo cáo bài viết này?",
-        "placeholder": "Tại sao bạn lại báo cáo bài viết này?",
-        "note": "Chúc bạn có một trải nghiệm tốt",
+        "placeholder": "Tại sao bạn báo cáo bài viết này?",
+        "note": "Chúc bạn có trải nghiệm tốt",
         "send": "Gửi"
     },
     "reportProblem": {
         "cancel": "Hủy",
         "title": "Báo cáo sự cố",
-        "placeholder": "Vui lòng ghi chi tiết sự cố",
-        "note": "Chúc bạn có một trải nghiệm tốt",
+        "placeholder": "Vui lòng mô tả chi tiết sự cố",
+        "note": "Chúc bạn có trải nghiệm tốt",
         "send": "Gửi"
     },
     "notification": {
         "title": "Thông báo",
         "likeAction": "đã thích bài viết của bạn",
         "commentAction": "đã bình luận: {{comment}}",
-        "saveAction": "đã lưu bài viết của bạn",
+        "repostedAction": "đã đăng lại bài viết của bạn",
         "timeAgo": "{{time}} giờ trước"
     },
     "search": {
         "title": "Tìm kiếm",
         "placeholder": "Tìm kiếm",
-        "recent": "Mới đây",
+        "recent": "Gần đây",
         "clearAll": "Xóa tất cả",
         "suggestion": "Gợi ý cho bạn"
     },
     "menuBar": {
         "languages": "Ngôn ngữ",
         "loginActivity": "Hoạt động đăng nhập",
-        "savedPost": "Đã lưu",
+        "repostPost": "Đăng lại",
         "reportProblem": "Báo cáo sự cố",
         "logout": "Đăng xuất"
     },
@@ -107,13 +105,13 @@
         "title": "Chuyển tài khoản sang chế độ riêng tư?",
         "description": "Chỉ những người theo dõi bạn mới có thể xem và tương tác với nội dung của bạn.",
         "cancel": "Hủy",
-        "confirm": "Đồng ý"
+        "confirm": "Xác nhận"
     },
     "publicStatusConfirm": {
         "title": "Chuyển tài khoản sang chế độ công khai?",
-        "description": "Bất kỳ ai đều có thể xem và tương tác với nội dung của bạn.",
+        "description": "Bất kỳ ai cũng có thể xem và tương tác với nội dung của bạn.",
         "cancel": "Hủy",
-        "confirm": "Đồng ý"
+        "confirm": "Xác nhận"
     },
     "suggestionList": {
         "title": "Gợi ý cho bạn",
@@ -140,56 +138,56 @@
     },
     "editUser": {
         "name": "Tên",
-        "usernamePlaceholder": "Username",
+        "usernamePlaceholder": "Tên người dùng",
         "bio": "Tiểu sử",
-        "bioPlaceholder": "Tiểu sử",
+        "bioPlaceholder": "Tiểu sử của bạn",
         "link": "Liên kết",
         "linkPlaceholder": "Liên kết của bạn",
         "save": "Lưu",
         "avatarAlt": "Ảnh đại diện"
     },
     "userHead": {
-        "privateAccount": "Tài khoản này đang ở chế độ riêng tư",
+        "privateAccount": "Tài khoản này ở chế độ riêng tư",
         "bio": "Chưa có tiểu sử",
         "yourLink": "Liên kết của bạn",
         "posts": "{{count}} bài viết",
-        "followers": "{{count}} follower",
-        "following": "{{count}} đã follow",
-        "editProfile": "Chỉnh sửa trang cá nhân",
+        "followers": "{{count}} người theo dõi",
+        "following": "{{count}} đang theo dõi",
+        "editProfile": "Chỉnh sửa hồ sơ",
         "settings": {
             "languages": "Ngôn ngữ",
             "shareQr": "Chia sẻ QR",
-            "status": "Trạng thái trang cá nhân",
+            "status": "Trạng thái hồ sơ",
             "loginActivity": "Hoạt động đăng nhập",
             "logout": "Đăng xuất"
         }
     },
     "formPostStatus": {
-        "title": "Ai có thể xem bài viết",
+        "title": "Ai có thể xem bài viết này",
         "community": "Cộng đồng",
-        "followers": "Người theo dõi bạn",
-        "personal": "Cá nhân",
+        "followers": "Người theo dõi của bạn",
+        "personal": "Chỉ mình tôi",
         "cancel": "Hủy"
     },
     "removePost": {
-        "title": "Bạn muốn xóa bài viết này?",
-        "description": "Sau khi xóa, bài viết này sẽ biến mất khỏi trang cá nhân và bảng tin, và bạn sẽ không thể khôi phục lại.",
+        "title": "Bạn có muốn xóa bài viết này?",
+        "description": "Khi đã xóa, bài viết này sẽ biến mất khỏi trang cá nhân và bảng tin, và không thể khôi phục.",
         "cancel": "Hủy",
-        "confirm": "Đồng ý"
+        "confirm": "Xác nhận"
     },
     "userTab": {
         "posts": "Bài viết",
-        "private": "Cá nhân",
-        "saved": "Bài viết đã lưu"
+        "private": "Riêng tư",
+        "reposted": "Bài đăng lại"
     },
     "blockConfirm": {
         "title": "Chặn {{username}}?",
-        "description": "Họ sẽ không thể tìm trang cá nhân, bài viết hoặc tin của bạn trên Snapstory. Snapstory sẽ không cho họ biết là bạn đã chặn họ.",
+        "description": "Họ sẽ không thể tìm thấy trang cá nhân, bài viết hoặc story của bạn trên Snapstory. Snapstory sẽ không thông báo cho họ rằng bạn đã chặn.",
         "cancel": "Hủy",
-        "confirm": "Đồng ý"
+        "confirm": "Xác nhận"
     },
     "userOtherHead": {
-        "privateAccount": "Tài khoản này đang ở chế độ riêng tư",
+        "privateAccount": "Tài khoản này ở chế độ riêng tư",
         "menu": {
             "block": "Chặn",
             "report": "Báo cáo",
@@ -198,8 +196,8 @@
         "bio": "Chưa có tiểu sử",
         "yourLink": "Liên kết của bạn",
         "posts": "{{count}} bài viết",
-        "followers": "{{count}} follower",
-        "following": "{{count}} đã follow",
+        "followers": "{{count}} người theo dõi",
+        "following": "{{count}} đang theo dõi",
         "followBtn": {
             "follow": "Theo dõi",
             "following": "Đang theo dõi"
@@ -208,12 +206,12 @@
     "reportAccount": {
         "cancel": "Hủy",
         "title": "Báo cáo tài khoản",
-        "placeholder": "Tại sao bạn lại báo cáo tài khoản này?",
-        "note": "Chúc bạn có một trải nghiệm tốt",
+        "placeholder": "Tại sao bạn báo cáo tài khoản này?",
+        "note": "Chúc bạn có trải nghiệm tốt",
         "send": "Gửi"
     },
     "otherTab": {
         "postsTab": "Bài viết",
-        "savedPostsTab": "Bài viết đã lưu"
+        "repostPostsTab": "Bài đăng lại"
     }
 }

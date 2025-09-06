@@ -9,9 +9,9 @@ export function UserTab({ profileOwner }: { profileOwner: string }) {
 
     // Kiểm tra saved dựa trên route gốc, không phải route hiện tại khi có postDetail
     const isPrivate = location.pathname.includes("/private");
-    const isSaved = location.pathname.includes("/saved");
+    const isRepost = location.pathname.includes("/repost");
 
-    const handleTabClick = (tabType: "posts" | "private" | "saved") => {
+    const handleTabClick = (tabType: "posts" | "private" | "repost") => {
         // Đảm bảo profileOwner tồn tại trước khi navigate
         if (!profileOwner) return;
 
@@ -19,8 +19,8 @@ export function UserTab({ profileOwner }: { profileOwner: string }) {
             navigate(`/${profileOwner}`);
         } else if (tabType === "private") {
             navigate(`/${profileOwner}/private`);
-        } else if (tabType === "saved") {
-            navigate(`/${profileOwner}/saved`);
+        } else if (tabType === "repost") {
+            navigate(`/${profileOwner}/repost`);
         }
     };
 
@@ -30,7 +30,7 @@ export function UserTab({ profileOwner }: { profileOwner: string }) {
                 onClick={() => handleTabClick("posts")}
                 className={`w-1/3 px-4 py-3 text-sm text-center font-medium transition duration-300 cursor-pointer
                         ${
-                            !isSaved && !isPrivate
+                            !isRepost && !isPrivate
                                 ? "text-white duration-500 hover:drop-shadow-[0_0_10px_white] border-b-[2px] border-white font-bold"
                                 : "text-[#C7D5E0] hover:text-white"
                         }`}
@@ -49,15 +49,16 @@ export function UserTab({ profileOwner }: { profileOwner: string }) {
                 <i className="fa-solid fa-user"></i> {t("userTab.private")}
             </button>
             <button
-                onClick={() => handleTabClick("saved")}
+                onClick={() => handleTabClick("repost")}
                 className={`w-1/3 px-4 py-3 text-sm text-center font-medium transition duration-300 cursor-pointer
                         ${
-                            isSaved
+                            isRepost
                                 ? "text-white duration-500 hover:drop-shadow-[0_0_10px_white] border-b-[2px] border-white font-bold"
                                 : "text-[#C7D5E0] hover:text-white"
                         }`}
             >
-                <i className="fa-solid fa-bookmark"></i> {t("userTab.saved")}
+                <i className="fas fa-repeat rotate-90"></i>{" "}
+                {t("userTab.reposted")}
             </button>
         </nav>
     );

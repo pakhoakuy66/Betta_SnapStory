@@ -49,7 +49,7 @@ export function UserPostItemDetail({
     isFormPostStatusOpen,
     isOwner,
     isPrivate,
-    isSaved,
+    isRepost,
 }: {
     onClose: () => void;
     onReportPost: () => void;
@@ -60,7 +60,7 @@ export function UserPostItemDetail({
     isFormPostStatusOpen: React.MutableRefObject<boolean>;
     isOwner: boolean;
     isPrivate: boolean;
-    isSaved: boolean;
+    isRepost: boolean;
 }) {
     const { t } = useTranslation();
 
@@ -77,7 +77,7 @@ export function UserPostItemDetail({
             ],
             other: [
                 { label: t("postDetail.report"), action: "Report_Post" },
-                { label: t("postDetail.removeSaved"), action: "Saved" },
+                { label: t("postDetail.removeReposted"), action: "repost" },
                 { label: t("postDetail.copy"), action: "copy" },
             ],
         }),
@@ -198,7 +198,7 @@ export function UserPostItemDetail({
                                         options={
                                             isPrivate
                                                 ? menuOptions.private
-                                                : isSaved
+                                                : isRepost
                                                 ? menuOptions.other // Saved thì menu như "khách"
                                                 : isOwner
                                                 ? menuOptions.owner
@@ -215,7 +215,7 @@ export function UserPostItemDetail({
                                                 case "Report_Post":
                                                     onReportPost();
                                                     break;
-                                                case "Saved":
+                                                case "Repost":
                                                     // xử lý lưu
                                                     break;
                                                 case "copy":

@@ -18,7 +18,7 @@ function App() {
                     <Route index element={<Feed />} />
                     <Route path=":username/post/:id" element={<Feed />} />
                     <Route path=":username" element={<Profile />} />
-                    <Route path=":username/saved" element={<Profile />} />
+                    <Route path=":username/repost" element={<Profile />} />
                     <Route path=":username/private" element={<Profile />} />
                     <Route path=":username/:id" element={<Profile />} />
                     <Route path=":username/follow" element={<Profile />} />
@@ -42,7 +42,7 @@ function App() {
                         element={<OtherUserProfile />}
                     />
                     <Route
-                        path="o/:username/saved"
+                        path="o/:username/repost"
                         element={<OtherUserProfile />}
                     />
                     <Route

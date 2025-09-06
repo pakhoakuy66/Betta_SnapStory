@@ -117,8 +117,8 @@ export function SideMenu({
                                     action: "Login_Activity",
                                 },
                                 {
-                                    label: `${t("menuBar.savedPost")}`,
-                                    action: "Saved_Post",
+                                    label: `${t("menuBar.repostPost")}`,
+                                    action: "Repost",
                                 },
                                 {
                                     label: `${t("menuBar.reportProblem")}`,
@@ -134,9 +134,9 @@ export function SideMenu({
                                     onMenuLanguages();
                                 } else if (action === "Login_Activity") {
                                     onHistoryLogin();
-                                } else if (action === "Saved_Post") {
+                                } else if (action === "Repost") {
                                     const currentUserName = "khoa"; // TODO: sau này lấy từ backend/login
-                                    navigate(`/${currentUserName}/saved`); // ✅
+                                    navigate(`/${currentUserName}/repost`); // ✅
                                 } else if (action === "Report") {
                                     onReportProblem();
                                 }

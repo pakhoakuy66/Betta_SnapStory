@@ -12,7 +12,7 @@ import { MenuLanguages } from "@/components/customs/Settings/Languages/menuLangu
 import { PersonalStatus } from "@/components/customs/Settings/PersonalStatus/PersonalStatus";
 import { HistoryLogin } from "@/components/customs/Settings/HistoryLogin/HistoryLogin";
 import { UserPostsTab } from "@/components/customs/User/Main/UserPostsTab/UserPostsTab";
-import { UserSavedTab } from "@/components/customs/User/Main/UserSavedTab.tsx/UserSavedTab";
+import { UserRepostTab } from "@/components/customs/User/Main/UserRepostTab.tsx/UserRepostTab";
 import { UserPrivateTab } from "@/components/customs/User/Main/UserPrivateTab/UserPrivateTab";
 import { RemovePostConfirm } from "@/components/customs/User/RemovePostConfirm/RemovePostConfirm";
 import { FormPostStatus } from "@/components/customs/User/PostStatus/FormPostStatus";
@@ -70,7 +70,7 @@ export function Profile() {
     const isLanguagesRoute = location.pathname === "/settings/languages";
     const isPersonalStatus = location.pathname === "/settings/personalStatus";
     const isHistoryLogin = location.pathname === "/settings/historyLogin";
-    const isSavedRoute = previousRoute.split("/").includes("saved");
+    const isRepostRoute = previousRoute.split("/").includes("repost");
     const isPrivateRoute = previousRoute.split("/").includes("private");
 
     const { t } = useTranslation();
@@ -192,8 +192,8 @@ export function Profile() {
 
                 {isPrivateRoute ? (
                     <UserPrivateTab profileOwner={profileOwner} />
-                ) : isSavedRoute ? (
-                    <UserSavedTab profileOwner={profileOwner} />
+                ) : isRepostRoute ? (
+                    <UserRepostTab profileOwner={profileOwner} />
                 ) : (
                     <UserPostsTab profileOwner={profileOwner} />
                 )}
@@ -214,7 +214,7 @@ export function Profile() {
                                     isFormPostStatusOpen={FormPostStatusRef}
                                     isOwner={profileOwner === username}
                                     isPrivate={isPrivateRoute}
-                                    isSaved={isSavedRoute}
+                                    isRepost={isRepostRoute}
                                 />
                             </div>
                             {showReportPost && (
