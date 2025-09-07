@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import type { EmojiClickData, Theme } from "emoji-picker-react";
 import { EditMenu } from "../../Chores/Context_menu/editMenu";
+import { LikeAction } from "../../Chores/ActionPost/Like_Post";
 
 // Cập nhật cấu trúc comment
 const post = {
@@ -323,10 +324,7 @@ export function PostItemDetail({
                     {/* Reaction & Input */}
                     <div className="border-t border-neutral-800 px-4 py-3 max-h-[50px]">
                         <div className="flex gap-4 text-xl mb-2">
-                            <i
-                                className="fa-regular fa-heart hover:scale-110 
-                                duration-500 hover:drop-shadow-[0_0_10px_white] cursor-pointer"
-                            ></i>
+                            <LikeAction />
                         </div>
                         <div className="flex items-center max-h-[500px] ">
                             <textarea
