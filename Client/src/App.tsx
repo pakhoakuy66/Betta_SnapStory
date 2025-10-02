@@ -24,7 +24,6 @@ function App() {
                     <Route path=":username/follow" element={<Profile />} />
                     <Route path=":username/follower" element={<Profile />} />
 
-                    {/*  */}
                     <Route path="/settings/languages" element={<Profile />} />
                     <Route
                         path="/settings/personalStatus"
@@ -35,7 +34,6 @@ function App() {
                         element={<Profile />}
                     />
 
-                    {/*  */}
                     <Route path="o/:username" element={<OtherUserProfile />} />
                     <Route
                         path="o/:username/:id"
@@ -58,9 +56,6 @@ function App() {
                 <Route path="/register" element={<Register />} />
                 <Route path="/forgot-password" element={<ForgotPassword />} />
                 <Route path="/qr/:username" element={<UserQR />} />
-
-                {/* Admin */}
-                <Route path="/betta/admin/login" element={<LoginAdmin />} />
             </Routes>
         </div>
     );

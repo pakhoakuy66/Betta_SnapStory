@@ -18,12 +18,21 @@ export function FollowList({
     title,
     follows,
     isCurrentUser,
-}: FollowListProps) {
+    onFollow,
+    onUnfollow,
+    disableOutsideClose = false,
+}: FollowListProps & {
+    onFollow: (username: string) => void;
+    onUnfollow: (username: string) => void;
+    disableOutsideClose?: boolean;
+}) {
     const [slideOut, setSlideOut] = useState(false);
     const listFollowRef = useRef<HTMLDivElement>(null);
 
     useEffect(() => {
         const handleClickOutside = (e: MouseEvent) => {
+            if (disableOutsideClose) return;
+
             if (
                 listFollowRef.current &&
                 !listFollowRef.current.contains(e.target as Node)
@@ -35,7 +44,7 @@ export function FollowList({
         document.addEventListener("mousedown", handleClickOutside);
         return () =>
             document.removeEventListener("mousedown", handleClickOutside);
-    }, [onClose]);
+    }, [onClose, disableOutsideClose]);
 
     return (
         <div
@@ -61,6 +70,8 @@ export function FollowList({
                             username={user.name}
                             isFollowing={user.isFollowing}
                             isCurrentUser={isCurrentUser}
+                            onFollow={onFollow}
+                            onUnfollow={onUnfollow}
                         />
                     ))}
                 </ul>
