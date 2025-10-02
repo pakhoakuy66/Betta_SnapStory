@@ -16,8 +16,9 @@ import { UserRepostTab } from "@/components/customs/User/Main/UserRepostTab.tsx/
 import { UserPrivateTab } from "@/components/customs/User/Main/UserPrivateTab/UserPrivateTab";
 import { RemovePostConfirm } from "@/components/customs/User/RemovePostConfirm/RemovePostConfirm";
 import { FormPostStatus } from "@/components/customs/User/PostStatus/FormPostStatus";
+import { UnFollowConfirm } from "@/components/customs/Chores/Confirm_UnFollow/Confirm_UnFollow";
 
-const myFollowList = [
+const initialFollowList = [
     {
         id: "1",
         avatar: "/avatar1.png",
@@ -27,7 +28,7 @@ const myFollowList = [
     { id: "3", avatar: "/avatar3.png", name: "Lê Văn C", isFollowing: true },
 ];
 
-const myFollowerList = [
+const initialFollowerList = [
     {
         id: "1",
         avatar: "/avatar1.png",
@@ -36,7 +37,7 @@ const myFollowerList = [
     },
     { id: "2", avatar: "/avatar2.png", name: "Trần Thị B", isFollowing: false },
     { id: "3", avatar: "/avatar3.png", name: "Lê Văn C", isFollowing: true },
-    { id: "4", avatar: "/avatar3.png", name: "Lê Văn C", isFollowing: true },
+    { id: "4", avatar: "/avatar3.png", name: "Lê Văn D", isFollowing: true },
     { id: "5", avatar: "/avatar3.png", name: "Lê Văn C", isFollowing: true },
     { id: "6", avatar: "/avatar3.png", name: "Lê Văn C", isFollowing: true },
     { id: "7", avatar: "/avatar3.png", name: "Lê Văn C", isFollowing: true },
@@ -73,6 +74,13 @@ export function Profile() {
     const isRepostRoute = previousRoute.split("/").includes("repost");
     const isPrivateRoute = previousRoute.split("/").includes("private");
 
+    // Confirm Unfollow
+    const [selectedUnfollowerUser, setSelectedUnfollowerUser] = useState<
+        string | null
+    >(null);
+    const [followList, setFollowList] = useState(initialFollowList);
+    const [followerList, setFollowerList] = useState(initialFollowerList);
+
     const { t } = useTranslation();
 
     // Lưu previous route 1 lần trước khi mở detail
@@ -92,6 +100,41 @@ export function Profile() {
 
     const handleClose = () => {
         navigate(`/${profileOwner}`); // đóng popup thì quay về trang chính
+    };
+
+    // Action: Unfollow
+    const handleConfirmUnfollow = () => {
+        if (selectedUnfollowerUser) {
+            setFollowList((prev) =>
+                prev.map((u) =>
+                    u.name === selectedUnfollowerUser
+                        ? { ...u, isFollowing: false }
+                        : u
+                )
+            );
+            setFollowerList((prev) =>
+                prev.map((u) =>
+                    u.name === selectedUnfollowerUser
+                        ? { ...u, isFollowing: false }
+                        : u
+                )
+            );
+            setSelectedUnfollowerUser(null);
+        }
+    };
+
+    // Action: Follow
+    const handleFollow = (username: string) => {
+        setFollowList((prev) =>
+            prev.map((u) =>
+                u.name === username ? { ...u, isFollowing: true } : u
+            )
+        );
+        setFollowerList((prev) =>
+            prev.map((u) =>
+                u.name === username ? { ...u, isFollowing: true } : u
+            )
+        );
     };
 
     useEffect(() => {
@@ -153,8 +196,13 @@ export function Profile() {
                         <FollowList
                             onClose={handleClose}
                             title={t("followList.following")}
-                            follows={myFollowList}
+                            follows={followList}
                             isCurrentUser={true}
+                            onFollow={handleFollow}
+                            onUnfollow={(username) =>
+                                setSelectedUnfollowerUser(username)
+                            }
+                            disableOutsideClose={!!selectedUnfollowerUser} // <-- disable outside close while modal open
                         />
                     </div>
                 )}
@@ -164,8 +212,13 @@ export function Profile() {
                         <FollowList
                             onClose={handleClose}
                             title={t("followList.follower")}
-                            follows={myFollowerList}
+                            follows={followerList}
                             isCurrentUser={true}
+                            onFollow={handleFollow}
+                            onUnfollow={(username) =>
+                                setSelectedUnfollowerUser(username)
+                            }
+                            disableOutsideClose={!!selectedUnfollowerUser} // <-- disable outside close while modal open
                         />
                     </div>
                 )}
@@ -196,6 +249,16 @@ export function Profile() {
                     <UserRepostTab profileOwner={profileOwner} />
                 ) : (
                     <UserPostsTab profileOwner={profileOwner} />
+                )}
+
+                {selectedUnfollowerUser && (
+                    <div className="fixed inset-0 bg-black/50 z-50 flex justify-center items-center">
+                        <UnFollowConfirm
+                            open={true}
+                            onClose={() => setSelectedUnfollowerUser(null)}
+                            onConfirm={handleConfirmUnfollow}
+                        />
+                    </div>
                 )}
 
                 {postId && (
