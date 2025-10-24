@@ -213,5 +213,11 @@
     "otherTab": {
         "postsTab": "Bài viết",
         "repostPostsTab": "Bài đăng lại"
+    },
+    "unfollowConfirm": {
+        "title": "Bỏ theo dõi",
+        "message": "Bạn có chắc chắn muốn bỏ theo dõi người này không?",
+        "cancel": "Hủy",
+        "confirm": "Bỏ theo dõi"
     }
 }

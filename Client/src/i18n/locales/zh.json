@@ -213,5 +213,11 @@
     "otherTab": {
         "postsTab": "帖子",
         "repostPostsTab": "转发的帖子"
+    },
+    "unfollowConfirm": {
+        "title": "取消关注",
+        "message": "您确定要取消关注此用户吗？",
+        "cancel": "取消",
+        "confirm": "取消关注"
     }
 }

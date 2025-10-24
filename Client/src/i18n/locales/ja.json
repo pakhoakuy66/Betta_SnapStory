@@ -213,5 +213,11 @@
     "otherTab": {
         "postsTab": "投稿",
         "repostPostsTab": "再投稿"
+    },
+    "unfollowConfirm": {
+        "title": "フォロー解除",
+        "message": "このユーザーのフォローを解除しますか？",
+        "cancel": "キャンセル",
+        "confirm": "フォロー解除"
     }
 }

@@ -213,5 +213,11 @@
     "otherTab": {
         "postsTab": "Posts",
         "repostPostsTab": "Reposted Posts"
+    },
+    "unfollowConfirm": {
+        "title": "Unfollow",
+        "message": "Are you sure you want to unfollow this person?",
+        "cancel": "Cancel",
+        "confirm": "Unfollow"
     }
 }

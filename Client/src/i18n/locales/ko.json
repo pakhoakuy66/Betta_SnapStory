@@ -213,5 +213,11 @@
     "otherTab": {
         "postsTab": "게시물",
         "repostPostsTab": "다시 올린 게시물"
-    }
+    },
+    "unfollowConfirm": {
+    "title": "언팔로우",
+    "message": "이 사람을 언팔로우하시겠습니까?",
+    "cancel": "취소",
+    "confirm": "언팔로우"
+  }
 }
