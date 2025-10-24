@@ -5,12 +5,12 @@ import type { SuggestionUser } from "./SuggestionListItem";
 const suggestedUsers: SuggestionUser[] = [
     { id: 1, username: "Thu", avatar: "./avatar1.png", followed: false },
     { id: 2, username: "Khoa", avatar: "./avatar2.png", followed: false },
-    { id: 3, username: "Lan", avatar: "./avatar3.png", followed: true },
+    { id: 3, username: "Lan", avatar: "./avatar3.png", followed: false },
     { id: 4, username: "Minh", avatar: "./avatar4.png", followed: false },
-    { id: 5, username: "Huy", avatar: "./avatar5.png", followed: true },
+    { id: 5, username: "Huy", avatar: "./avatar5.png", followed: false },
     { id: 6, username: "Trang", avatar: "./avatar6.png", followed: false },
     { id: 7, username: "Long", avatar: "./avatar7.png", followed: false },
-    { id: 8, username: "An", avatar: "./avatar8.png", followed: true },
+    { id: 8, username: "An", avatar: "./avatar8.png", followed: false },
     { id: 9, username: "Hoa", avatar: "./avatar9.png", followed: false },
     { id: 10, username: "Nam", avatar: "./avatar10.png", followed: false },
 ];

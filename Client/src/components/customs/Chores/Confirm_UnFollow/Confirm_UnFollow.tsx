@@ -15,6 +15,8 @@ export function UnFollowConfirm({
     const [slideOut, setSlideOut] = useState(false);
     const unFollowConfirmRef = useRef<HTMLDivElement>(null);
 
+    const { t } = useTranslation();
+
     if (!open) return null;
 
     const handleCancel = () => {
@@ -42,12 +44,12 @@ export function UnFollowConfirm({
             >
                 <div className="w-full">
                     <h2 className="text-[#C7D5E0] text-center text-[20px] font-bold">
-                        Bỏ theo dõi
+                        {t("unfollowConfirm.title")}
                     </h2>
                 </div>
                 <div className="w-full">
                     <p className="text-[#C7D5E0] text-center text-[16px]">
-                        Bạn có chắc chắn muốn bỏ theo dõi người này không?
+                        {t("unfollowConfirm.message")}
                     </p>
                 </div>
                 <div className="flex w-full justify-evenly">
@@ -58,7 +60,7 @@ export function UnFollowConfirm({
                         duration-300 hover:drop-shadow-[0_0_3px_white] 
                         active:scale-95 active:drop-shadow-[0_0_5px_white]"
                     >
-                        Hủy
+                        {t("unfollowConfirm.cancel")}
                     </button>
                     <button
                         onClick={handleConfirm}
@@ -67,7 +69,7 @@ export function UnFollowConfirm({
                         duration-300 hover:drop-shadow-[0_0_3px_white] 
                         active:scale-95 active:drop-shadow-[0_0_5px_white]"
                     >
-                        Bỏ theo dõi
+                        {t("unfollowConfirm.confirm")}
                     </button>
                 </div>
             </div>
